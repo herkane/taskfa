@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="427.66668701171875" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="175.33331298828125" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="227.0" style="-fx-background-color: #242424;">
+         <children>
+            <GridPane layoutX="114.0" layoutY="155.0" prefHeight="400.0" prefWidth="428.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="129.3333282470703" minHeight="10.0" prefHeight="129.3333282470703" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="85.33332824707031" minHeight="2.3333358764648438" prefHeight="25.666671752929688" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="131.3333282470703" minHeight="10.0" prefHeight="28.666664123535156" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="123.66665649414062" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="106.00001525878906" minHeight="10.0" prefHeight="49.6666259765625" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="125.3333740234375" minHeight="4.6666259765625" prefHeight="16.6666259765625" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="183.3333740234375" minHeight="10.0" prefHeight="171.3333740234375" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField id="input" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="380.0" promptText="Email" styleClass="input" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font size="20.0" />
+                     </font></TextField>
+                  <PasswordField id="input" fx:id="password_input" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="70.0" prefWidth="380.0" promptText="Password" styleClass="input" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font></PasswordField>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
+                     <children>
+                        <Button id="recover_password" fx:id="recover_password" layoutX="425.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="171.0" styleClass="recover_password" text="Forgot password ?">
+                           <font>
+                              <Font size="5.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <Button id="sign_up" fx:id="sign_up" mnemonicParsing="false" prefHeight="50.0" prefWidth="310.0" styleClass="sign_up,button" text="Sign Up" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+                  <Button id="sign_in" fx:id="sign_in" mnemonicParsing="false" prefHeight="50.0" prefWidth="310.0" styleClass="sign_in,button" text="Create an account" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+                  <Text id="slogan" fx:id="slogan" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="slogan" text="Manage your tasks dynamically" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="150.0" fitWidth="397.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <image>
+                        <Image url="@media/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #efefef;" GridPane.columnIndex="1" />
+   </children>
+</GridPane>
