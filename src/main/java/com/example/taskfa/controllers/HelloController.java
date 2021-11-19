@@ -9,28 +9,38 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class HelloController {
     @FXML
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+    private Button signInButton;
+    @FXML
+    private Button signUpButton;
+    @FXML
+    private PasswordField passwordInput;
+    @FXML
+    private Button recoverPassword;
 
-    public void go_to_sign_up(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("sign_up.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+
+    public void signUp(ActionEvent event) throws IOException {
+         Stage stage;
+         Parent root;
+        stage = (Stage)signUpButton.getScene().getWindow();
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/taskfa/sign_up.fxml")));
+        Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setAlwaysOnTop(true);
+        stage.setFullScreenExitHint("");
+        stage.setFullScreen(true);
+        stage.setResizable(false);
         stage.show();
     }
-    public void go_to_sign_in(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("sign_in.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+
+    public void signIn(ActionEvent event) throws IOException {
+
     }
 }
