@@ -41,20 +41,20 @@
                      <font>
                         <Font size="20.0" />
                      </font></TextField>
-                  <PasswordField id="input" fx:id="password_input" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="70.0" prefWidth="380.0" promptText="Password" styleClass="input" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <PasswordField id="input" fx:id="passwordInput" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="70.0" prefWidth="380.0" promptText="Password" styleClass="input" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <font>
                         <Font size="20.0" />
                      </font></PasswordField>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
                      <children>
-                        <Button id="recover_password" fx:id="recover_password" layoutX="389.0" layoutY="19.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="207.0" styleClass="recover_password" text="Forgot password ?">
+                        <Button id="recover_password" fx:id="recoverPassword" layoutX="389.0" layoutY="19.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="207.0" styleClass="recover_password" text="Forgot password ?">
                            <font>
                               <Font size="5.0" />
                            </font>
                         </Button>
                      </children>
                   </AnchorPane>
-                   <Button id="sign_in" fx:id="sign_in" mnemonicParsing="false" prefHeight="50.0" prefWidth="310.0" styleClass="sign_in, btn" text="Login" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+                   <Button id="sign_in" fx:id="signInButton" onAction="#signIn" mnemonicParsing="false" prefHeight="50.0" prefWidth="310.0" styleClass="sign_in, btn" text="Login" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
                    <Button id="sign_up" fx:id="signUpButton" onAction="#signUp" mnemonicParsing="false" prefHeight="50.0" prefWidth="310.0" styleClass="sign_up, btn" text="Sign Up" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="TOP" />
                   <Text id="slogan" fx:id="slogan" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="slogan" text="Manage your tasks dynamically" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                      <font>

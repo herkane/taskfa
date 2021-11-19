@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" >
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="897.0" minWidth="10.0" prefWidth="897.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="671.0" minWidth="10.0" prefWidth="469.0" />
@@ -56,7 +49,7 @@
                             <children>
                                 <PasswordField layoutX="480.0" layoutY="25.0" prefHeight="66.0" prefWidth="350.0" promptText="Confirm password" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 0 3 0;">
                                     <font>
-                                        <Font size="54.0" />
+                                        <Font size="20.0" />
                                     </font>
                                 </PasswordField>
                                 <PasswordField layoutX="96.0" layoutY="26.0" prefHeight="66.0" prefWidth="350.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 0 3 0;">
@@ -89,7 +82,7 @@
                         </Text>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6">
                             <children>
-                                <Button layoutX="380.0" layoutY="33.0" mnemonicParsing="false" style="-fx-font-size: 25;" text="Sign Up" />
+                                <Button layoutX="335.0" layoutY="33.0" mnemonicParsing="false" style="-fx-font-size: 25;" text="Sign Up" />
                                 <Button layoutX="493.0" layoutY="33.0" mnemonicParsing="false" style="-fx-font-size: 25;" text="Sign In" />
                             </children>
                         </AnchorPane>
