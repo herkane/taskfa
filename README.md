@@ -17,6 +17,6 @@
 
  # Contributors
 - Achraf Herkane
-  [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=herkane&count_private=true&show_icons=true&theme=tokyonight)](https://github.com/herkane/taskfa)
+- [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=herkane&count_private=true&show_icons=true&theme=tokyonight)](https://github.com/herkane/taskfa)
 - Aissam Boussoufiane
 - [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=aissam-gif&count_private=true&show_icons=true&theme=radical)](https://github.com/herkane/taskfa)
