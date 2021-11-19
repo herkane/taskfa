@@ -8,8 +8,7 @@
 | :---                                          | 
 |  Help Teams to better manage their projects   |
 
-|       TARGET GROUP       |      NEEDS     |    PRODUCT    | BUSINESS GOALS |
-| :---                     |     :---:      |          ---: |           ---: |
-| Users : Project Managers
-|  & Team Dev              | git status     | git status    |                |
+|       TARGET GROUP                   |      NEEDS     |    PRODUCT    | BUSINESS GOALS |
+| :---                                 |     :---:      |          ---: |           ---: |
+| Users : Project Managers  & Team Dev | Easly track project’s workflow and progress        | Task list Manager : Assign task to developpers    | Open up a new revenue stream by different subscriptions plan |       
 | git diff     | git diff       | git diff      |                |
