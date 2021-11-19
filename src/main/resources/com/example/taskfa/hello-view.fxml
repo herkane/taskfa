@@ -54,14 +54,14 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                   <Button id="sign_in" fx:id="sign_in" mnemonicParsing="false" prefHeight="50.0" prefWidth="310.0" styleClass="sign_in, btn" text="Log in" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-                   <Button id="sign_up" fx:id="sign_up" mnemonicParsing="false" prefHeight="50.0" prefWidth="310.0" styleClass="sign_up, btn" text="Create your account" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+                  <Button id="sign_up" fx:id="sign_up" mnemonicParsing="false" prefHeight="50.0" prefWidth="310.0" styleClass="sign_up, btn" text="Sign Up" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+                  <Button id="sign_in" fx:id="sign_in" mnemonicParsing="false" prefHeight="50.0" prefWidth="310.0" styleClass="sign_in, btn" text="Create an account" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
                   <Text id="slogan" fx:id="slogan" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="slogan" text="Manage your tasks dynamically" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                      <font>
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="150.0" fitWidth="397.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <ImageView fitHeight="130.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <image>
                         <Image url="@media/logo.png" />
                      </image>
@@ -82,7 +82,7 @@
                 <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="121.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fitHeight="420.0" fitWidth="461.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <ImageView fitHeight="420.0" fitWidth="460.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <image>
                         <Image url="@media/image.png" />
                      </image>
