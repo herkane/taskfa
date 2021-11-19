@@ -7,6 +7,7 @@
 |                     VISION                    |
 | :---                                          | 
 |  Help Teams to better manage their projects   |
+
 | TARGET GROUP |      NEEDS     |    PRODUCT    | BUSINESS GOALS |
 | :---         |     :---:      |          ---: |           ---: |
 | git status   | git status     | git status    |                |
