@@ -4,9 +4,9 @@
 
 
 
-|                     VISION                    |
-| :---                                          | 
-|  Help Teams to better manage their projects   |
+|                     VISION                                                          |
+| :---                                                                                |  
+|  Help Teams to better manage their projects                                         |
 
 |       TARGET GROUP                   |      NEEDS     |    PRODUCT    | BUSINESS GOALS |
 | :---                                 |     :---:      |          ---: |           ---: |
