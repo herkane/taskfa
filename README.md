@@ -8,7 +8,8 @@
 | :---                                          | 
 |  Help Teams to better manage their projects   |
 
-| TARGET GROUP |      NEEDS     |    PRODUCT    | BUSINESS GOALS |
-| :---         |     :---:      |          ---: |           ---: |
-| git status   | git status     | git status    |                |
+|       TARGET GROUP       |      NEEDS     |    PRODUCT    | BUSINESS GOALS |
+| :---                     |     :---:      |          ---: |           ---: |
+| Users : Project Managers
+|  & Team Dev              | git status     | git status    |                |
 | git diff     | git diff       | git diff      |                |
