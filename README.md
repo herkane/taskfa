@@ -18,6 +18,7 @@
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=herkane&count_private=true&show_icons=true&theme=tokyonight)](https://github.com/herkane/taskfa)
 ## Aissam Boussoufiane
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=aissam-gif&count_private=true&show_icons=true&theme=radical)](https://github.com/herkane/taskfa)
-## Aissam Boussoufiane
+## Anas Laouissi
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=laouissi&count_private=true&show_icons=true&theme=radical)](https://github.com/herkane/taskfa)
-
+## Fatima El Hadeg
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=fatiima-1&count_private=true&show_icons=true&theme=radical)](https://github.com/herkane/taskfa)
