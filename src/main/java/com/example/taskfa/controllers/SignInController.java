@@ -21,9 +21,9 @@ public class SignInController {
     private Button recoverPassword;
 
     public void goToSignUp() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
-        Stage stage = (Stage) signInButton.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        Parent root  = FXMLLoader.load(getClass().getClassLoader().getResource("SignUp.fxml"));
+        Stage window = (Stage) signUpButton.getScene().getWindow();
+        window.setScene(new Scene(root));
     }
 
 }

@@ -1,0 +1,40 @@
+.input {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: 0 0 3 0;
+    -fx-text-fill: white;
+    -fx-font-size: 20;
+}
+
+.slogan {
+    -fx-text-alignment: center;
+}
+
+.recover_password {
+    -fx-font-size: 20;
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-underline: true;
+}
+
+.btn {
+    -fx-border-radius: 5;
+    -fx-border-width: 2;
+    -fx-padding: 10;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+    -fx-font-size: 20;
+    -fx-font-weight: 800;
+}
+
+.sign_up {
+    -fx-background-color:white ;
+    -fx-text-fill: black;
+}
+
+.sign_in {
+    -fx-background-color: #41c1be;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
