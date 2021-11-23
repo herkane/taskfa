@@ -82,8 +82,8 @@
                         </Text>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6">
                             <children>
-                                <Button layoutX="335.0" layoutY="33.0" mnemonicParsing="false" style="-fx-font-size: 25;" text="Sign Up" />
-                                <Button layoutX="493.0" layoutY="33.0" mnemonicParsing="false" style="-fx-font-size: 25;" text="Sign In" />
+                                <Button layoutX="335.0" layoutY="33.0" mnemonicParsing="false"  style="-fx-font-size: 25;" text="Sign Up" />
+                                <Button layoutX="493.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#goToSignUp" style="-fx-font-size: 25;" text="Sign In" />
                             </children>
                         </AnchorPane>
                     </children>

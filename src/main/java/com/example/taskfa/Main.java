@@ -10,10 +10,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class SignIn extends Application {
+public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("styles/style.css").toExternalForm());
         //Customized parameters
