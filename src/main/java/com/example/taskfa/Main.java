@@ -6,7 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -14,13 +16,16 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,1000,700);
         scene.getStylesheets().add(getClass().getResource("styles/style.css").toExternalForm());
+        Font.loadFont(getClass().getResource("fonts/Changa-Bold.ttf").toExternalForm(),20);
+        Font.loadFont(getClass().getResource("fonts/Changa-VariableFont_wght.ttf").toExternalForm(),20);
+        Font.loadFont(getClass().getResource("fonts/Changa-Regular.ttf").toExternalForm(),20);
         //Customized parameters
         stage.setAlwaysOnTop(true);
         stage.setFullScreenExitHint("");
-        stage.setFullScreen(true);
         stage.setResizable(false);
+        stage.initStyle(StageStyle.TRANSPARENT);
         //End of customized parameters
         stage.setScene(scene);
         stage.show();
