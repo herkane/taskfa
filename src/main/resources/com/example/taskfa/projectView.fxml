@@ -136,11 +136,8 @@
                         </StackPane>
                      </children>
                   </VBox>
-                  <Pane translateY="350.0">
-                     <children>
-                        <Button alignment="CENTER" layoutX="43.0" layoutY="4.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="311.0" styleClass="sign-out" text="Sign Out" />
-                     </children>
-                  </Pane>
+                  <Pane prefHeight="376.0" prefWidth="604.0" style="-fx-background-color: transparent;" />
+                  <Button fx:id="signOutBtn" alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="393.0" styleClass="sign-out" text="Sign Out" />
                </children>
                <padding>
                   <Insets left="5.0" right="5.0" />
@@ -158,18 +155,18 @@
         </rowConstraints>
          <children>
             <Label alignment="CENTER" text="MY PROJECTS" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0,0,0,0);" styleClass="transparent" stylesheets="@styles/style.css" GridPane.rowIndex="1">
+            <ScrollPane fx:id="scroll" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0,0,0,0);" styleClass="transparent" stylesheets="@styles/style.css" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="30.0" right="30.0" />
                </GridPane.margin>
                <content>
-                  <GridPane prefHeight="0.0" prefWidth="0.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
+                  <GridPane fx:id="grid" hgap="100.0" prefHeight="0.0" prefWidth="0.0" vgap="20.0">
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
                   </GridPane>
                </content>
             </ScrollPane>

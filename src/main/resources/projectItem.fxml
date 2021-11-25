@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="233.0" prefWidth="329.0" style="-fx-border-color: 41c1be; -fx-background-color: transparent;" styleClass="myproject_widget" stylesheets="@com/example/taskfa/styles/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.ProjectItemController">
+   <children>
+      <VBox layoutY="4.0" prefHeight="233.0" prefWidth="327.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+         <children>
+            <StackPane prefHeight="54.0" prefWidth="321.0" style="-fx-border-color: #41c1be;" styleClass="sign_in">
+               <children>
+                  <Label fx:id="projectTitle" alignment="CENTER" prefHeight="35.0" prefWidth="327.0" text="Project Title" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane prefHeight="145.0" prefWidth="321.0">
+               <children>
+                  <VBox prefHeight="103.0" prefWidth="323.0">
+                     <children>
+                        <HBox>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                           <children>
+                              <Label contentDisplay="CENTER" prefHeight="32.0" prefWidth="122.0" text="- Created On :">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="projectDateCreation" contentDisplay="CENTER" prefHeight="32.0" prefWidth="200.0" text="11 / 01 / 2021">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label contentDisplay="CENTER" prefHeight="32.0" prefWidth="228.0" text="- Number of Members :">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="projectNumMembers" contentDisplay="CENTER" prefHeight="32.0" prefWidth="177.0" text="3">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Label contentDisplay="CENTER" prefHeight="32.0" prefWidth="85.0" text="- Status :">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="projectStatus" contentDisplay="CENTER" prefHeight="32.0" prefWidth="237.0" text="In Progress">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+            <Pane prefHeight="10.0" prefWidth="321.0" style="-fx-background-color: #41c1be;" />
+            <StackPane prefHeight="44.0" prefWidth="321.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox prefHeight="16.0" prefWidth="321.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="123.0" text="Next meeting  :" textFill="#e21818" wrapText="true" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="11.0" />
+                           </font></Label>
+                        <Label fx:id="meetingDate" prefHeight="50.0" prefWidth="202.0" text="dd / mm" textAlignment="CENTER">
+                           <font>
+                              <Font size="11.0" />
+                           </font></Label>
+                     </children>
+                  </HBox>
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
