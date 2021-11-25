@@ -38,3 +38,46 @@
     -fx-border-color: white;
     -fx-text-fill: white;
 }
+/*     Projects View    */
+.side_bar {
+    -fx-border-radius: 10px;
+}
+
+.join_project_widget {
+    -fx-border-radius: 5 5 15 15;
+    -fx-background-radius: 5 5 15 15;
+}
+
+.join_project_widget_textView {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 0 0;
+}
+.join_project_gray_color {
+    -fx-background-color: gray;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
+
+.sign-out {
+    -fx-background-color: red;
+    -fx-text-fill: white;
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+    -fx-border-color: white;
+    -fx-font-size: 16px;
+}
+.my_projects_title {
+    -fx-font-size: 35px;
+    -fx-font-weight: bold;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+.myproject_widget {
+    -fx-border-color: #41c1be;
+    -fx-border-width: 2 2 2 2;
+    -fx-background-color: transparent;
+    -fx-border-radius: 5 5 15 15;
+    -fx-background-radius: 5 5 15 15;
+}
