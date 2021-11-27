@@ -54,8 +54,8 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                   <Button id="sign_in" fx:id="signInButton"  mnemonicParsing="false" prefHeight="50.0" prefWidth="310.0" styleClass="sign_in, btn" text="Login" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-                   <Button id="sign_up" fx:id="signUpButton"  onAction="#goToSignUp" mnemonicParsing="false" prefHeight="50.0" prefWidth="310.0" styleClass="sign_up, btn" text="Sign Up" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+                   <Button id="sign_in" fx:id="signInButton" mnemonicParsing="false" onAction="#goToProjectView" prefHeight="50.0" prefWidth="310.0" styleClass="sign_in, btn" text="Login" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+                   <Button id="sign_up" fx:id="signUpButton" mnemonicParsing="false" onAction="#goToSignUp" prefHeight="50.0" prefWidth="310.0" styleClass="sign_up, btn" text="Sign Up" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="TOP" />
                   <Text id="slogan" fx:id="slogan" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="slogan" text="Manage your tasks dynamically" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                      <font>
                         <Font size="30.0" />

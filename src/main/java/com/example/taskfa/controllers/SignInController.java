@@ -26,4 +26,10 @@ public class SignInController {
         window.setScene(new Scene(root));
     }
 
+    public void goToProjectView() throws IOException {
+        Parent root  = FXMLLoader.load(getClass().getClassLoader().getResource("ProjectView.fxml"));
+        Stage window = (Stage) signUpButton.getScene().getWindow();
+        window.setScene(new Scene(root));
+    }
+
 }
