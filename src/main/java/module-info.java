@@ -8,7 +8,7 @@ module com.example.taskfa {
     requires validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    requires eu.hansolo.tilesfx;
+    // requires eu.hansolo.tilesfx;
 
     opens com.example.taskfa to javafx.fxml;
     exports com.example.taskfa;

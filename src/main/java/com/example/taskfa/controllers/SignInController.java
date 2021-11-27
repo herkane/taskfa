@@ -46,6 +46,16 @@ public class SignInController {
         window.setScene(new Scene(root));
     }
 
+    /*
+    REDIRECT TO PROJECT VIEW WHEN LOGIN
+ */
+    public void goToProjectView() throws IOException {
+        Parent root  = FXMLLoader.load(getClass().getClassLoader().getResource("ProjectView.fxml"));
+        Stage window = (Stage) signUpButton.getScene().getWindow();
+        window.setScene(new Scene(root));
+        window.centerOnScreen();
+    }
+
     public void showPassword() {
         if (!passVisible.isVisible()) {
             showIcon.setImage(new Image("C:\\Users\\herka_lvzfxpq\\IdeaProjects\\taskfa\\src\\main\\resources\\com\\example\\taskfa\\media\\hide.png"));
@@ -74,4 +84,8 @@ public class SignInController {
         Stage stage = (Stage) reduceWindow.getScene().getWindow();
         stage.setIconified(true);
     }
+
+
+
+
 }
