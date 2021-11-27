@@ -38,6 +38,11 @@
     -fx-border-color: white;
     -fx-text-fill: white;
 }
+.join-project {
+    -fx-background-color: rgb(54, 91, 109);
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
 /*     Projects View    */
 .side_bar {
     -fx-border-radius: 10px;
@@ -80,4 +85,32 @@
     -fx-background-color: transparent;
     -fx-border-radius: 5 5 15 15;
     -fx-background-radius: 5 5 15 15;
+}
+.scroll-pane {
+    -fx-background-color: black;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color:  rgb(54, 91, 109);
+    -fx-background-radius: 5em;
+}
+.scroll-pane > .corner {
+    -fx-background-color: black;
 }

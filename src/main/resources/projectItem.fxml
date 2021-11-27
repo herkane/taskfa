@@ -13,7 +13,7 @@
    <children>
       <VBox layoutY="4.0" prefHeight="233.0" prefWidth="327.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <children>
-            <StackPane prefHeight="54.0" prefWidth="321.0" style="-fx-border-color: #41c1be;" styleClass="sign_in">
+            <StackPane prefHeight="54.0" prefWidth="334.0" style="-fx-background-color: rgb(54, 91, 109); -fx-border-color: rgb(54, 91, 109); -fx-border-width: 3; -fx-background-radius: 5; -fx-border-radius: 5 5 0 0;" styleClass="sign_in">
                <children>
                   <Label fx:id="projectTitle" alignment="CENTER" prefHeight="35.0" prefWidth="327.0" text="Project Title" textFill="WHITE">
                      <font>
@@ -21,6 +21,12 @@
                      </font>
                   </Label>
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="-5.0" right="-5.0" top="-4.0" />
+               </VBox.margin>
             </StackPane>
             <StackPane prefHeight="145.0" prefWidth="321.0">
                <children>
