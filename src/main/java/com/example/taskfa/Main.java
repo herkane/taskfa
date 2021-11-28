@@ -15,8 +15,8 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
-        Scene scene = new Scene(root,1000,700);
+        Parent root = FXMLLoader.load(getClass().getResource("Ressource.fxml"));
+        Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("styles/style.css").toExternalForm());
         Font.loadFont(getClass().getResource("fonts/Changa-Bold.ttf").toExternalForm(),20);
         Font.loadFont(getClass().getResource("fonts/Changa-VariableFont_wght.ttf").toExternalForm(),20);
@@ -25,6 +25,7 @@ public class Main extends Application {
         stage.setAlwaysOnTop(true);
         stage.setFullScreenExitHint("");
         stage.setResizable(false);
+        stage.setFullScreen(true);
         stage.initStyle(StageStyle.TRANSPARENT);
         //End of customized parameters
         stage.setScene(scene);

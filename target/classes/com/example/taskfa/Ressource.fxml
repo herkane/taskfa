@@ -97,7 +97,7 @@
                                     </Button>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                                        <content>
-                                          <AnchorPane prefHeight="508.0" prefWidth="289.0" />
+                                          <AnchorPane prefHeight="477.0" prefWidth="289.0" />
                                        </content>
                                     </ScrollPane>
                                  </children>
@@ -128,7 +128,7 @@
                                     </Button>
                                     <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                                        <content>
-                                          <AnchorPane prefHeight="501.0" prefWidth="293.0" />
+                                          <AnchorPane prefHeight="488.0" prefWidth="292.0" />
                                        </content>
                                     </ScrollPane>
                                  </children>
