@@ -23,4 +23,11 @@ public class SignUpController {
         Stage stage = (Stage) reduceBtn.getScene().getWindow();
         stage.setIconified(true);
     }
+
+    public void goToSignIn() throws IOException{
+        Parent root  = FXMLLoader.load(getClass().getClassLoader().getResource("SignIn.fxml"));
+        Stage window = (Stage) reduceBtn.getScene().getWindow();
+        window.setScene(new Scene(root));
+        window.centerOnScreen();
+    }
 }

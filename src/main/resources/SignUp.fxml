@@ -88,7 +88,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                          <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="310.0" style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-background-color: white; -fx-border-width: white; -fx-text-fill: black; -fx-font-weight: 800; -fx-border-radius: 5;" text="Sign In" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                          <Button mnemonicParsing="false" onMouseClicked="#goToSignIn" prefHeight="50.0" prefWidth="310.0" style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-background-color: white; -fx-border-width: white; -fx-text-fill: black; -fx-font-weight: 800; -fx-border-radius: 5;" text="Sign In" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets top="60.0" />
                      </GridPane.margin>

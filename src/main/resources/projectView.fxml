@@ -158,6 +158,7 @@
         </rowConstraints>
          <children>
             <Label alignment="CENTER" text="MY PROJECTS" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="goToResourceBtn" mnemonicParsing="false" onMouseClicked="#goToVcsView" prefHeight="26.0" prefWidth="242.0" text="Vcs Page" />
             <ScrollPane fx:id="scroll" prefHeight="712.0" prefWidth="901.0" style="-fx-background-color: rgba(0,0,0,0);" styleClass="transparent" stylesheets="@com/example/taskfa/styles/style.css" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="30.0" right="30.0" />
