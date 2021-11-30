@@ -38,7 +38,7 @@
                   </Text>
                   <ImageView fx:id="memberImage" fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <image>
-                        <Image url="@media/Purple%20and%20Pink%20Flat%20Color%20UI%20Login%20Page%20Simple%20Desktop%20UI%20Prototype%20(1000%20x%201000%20px)%20(3).png" />
+                        <Image url="@com/example/taskfa/media/Purple%20and%20Pink%20Flat%20Color%20UI%20Login%20Page%20Simple%20Desktop%20UI%20Prototype%20(1000%20x%201000%20px)%20(3).png" />
                      </image>
                   </ImageView>
                </children>
