@@ -2,13 +2,13 @@ package com.example.taskfa.model;
 
 public class User {
     private String firstName;
+    private String lastName;
+    private String status;
 
     public User(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-
-    private String lastName;
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -24,5 +24,13 @@ public class User {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }
