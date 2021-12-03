@@ -60,6 +60,29 @@ public class ChatViewController implements Initializable {
         message.setDate_sent(df.format(date));
         messages.add(message);
 
+        message = new Message();
+        message.setSender(new User("Aissam","Boussoufiane"));
+        message.setMessage("Bonjour tous le monde aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        message.setDate_sent(df.format(date));
+        messages.add(message);
+
+        message = new Message();
+        message.setSender(new User("Achraf","Herkane"));
+        message.setMessage("Salut");
+        message.setDate_sent(df.format(date));
+        messages.add(message);
+
+        message = new Message();
+        message.setSender(new User("Fatima","El Hadeg"));
+        message.setMessage("Bonjour");
+        message.setDate_sent(df.format(date));
+        messages.add(message);
+
+        message = new Message();
+        message.setSender(new User("Anas","Laouissi"));
+        message.setMessage("Bonjour ");
+        message.setDate_sent(df.format(date));
+        messages.add(message);
 
     }
 
@@ -116,7 +139,6 @@ public class ChatViewController implements Initializable {
         GridPane.setMargin(anchorPane, new Insets(10));
         message.setText("");
         scrollMessages.needsLayoutProperty().addListener((observable, oldValue, newValue) -> {
-            System.out.println(scrollMessages.getVvalue());
             scrollMessages.setVvalue(scrollMessages.getVmax());
         });
     }

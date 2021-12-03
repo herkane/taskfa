@@ -23,7 +23,7 @@
         </columnConstraints>
         <rowConstraints>
             <RowConstraints vgrow="NEVER" />
-            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="ALWAYS" />
         </rowConstraints>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TASKFA CHAT" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
             <font>
@@ -38,7 +38,7 @@
                 <ColumnConstraints hgrow="SOMETIMES" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="599.0" minHeight="10.0" prefHeight="599.0" vgrow="SOMETIMES" />
+                <RowConstraints vgrow="ALWAYS" />
                 <RowConstraints vgrow="NEVER" />
             </rowConstraints>
             <ScrollPane fx:id="scrollMessages" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
