@@ -41,31 +41,31 @@ public class SignInController {
     private Tooltip tooltip;
 
     public void goToSignUp() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("SignUp.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/views/SignUp.fxml"));
         Stage window = (Stage) signUpButton.getScene().getWindow();
         window.setScene(new Scene(root));
+        window.setFullScreen(true);
     }
 
     /*
     REDIRECT TO PROJECT VIEW WHEN LOGIN
  */
     public void goToProjectView() throws IOException {
-        Parent root  = FXMLLoader.load(getClass().getClassLoader().getResource("ProjectView.fxml"));
+        Parent root  = FXMLLoader.load(getClass().getResource("/views/ProjectView.fxml"));
         Stage window = (Stage) signUpButton.getScene().getWindow();
         window.setScene(new Scene(root));
-        window.centerOnScreen();
+        window.setFullScreen(true);
     }
 
     public void showPassword() {
         if (!passVisible.isVisible()) {
-            showIcon.setImage(new Image("C:\\Users\\herka_lvzfxpq\\IdeaProjects\\taskfa\\src\\main\\resources\\com\\example\\taskfa\\media\\hide.png"));
+            showIcon.setImage(new Image(getClass().getResourceAsStream("/media/hide.png")));
             passwordInput.setVisible(false);
             passVisible.setVisible(true);
             passVisible.setText(passwordInput.getText());
             tooltip.setText("Hide password");
-
         } else {
-            showIcon.setImage(new Image("C:\\Users\\herka_lvzfxpq\\IdeaProjects\\taskfa\\src\\main\\resources\\com\\example\\taskfa\\media\\show.png"));
+            showIcon.setImage(new Image(getClass().getResourceAsStream("/media/show.png")));
             passVisible.setVisible(false);
             passwordInput.setVisible(true);
             passwordInput.setText(passVisible.getText());
