@@ -25,9 +25,10 @@ public class SignUpController {
     }
 
     public void goToSignIn() throws IOException{
-        Parent root  = FXMLLoader.load(getClass().getClassLoader().getResource("SignIn.fxml"));
+        Parent root  = FXMLLoader.load(getClass().getResource("/views/SignIn.fxml"));
         Stage window = (Stage) reduceBtn.getScene().getWindow();
         window.setScene(new Scene(root));
         window.centerOnScreen();
+        window.setFullScreen(true);
     }
 }

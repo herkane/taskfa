@@ -14,4 +14,12 @@ module com.example.taskfa {
     exports com.example.taskfa;
     exports com.example.taskfa.controllers;
     opens com.example.taskfa.controllers to javafx.fxml;
+    exports com.example.taskfa.controllers.chat;
+    opens com.example.taskfa.controllers.chat to javafx.fxml;
+    exports com.example.taskfa.controllers.project;
+    opens com.example.taskfa.controllers.project to javafx.fxml;
+    exports com.example.taskfa.controllers.vcs;
+    opens com.example.taskfa.controllers.vcs to javafx.fxml;
+    exports com.example.taskfa.controllers.sideBar;
+    opens com.example.taskfa.controllers.sideBar to javafx.fxml;
 }
