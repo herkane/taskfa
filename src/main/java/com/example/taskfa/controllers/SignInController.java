@@ -44,14 +44,13 @@ public class SignInController {
         Parent root = FXMLLoader.load(getClass().getResource("/views/SignUp.fxml"));
         Stage window = (Stage) signUpButton.getScene().getWindow();
         window.setScene(new Scene(root));
-        window.setFullScreen(true);
     }
 
     /*
     REDIRECT TO PROJECT VIEW WHEN LOGIN
  */
     public void goToProjectView() throws IOException {
-        Parent root  = FXMLLoader.load(getClass().getResource("/views/ProjectView.fxml"));
+        Parent root  = FXMLLoader.load(getClass().getResource("/views/pagesLoader.fxml"));
         Stage window = (Stage) signUpButton.getScene().getWindow();
         window.setScene(new Scene(root));
         window.setFullScreen(true);

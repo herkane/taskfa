@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane style="-fx-background-color: black;" stylesheets="@../com/example/taskfa/styles/style.css" vgap="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.sideBar.SideBarController">
+<GridPane prefHeight="651.0" prefWidth="275.0" style="-fx-background-color: black;" stylesheets="@../com/example/taskfa/styles/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.sideBar.SideBarController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" />
    </columnConstraints>
@@ -25,19 +25,22 @@
       <RowConstraints vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <GridPane maxHeight="-Infinity" minHeight="-Infinity" GridPane.valignment="TOP">
+      <GridPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="138.0" prefWidth="297.0" GridPane.valignment="TOP">
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.33331298828125" minWidth="-Infinity" prefWidth="228.0000203450521" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.33333333333337" minWidth="158.00002034505212" prefWidth="182.6666463216146" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.33331298828125" minWidth="-Infinity" prefWidth="117.66666412353516" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.3333282470703" minWidth="72.33332824707031" prefWidth="157.33333587646484" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <ImageView fx:id="userImage" fitHeight="160.0" fitWidth="204.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <ImageView fx:id="userImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                <image>
-                  <Image url="@../com/example/taskfa/media/profilePicture.png" />
+                  <Image url="@../media/profilePic.png" />
                </image>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
             </ImageView>
             <GridPane GridPane.columnIndex="1">
                <columnConstraints>
@@ -49,36 +52,33 @@
                   <RowConstraints vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label id="userLastName" fx:id="userLastName" alignment="CENTER_RIGHT" text="HERKANE" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Label id="userLastName" fx:id="userLastName" alignment="CENTER_RIGHT" text="HERKANE" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="23.0" />
                      </font>
                   </Label>
-                  <Label id="userId" fx:id="userId" alignment="CENTER_RIGHT" text="1872345" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                  <Label id="userId" fx:id="userId" alignment="CENTER_RIGHT" text="1872345" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets right="5.0" />
+                        <Insets left="40.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" text="ID :" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                  <Label alignment="CENTER_RIGHT" text="ID :" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets left="35.0" />
+                        <Insets />
                      </GridPane.margin>
                   </Label>
-                  <Label id="userFirstName" fx:id="userName" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="92.0" text="ACHRAF" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                  <Label id="userFirstName" fx:id="userName" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="92.0" text="ACHRAF" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="23.0" />
                      </font>
                   </Label>
                </children>
-               <GridPane.margin>
-                  <Insets left="-50.0" />
-               </GridPane.margin>
                <opaqueInsets>
                   <Insets right="5.0" />
                </opaqueInsets>
@@ -88,14 +88,14 @@
             <Insets right="5.0" />
          </opaqueInsets>
       </GridPane>
-      <Button fx:id="signOutBtn" alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="373.0" styleClass="sign-out" text="Sign Out" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+      <Button fx:id="signOutBtn" alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="252.0" styleClass="sign-out" text="Sign Out" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="30.0" />
          </GridPane.margin>
       </Button>
       <VBox maxWidth="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;" styleClass="join_project_widget" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
          <children>
-            <StackPane styleClass="join-project">
+            <StackPane prefWidth="200.0" styleClass="join-project">
                <children>
                   <Label alignment="CENTER" text="Add Member" textFill="WHITE">
                      <font>
@@ -111,16 +111,19 @@
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <ImageView fitHeight="39.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
                      <image>
-                        <Image url="@../com/example/taskfa/media/cyan_add_icon.png" />
+                        <Image url="@../media/cyan_add_icon.png" />
                      </image>
+                     <StackPane.margin>
+                        <Insets right="5.0" />
+                     </StackPane.margin>
                   </ImageView>
                </children>
             </StackPane>
          </children>
       </VBox>
-      <GridPane prefHeight="339.0" prefWidth="409.0" style="-fx-background-color: black;" GridPane.rowIndex="1">
+      <GridPane prefHeight="340.0" prefWidth="322.0" style="-fx-background-color: black;" GridPane.rowIndex="1">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" />
         </columnConstraints>

@@ -88,26 +88,6 @@ public class ChatViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        thread = new Thread("chatScrollThread") {
-            public void run() {
-
-                    scrollMessages.needsLayoutProperty().addListener((observable, oldValue, newValue) -> {
-                        scrollMessages.setVvalue(Double.MAX_VALUE);
-                    });
-
-            }
-        };
-        thread.start();
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/views/SideBarView.fxml"));
-            GridPane gridPane = fxmlLoader.load();
-            //SideBarController sideBarController = fxmlLoader.getController();
-            gridChat.add(gridPane, 0, 0);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         /*
             Update Grid Message List With Messages
          */
