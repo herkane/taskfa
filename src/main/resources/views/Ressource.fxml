@@ -62,14 +62,7 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Button>
-                                    <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                                       <content>
-                                          <AnchorPane prefHeight="518.0" prefWidth="271.0">
-                                             <children>
-                                                <ListView fx:id="listViewpdf" layoutX="-2.0" layoutY="-3.0" onEditStart="#pdf" prefHeight="514.0" prefWidth="381.0" />
-                                             </children></AnchorPane>
-                                       </content>
-                                    </ScrollPane>
+                                    <ListView fx:id="listViewpdf" onEditStart="#pdf" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
                            </children>
@@ -127,14 +120,7 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Button>
-                                    <ScrollPane prefHeight="511.0" prefWidth="631.0" GridPane.rowIndex="1">
-                                       <content>
-                                          <AnchorPane prefHeight="501.0" prefWidth="293.0">
-                                             <children>
-                                                <ListView fx:id="listViewother" onEditStart="#other" prefHeight="511.0" prefWidth="395.0" />
-                                             </children></AnchorPane>
-                                       </content>
-                                    </ScrollPane>
+                                    <ListView fx:id="listViewother" onEditStart="#other" prefHeight="511.0" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
                            </children>
