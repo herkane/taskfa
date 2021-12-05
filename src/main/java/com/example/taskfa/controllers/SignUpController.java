@@ -25,7 +25,7 @@ public class SignUpController {
     public void sfc(ActionEvent event){
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().add(
-                new FileChooser.ExtensionFilter("image","*.png"));
+                new FileChooser.ExtensionFilter("image","*.png","*.jpeg","*.jpg"));
 
         File selectedFile = fc.showOpenDialog(null);
         if (selectedFile!=null){
