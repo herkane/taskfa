@@ -20,10 +20,8 @@ public class Main extends Application {
         Font.loadFont(getClass().getResource("fonts/Changa-VariableFont_wght.ttf").toExternalForm(),20);
         Font.loadFont(getClass().getResource("fonts/Changa-Regular.ttf").toExternalForm(),20);
         //Customized parameters
-        stage.setAlwaysOnTop(true);
         stage.setFullScreenExitHint("");
         stage.setResizable(false);
-        stage.setFullScreen(true);
         stage.initStyle(StageStyle.TRANSPARENT);
         //End of customized parameters
         stage.setScene(scene);

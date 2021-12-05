@@ -67,7 +67,7 @@
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
                             <children>
                                 <TextField layoutX="12.0" layoutY="21.0" prefHeight="67.0" prefWidth="300.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;" />
-                                <Button fx:id="sfc" layoutX="324.0" layoutY="23.0" mnemonicParsing="false" onAction="#sfc" prefHeight="67.0" prefWidth="300.0" style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-effect: null; -fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 3; -fx-border-radius: 3; -fx-text-fill: white;" text="Upload picture">
+                                <Button fx:id="uploadBtn" layoutX="324.0" layoutY="23.0" mnemonicParsing="false" onAction="#sfc" prefHeight="67.0" prefWidth="300.0" style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-effect: null; -fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 3; -fx-border-radius: 3; -fx-text-fill: white;" text="Upload picture">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

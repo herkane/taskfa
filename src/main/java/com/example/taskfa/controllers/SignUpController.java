@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class SignUpController {
     @FXML
-    private Button reduceBtn,closeBtn;
+    private Button reduceBtn,closeBtn,uploadBtn;
 
 
     @FXML
@@ -29,9 +29,9 @@ public class SignUpController {
 
         File selectedFile = fc.showOpenDialog(null);
         if (selectedFile!=null){
-            listview.getItems().add(selectedFile.getName());
+            uploadBtn.setText(selectedFile.getName());
         }else{
-            System.out.println("not valid");
+            System.out.println("Not a valid File");
         }
     }
 

@@ -38,12 +38,9 @@ public class PagesLoaderController implements Initializable {
     public void goToHome() throws IOException {
         GridPane homeSideBar;
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/views/homeSidebar.fxml"));
         ScreenLoader screen = new ScreenLoader();
         Pane view = screen.getPage("projectView");
         mainPane.setCenter(view);
-        homeSideBar = fxmlLoader.load();
-        mainPane.setLeft(homeSideBar);
     }
 
     public void gotoOverview() {
