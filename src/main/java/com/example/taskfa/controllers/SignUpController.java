@@ -19,10 +19,8 @@ public class SignUpController {
     private Button reduceBtn,closeBtn,uploadBtn;
 
 
-    @FXML
-    private ListView listview;
 
-    public void sfc(ActionEvent event){
+    public void upload(ActionEvent event){
         FileChooser fc = new FileChooser();
         fc.getExtensionFilters().add(
                 new FileChooser.ExtensionFilter("image","*.png","*.jpeg","*.jpg"));
