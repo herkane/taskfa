@@ -1,13 +1,20 @@
 package com.example.taskfa.controllers.vcs;
 
 import com.example.taskfa.model.File;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +27,8 @@ public class VcsViewController implements Initializable {
     @FXML
     private GridPane gridVersionControl;
 
+    @FXML
+     private   Button version;
     private List<File> files = new ArrayList<>();
 
     private List<File> getData() {
@@ -70,5 +79,23 @@ public class VcsViewController implements Initializable {
         }
     }
 
-}
+    public void toPopUp(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/PopUpVCS.fxml") );
+        Parent parent = fxmlLoader.load();
+        Platform.runLater(()->{
+            Stage stage1=(Stage)version.getScene().getWindow();
+            stage1.setFullScreen(false);
+            stage1.setFullScreen(true);
+                }
+                );
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setAlwaysOnTop(true);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    }
+
 

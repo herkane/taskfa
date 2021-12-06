@@ -2,6 +2,7 @@
 
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -133,6 +134,17 @@
                         </GridPane>
                      </content>
                   </ScrollPane>
+                  <Button fx:id="version" mnemonicParsing="false" onAction="#toPopUp" prefHeight="56.0" prefWidth="119.0" style="-fx-background-color: rgb(54, 91, 109);" text="versions" textFill="WHITE" GridPane.valignment="CENTER">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="50.0" />
+                     </GridPane.margin>
+                  </Button>
                </children>
                <GridPane.margin>
                   <Insets top="10.0" />
