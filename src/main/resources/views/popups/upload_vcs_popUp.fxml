@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.vcs.UploadVcsController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="194.66665649414062" minHeight="10.0" prefHeight="161.33334350585938" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="305.66666666666663" minHeight="10.0" prefHeight="286.33331298828125" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="260.0" minHeight="10.0" prefHeight="55.66668701171875" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="65.33334732055664" minHeight="10.0" prefHeight="52.666656494140625" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="94.66665267944336" minHeight="10.0" prefHeight="88.00001017252606" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Upload Files" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <GridPane GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="423.33331298828125" minWidth="10.0" prefWidth="414.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="313.33331298828125" minWidth="10.0" prefWidth="186.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="88.0" stroke="BLACK" strokeType="INSIDE" width="537.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button fx:id="uploadFile" mnemonicParsing="false" onAction="#uploadFile" prefHeight="41.0" prefWidth="100.0" text="Upload" GridPane.columnIndex="1" />
+                  <Label fx:id="fileNameLabel" text="myFile.png" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+         <GridPane.margin>
+            <Insets bottom="10.0" />
+         </GridPane.margin>
+      </GridPane>
+      <GridPane GridPane.rowIndex="1">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.3333740234375" minWidth="10.0" prefWidth="116.66663614908855" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="521.9999694824219" minWidth="10.0" prefWidth="484.00003051757807" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints />
+          <RowConstraints maxHeight="113.66668701171875" minHeight="10.0" prefHeight="48.00002034505208" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="190.66664632161462" minHeight="10.0" prefHeight="190.66664632161462" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Task :" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Changes :" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets top="20.0" />
+               </GridPane.margin>
+            </Text>
+            <Separator prefWidth="200.0" GridPane.columnSpan="2" GridPane.valignment="TOP" />
+            <TextArea fx:id="changesDescriptionLabel" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+               </GridPane.margin>
+            </TextArea>
+            <ChoiceBox fx:id="taskChoiceBtn" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <Button fx:id="submitBtn" mnemonicParsing="false" onAction="#submit" prefHeight="35.0" prefWidth="173.0" text="Submit" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+   </children>
+</GridPane>

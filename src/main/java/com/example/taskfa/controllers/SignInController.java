@@ -34,6 +34,8 @@ public class SignInController {
     @FXML
     private Button passwordShown;
     @FXML
+    private TextField emailinput;
+    @FXML
     private ImageView showIcon;
     @FXML
     private Button closeWindow,reduceWindow;
@@ -50,6 +52,7 @@ public class SignInController {
     REDIRECT TO PROJECT VIEW WHEN LOGIN
  */
     public void goToProjectView() throws IOException {
+        UserSession userSession = new UserSession("Hamid","Lmohmadi",100300);
         Parent root  = FXMLLoader.load(getClass().getResource("/views/pagesLoader.fxml"));
         Stage window = (Stage) signUpButton.getScene().getWindow();
         window.setScene(new Scene(root));

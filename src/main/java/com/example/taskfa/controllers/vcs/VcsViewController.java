@@ -14,6 +14,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.stage.Modality;
+import javafx.scene.control.Label;
+
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,9 +29,19 @@ public class VcsViewController implements Initializable {
     @FXML
     private GridPane gridVersionControl;
 
+     @FXML
+     private  Button version;
+
     @FXML
-     private   Button version;
+    private Button uploadBtn;
+
+    @FXML
+    private Label outputField;
+
+
     private List<File> files = new ArrayList<>();
+
+
 
     private List<File> getData() {
         List<File> files = new ArrayList<>();
@@ -78,6 +90,23 @@ public class VcsViewController implements Initializable {
             e.printStackTrace();
         }
     }
+    public void uploadProject() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/upload_vcs_popUp.fxml"));
+        Scene newScene = null;
+        try {
+            newScene = new Scene(fxmlLoader.load());
+        } catch (IOException ex) {
+            System.out.println("ERROOOOOOOR WHATCH OUT !");
+        }
+        Stage inputStage = new Stage();
+        inputStage.initOwner(uploadBtn.getScene().getWindow());
+        inputStage.setScene(newScene);
+        inputStage.showAndWait();
+
+       // String input = fxmlLoader.<UploadVcsController>getController().getValue();
+     //   outputField.setText(input);
+    }
+
 
     public void toPopUp(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/PopUpVCS.fxml") );

@@ -1,6 +1,7 @@
 package com.example.taskfa.model;
 
 public class User {
+    private int idUser;
     private String firstName;
     private String lastName;
     private String status;
@@ -9,6 +10,7 @@ public class User {
     public User(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.idUser = 100;
     }
 
     public User() {

@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import org.controlsfx.control.spreadsheet.Grid;
 
 import java.io.IOException;
@@ -16,6 +17,7 @@ import java.util.ResourceBundle;
 public class PagesLoaderController implements Initializable {
     @FXML
     private BorderPane mainPane;
+
 
     public void goToVcs() {
         ScreenLoader screen = new ScreenLoader();
