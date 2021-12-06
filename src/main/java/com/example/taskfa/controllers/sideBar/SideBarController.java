@@ -1,5 +1,6 @@
 package com.example.taskfa.controllers.sideBar;
 
+import com.example.taskfa.controllers.UserSession;
 import com.example.taskfa.model.Message;
 import com.example.taskfa.model.User;
 import javafx.fxml.FXML;
@@ -63,6 +64,9 @@ public class SideBarController implements Initializable  {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        userName.setText(UserSession.getFirstName());
+        userLastName.setText(UserSession.getLastName());
+        userId.setText(Integer.toString(UserSession.getIdUser()));
         getUserList();
         Image img = new Image(getClass().getResourceAsStream(users.get(0).getImgSrc()));
         userImage.setImage(img);

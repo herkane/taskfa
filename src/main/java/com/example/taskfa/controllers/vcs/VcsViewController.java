@@ -1,13 +1,19 @@
 package com.example.taskfa.controllers.vcs;
 
 import com.example.taskfa.model.File;
+import com.example.taskfa.model.Status;
+import com.example.taskfa.model.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,7 +26,15 @@ public class VcsViewController implements Initializable {
     @FXML
     private GridPane gridVersionControl;
 
+    @FXML
+    private Button uploadBtn;
+
+    @FXML
+    private Label outputField;
+
     private List<File> files = new ArrayList<>();
+
+
 
     private List<File> getData() {
         List<File> files = new ArrayList<>();
@@ -69,6 +83,23 @@ public class VcsViewController implements Initializable {
             e.printStackTrace();
         }
     }
+    public void uploadProject() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/upload_vcs_popUp.fxml"));
+        Scene newScene = null;
+        try {
+            newScene = new Scene(fxmlLoader.load());
+        } catch (IOException ex) {
+            System.out.println("ERROOOOOOOR WHATCH OUT !");
+        }
+        Stage inputStage = new Stage();
+        inputStage.initOwner(uploadBtn.getScene().getWindow());
+        inputStage.setScene(newScene);
+        inputStage.showAndWait();
+
+       // String input = fxmlLoader.<UploadVcsController>getController().getValue();
+     //   outputField.setText(input);
+    }
+
 
 }
 

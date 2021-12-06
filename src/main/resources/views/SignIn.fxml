@@ -40,7 +40,7 @@
                 <RowConstraints maxHeight="183.3333740234375" minHeight="10.0" prefHeight="93.66668701171875" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField id="input" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="380.0" promptText="Email" style="-fx-font-family: Changa Regular;" styleClass="input" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <TextField id="input" fx:id="emailinput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="380.0" promptText="Email" style="-fx-font-family: Changa Regular;" styleClass="input" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <font>
                         <Font size="20.0" />
                      </font></TextField>

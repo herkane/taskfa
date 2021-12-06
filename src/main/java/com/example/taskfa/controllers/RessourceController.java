@@ -50,10 +50,4 @@ public class RessourceController {
             System.out.println("not valid");
         }
     }
-
-
-
-
-
-
 }

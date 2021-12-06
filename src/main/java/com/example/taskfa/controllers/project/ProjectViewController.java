@@ -1,5 +1,6 @@
 package com.example.taskfa.controllers.project;
 
+import com.example.taskfa.controllers.UserSession;
 import com.example.taskfa.model.Project;
 import com.example.taskfa.model.ScreenLoader;
 import javafx.fxml.FXML;
@@ -52,6 +53,8 @@ public class ProjectViewController implements Initializable {
 
     @FXML
     private ScrollPane scroll;
+
+
 
     private List<Project> projects = new ArrayList<>();
 
@@ -115,4 +118,6 @@ public class ProjectViewController implements Initializable {
         window.centerOnScreen();
         window.setFullScreen(true);
     }
+
+
 }
