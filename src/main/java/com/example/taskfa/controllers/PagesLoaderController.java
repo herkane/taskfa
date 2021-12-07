@@ -18,7 +18,6 @@ public class PagesLoaderController implements Initializable {
     @FXML
     private BorderPane mainPane;
 
-
     public void goToVcs() {
         ScreenLoader screen = new ScreenLoader();
         Pane view = screen.getPage("vcsView");

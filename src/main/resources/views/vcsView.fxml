@@ -139,11 +139,6 @@
                         <Insets right="40.0" />
                      </GridPane.margin>
                   </Button>
-                  <Label fx:id="outputField" text="Label" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
-                     <GridPane.margin>
-                        <Insets left="30.0" />
-                     </GridPane.margin>
-                  </Label>
                </children>
                <GridPane.margin>
                   <Insets top="10.0" />

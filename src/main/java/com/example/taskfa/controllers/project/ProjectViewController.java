@@ -1,8 +1,6 @@
 package com.example.taskfa.controllers.project;
 
-import com.example.taskfa.controllers.UserSession;
 import com.example.taskfa.model.Project;
-import com.example.taskfa.model.ScreenLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,7 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 

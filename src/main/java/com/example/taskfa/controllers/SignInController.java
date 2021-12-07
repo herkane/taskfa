@@ -1,6 +1,6 @@
 package com.example.taskfa.controllers;
 
-import javafx.animation.FadeTransition;
+import com.example.taskfa.controllers.utils.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,9 +12,6 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import javafx.stage.WindowEvent;
-import javafx.util.Duration;
 
 import java.io.IOException;
 

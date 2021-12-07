@@ -2,16 +2,18 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane prefHeight="950.0" prefWidth="1113.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.OverViewController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
    </columnConstraints>
@@ -19,19 +21,19 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <GridPane>
+      <GridPane prefHeight="872.0" prefWidth="1113.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints maxHeight="360.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="682.0" minHeight="10.0" prefHeight="616.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="682.0" minHeight="10.0" prefHeight="101.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="360.0" minHeight="10.0" prefHeight="42.33333206176758" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="784.8888142903646" minHeight="10.0" prefHeight="784.8888142903646" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="682.0" minHeight="10.0" prefHeight="74.11118570963538" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PROJECT 2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="OverView" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
-                  <Font name="Centaur" size="40.0" />
+                  <Font name="System Bold" size="39.0" />
                </font>
             </Text>
             <GridPane GridPane.rowIndex="1">
@@ -40,8 +42,8 @@
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="421.4444580078125" minHeight="10.0" prefHeight="403.7777506510417" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="396.6666666666667" minHeight="10.0" prefHeight="381.5555826822917" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                   <GridPane>
@@ -60,24 +62,32 @@
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="266.0" minHeight="10.0" prefHeight="214.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="65.99999491373698" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="280.000005086263" minHeight="10.0" prefHeight="280.000005086263" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #365b6d; -fx-border-color: #41c1be; -fx-border-width: 0 0 3 0; -fx-border-radius: 5; -fx-background-radius: 5;">
+                              <ListView fx:id="chatListView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                              <GridPane style="-fx-background-color: #365b6d;">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.888916015625" minWidth="10.0" prefWidth="91.11111450195312" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.8888854980469" minWidth="10.0" prefWidth="408.8888854980469" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
                                  <children>
-                                    <Text fill="WHITE" layoutX="107.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TASKFA CHAT">
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TASKFA CHAT" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                                        <font>
                                           <Font name="System Bold" size="38.0" />
                                        </font>
                                     </Text>
-                                    <ImageView fitHeight="50.0" fitWidth="80.0" layoutX="12.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="50.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                        <image>
                                           <Image url="@../media/11.png" />
                                        </image>
                                     </ImageView>
                                  </children>
-                              </AnchorPane>
+                              </GridPane>
                            </children>
                         </GridPane>
                      </children>
@@ -95,24 +105,73 @@
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints maxHeight="135.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="224.0" minHeight="10.0" prefHeight="216.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="135.0" minHeight="10.0" prefHeight="65.77776590983073" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="280.22223409016925" minHeight="10.0" prefHeight="280.22223409016925" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #365b6d; -fx-border-color: #41c1be; -fx-border-width: 0 0 3 0; -fx-border-radius: 5; -fx-background-radius: 5;">
+                              <GridPane GridPane.rowIndex="1">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="43.33331298828125" minHeight="10.0" prefHeight="19.333313624064136" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="84.66668637593588" minHeight="10.0" prefHeight="84.66668637593588" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="53.666687011718764" minHeight="10.0" prefHeight="24.77777099609375" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="97.55553181966147" minHeight="10.0" prefHeight="97.55553181966147" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="70.3333511352539" minHeight="10.0" prefHeight="33.44446818033856" vgrow="SOMETIMES" />
+                                </rowConstraints>
                                  <children>
-                                    <Text fill="WHITE" layoutX="68.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TASKFA MANAGER">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Not started" GridPane.halignment="CENTER">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <ListView fx:id="notStartedListView" minWidth="-Infinity" prefHeight="67.0" prefWidth="321.0" GridPane.rowIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="In Progress" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <ListView fx:id="inProgressListView" prefHeight="88.0" prefWidth="499.0" GridPane.rowIndex="3" />
+                                    <GridPane GridPane.rowIndex="4">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="429.5555114746094" minWidth="10.0" prefWidth="427.7776794433594" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.888916015625" minWidth="10.0" prefWidth="72.22232055664062" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <ProgressBar fx:id="taskProgressBar" prefHeight="18.0" prefWidth="395.0" progress="0.0" GridPane.halignment="CENTER" />
+                                          <Label fx:id="progressPourcentage" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                              <GridPane style="-fx-background-color: #365b6d;">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.77783203125" minWidth="10.0" prefWidth="90.22222900390625" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="409.77777099609375" minWidth="10.0" prefWidth="409.77777099609375" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TASKFA MANAGER" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                                        <font>
                                           <Font name="System Bold" size="38.0" />
                                        </font>
                                     </Text>
-                                    <ImageView fitHeight="44.0" fitWidth="70.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="44.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                        <image>
                                           <Image url="@../media/10.png" />
                                        </image>
                                     </ImageView>
                                  </children>
-                              </AnchorPane>
+                              </GridPane>
                            </children>
                         </GridPane>
                      </children>
@@ -133,24 +192,88 @@
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints maxHeight="134.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="228.0" minHeight="10.0" prefHeight="212.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="134.0" minHeight="10.0" prefHeight="75.33331044514973" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="260.0000228881836" minHeight="10.0" prefHeight="260.0000228881836" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <AnchorPane prefHeight="62.0" prefWidth="450.0" style="-fx-background-color: #365b6d; -fx-border-color: #41c1be; -fx-border-width: 0 0 3 0; -fx-border-radius: 5; -fx-background-radius: 5;">
+                              <GridPane GridPane.rowIndex="1">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="33.3333740234375" minHeight="10.0" prefHeight="32.00000190734863" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="59.333292643229164" minHeight="10.0" prefHeight="52.222249348958336" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="91.55548095703125" minHeight="10.0" prefHeight="64.88883463541667" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="78.00002034505206" minHeight="10.0" prefHeight="63.77783203125" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="42.00002034505209" minHeight="0.0" prefHeight="42.00002034505209" valignment="CENTER" vgrow="SOMETIMES" />
+                                </rowConstraints>
                                  <children>
-                                    <Text fill="WHITE" layoutX="107.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TASKFA VCS">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Official Version :" GridPane.halignment="CENTER">
+                                       <font>
+                                          <Font size="23.0" />
+                                       </font>
+                                    </Text>
+                                    <Label fx:id="officialVcsFile" alignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your submit Request :" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="26.0" />
+                                       </font>
+                                    </Text>
+                                    <Label fx:id="fileSubmitVcs" alignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font></Label>
+                                    <GridPane GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.66668701171875" minWidth="10.0" prefWidth="231.33331298828125" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.6667022705078" minWidth="10.0" prefWidth="268.66668701171875" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Status :" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                                             <font>
+                                                <Font size="21.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets right="20.0" />
+                                             </GridPane.margin>
+                                          </Text>
+                                          <Label fx:id="fileStatusVcs" text="in review" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                             <font>
+                                                <Font size="21.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </GridPane>
+                              <GridPane style="-fx-background-color: #365b6d;">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.88888549804688" minWidth="10.0" prefWidth="83.11111704508463" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="444.8888676961263" minWidth="10.0" prefWidth="416.8888829549154" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TASKFA VCS" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                                        <font>
                                           <Font name="System Bold" size="38.0" />
                                        </font>
                                     </Text>
-                                    <ImageView fitHeight="44.0" fitWidth="50.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="44.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                        <image>
                                           <Image url="@../media/13.png" />
                                        </image>
                                     </ImageView>
                                  </children>
-                              </AnchorPane>
+                              </GridPane>
                            </children>
                         </GridPane>
                      </children>
@@ -171,24 +294,42 @@
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints maxHeight="158.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="248.0" minHeight="10.0" prefHeight="210.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="158.0" minHeight="10.0" prefHeight="67.4443868001302" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="267.8889465332031" minHeight="10.0" prefHeight="267.8889465332031" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <AnchorPane prefHeight="92.0" prefWidth="449.0" style="-fx-background-color: #365b6d; -fx-border-color: #41c1be; -fx-border-width: 0 0 3 0; -fx-border-radius: 5; -fx-background-radius: 5;">
+                              <GridPane GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
                                  <children>
-                                    <Text fill="WHITE" layoutX="43.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TASKFA RESSOURCES">
+                                    <ListView fx:id="resourceListView" prefHeight="200.0" prefWidth="200.0" />
+                                 </children>
+                              </GridPane>
+                              <GridPane style="-fx-background-color: #365b6d;">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.8887939453125" minWidth="10.0" prefWidth="77.1110610961914" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="422.8889389038086" minWidth="10.0" prefWidth="422.8889389038086" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TASKFA RESSOURCES" wrappingWidth="420.5484924316406" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                                        <font>
                                           <Font name="System Bold" size="38.0" />
                                        </font>
                                     </Text>
-                                    <ImageView fitHeight="44.0" fitWidth="50.0" layoutX="6.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="44.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                                        <image>
                                           <Image url="@../media/12.png" />
                                        </image>
                                     </ImageView>
                                  </children>
-                              </AnchorPane>
+                              </GridPane>
                            </children>
                         </GridPane>
                      </children>
@@ -198,7 +339,7 @@
                   </GridPane>
                </children>
             </GridPane>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: red;" text="Quit Project" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="quitPorijectButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: red;" text="Quit Project" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
