@@ -33,10 +33,6 @@ public class RessourceController {
         }
     }
 
-
-
-
-
     public void other(ActionEvent event){
         FileChooser ot = new FileChooser();
 

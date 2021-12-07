@@ -32,7 +32,7 @@
                 <RowConstraints vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #41c1be;" GridPane.columnSpan="3" />
+                  <Pane fx:id="topBarLayout" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #41c1be;" GridPane.columnSpan="3" />
                   <Text fx:id="memberName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="MEMBER 1" GridPane.columnIndex="1" GridPane.halignment="LEFT">
                      <font>
                         <Font name="System Bold" size="27.0" />

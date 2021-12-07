@@ -1,10 +1,12 @@
 package com.example.taskfa.controllers.chat;
 
+import com.example.taskfa.controllers.utils.UserSession;
 import com.example.taskfa.model.Message;
 import com.example.taskfa.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -38,7 +40,7 @@ public class ChatViewController implements Initializable {
 
         message = new Message();
         message.setSender(new User("Aissam","Boussoufiane"));
-        message.setMessage("Bonjour tous le monde aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        message.setMessage("Bonjour tous le monde");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
@@ -62,25 +64,25 @@ public class ChatViewController implements Initializable {
 
         message = new Message();
         message.setSender(new User("Aissam","Boussoufiane"));
-        message.setMessage("Bonjour tous le monde aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        message.setMessage("Lorem");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
         message.setSender(new User("Achraf","Herkane"));
-        message.setMessage("Salut");
+        message.setMessage("test 123");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
         message.setSender(new User("Fatima","El Hadeg"));
-        message.setMessage("Bonjour");
+        message.setMessage("Helloo");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
         message.setSender(new User("Anas","Laouissi"));
-        message.setMessage("Bonjour ");
+        message.setMessage("Ahlan");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
@@ -104,7 +106,7 @@ public class ChatViewController implements Initializable {
         Message messageToSend = new Message();
         Date date = Calendar.getInstance().getTime();
         DateFormat df = new SimpleDateFormat("hh:mm");
-        messageToSend.setSender(new User("SAID","SAID"));
+        messageToSend.setSender(new User(UserSession.getFirstName(), UserSession.getLastName()));
         messageToSend.setMessage(msg);
         messageToSend.setDate_sent(df.format(date));
         messages.add(messageToSend);
@@ -115,8 +117,8 @@ public class ChatViewController implements Initializable {
         ChatItemController chatItemController = fxmlLoader.getController();
         chatItemController.setData(messageToSend);
         grid.add(anchorPane, 0, messages.size());
-
         GridPane.setMargin(anchorPane, new Insets(10));
+        GridPane.setHalignment(anchorPane, HPos.RIGHT);
         message.setText("");
         scrollMessages.needsLayoutProperty().addListener((observable, oldValue, newValue) -> {
             scrollMessages.setVvalue(scrollMessages.getVmax());

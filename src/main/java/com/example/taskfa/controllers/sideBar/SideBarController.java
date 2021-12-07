@@ -1,17 +1,14 @@
 package com.example.taskfa.controllers.sideBar;
 
-import com.example.taskfa.controllers.UserSession;
-import com.example.taskfa.model.Message;
+import com.example.taskfa.controllers.utils.UserSession;
 import com.example.taskfa.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.VPos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -52,14 +49,34 @@ public class SideBarController implements Initializable  {
         User user;
         Date date = Calendar.getInstance().getTime();
         DateFormat df = new SimpleDateFormat("hh:mm");
-        for(int i=0; i<6; i++) {
-            user = new User();
-            user.setFirstName("Aissam");
-            user.setLastName("Boussoufiane");
-            user.setStatus("Active");
-            user.setImgSrc("/media/cr7.jpg");
-            users.add(user);
-        }
+
+        user = new User();
+        user.setFirstName("Aissam");
+        user.setLastName("Boussoufiane");
+        user.setStatus("Active");
+        user.setImgSrc("/media/profile_pic_1.jfif");
+        users.add(user);
+
+        user = new User();
+        user.setFirstName("Anas");
+        user.setLastName("Laouissi");
+        user.setStatus("Acive");
+        user.setImgSrc("/media/profile_pic_6.jpg");
+        users.add(user);
+        user = new User();
+        user.setFirstName("Achraf");
+        user.setLastName("Herkane");
+        user.setStatus("Last seen 8min ago");
+        user.setImgSrc("/media/profile_pic_2.jfif");
+        users.add(user);
+        user = new User();
+        user.setFirstName("Fatima");
+        user.setLastName("El hadeg");
+        user.setStatus("Last seen 1h ago");
+        user.setImgSrc("/media/profile_pic_4.jfif");
+        users.add(user);
+
+
     }
 
     @Override
@@ -68,7 +85,7 @@ public class SideBarController implements Initializable  {
         userLastName.setText(UserSession.getLastName());
         userId.setText(Integer.toString(UserSession.getIdUser()));
         getUserList();
-        Image img = new Image(getClass().getResourceAsStream(users.get(0).getImgSrc()));
+        Image img = new Image(getClass().getResourceAsStream("/media/profile_pic_5.jfif"));
         userImage.setImage(img);
         for (int i=0; i<users.size();i++){
             try {

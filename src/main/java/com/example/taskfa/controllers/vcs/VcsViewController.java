@@ -3,6 +3,9 @@ package com.example.taskfa.controllers.vcs;
 import com.example.taskfa.model.File;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import com.example.taskfa.model.FileStatus;
+import com.example.taskfa.model.Status;
+import com.example.taskfa.model.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -42,13 +45,11 @@ public class VcsViewController implements Initializable {
     private List<File> files = new ArrayList<>();
 
 
-
     private List<File> getData() {
         List<File> files = new ArrayList<>();
         File file;
         for (int i=0; i<5; i++) {
-            file = new File();
-            file.setFileName("JAVATP.zip");
+            file = new File("JAVATP.zip", FileStatus.APPROVED);
             files.add(file);
         }
         return files;
