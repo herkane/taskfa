@@ -31,13 +31,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class VcsViewController implements Initializable {
+public class VcsViewControllerAdmin implements Initializable {
 
     @FXML
     private GridPane gridVersionControl;
 
-     @FXML
-     private  Button version;
+    @FXML
+    private  Button version;
 
     @FXML
     private Button uploadBtn;
@@ -109,8 +109,8 @@ public class VcsViewController implements Initializable {
         inputStage.setScene(newScene);
         inputStage.showAndWait();
 
-       // String input = fxmlLoader.<UploadVcsController>getController().getValue();
-     //   outputField.setText(input);
+        // String input = fxmlLoader.<UploadVcsController>getController().getValue();
+        //   outputField.setText(input);
     }
 
 
@@ -118,11 +118,11 @@ public class VcsViewController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/PopUpVCS.fxml") );
         Parent parent = fxmlLoader.load();
         Platform.runLater(()->{
-            Stage stage1=(Stage)version.getScene().getWindow();
-            stage1.setFullScreen(false);
-            stage1.setFullScreen(true);
+                    Stage stage1=(Stage)version.getScene().getWindow();
+                    stage1.setFullScreen(false);
+                    stage1.setFullScreen(true);
                 }
-                );
+        );
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
         stage.setAlwaysOnTop(true);
@@ -131,7 +131,7 @@ public class VcsViewController implements Initializable {
         stage.show();
     }
 
-    }
+}
 
 
 

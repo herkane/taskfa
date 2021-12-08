@@ -69,6 +69,7 @@ public class ProjectViewController implements Initializable {
         DateFormat df = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         for (int i=0; i<5;i++) {
             project = new Project();
+            project.setProjectId(i);
             project.setTitle("My project");
             project.setMembersNum(10);
             project.setCreatedDate(df.format(date));
@@ -120,7 +121,6 @@ public class ProjectViewController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        addGridEvent();
     }
 
     public void goToVcsView() throws IOException {
@@ -139,25 +139,5 @@ public class ProjectViewController implements Initializable {
         window.setScene(new Scene(root));
         window.centerOnScreen();
         window.setFullScreen(false);
-    }
-
-    private void addGridEvent() {
-        grid.getChildren().forEach(item -> {
-            item.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    if (event.getClickCount() == 1) {
-                        System.out.println("click");
-                        Node clickedNode = event.getPickResult().getIntersectedNode();
-                        Object controller = clickedNode.getUserData();
-                        }
-                    if (event.isPrimaryButtonDown()) {
-                        System.out.println("PrimaryKey event");
-                    }
-
-                }
-            });
-
-        });
     }
 }

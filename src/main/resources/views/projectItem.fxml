@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="233.0" prefWidth="329.0" style="-fx-border-color: 41c1be; -fx-background-color: transparent;" styleClass="myproject_widget" stylesheets="@../com/example/taskfa/styles/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.project.ProjectItemController">
+<AnchorPane fx:id="prjectAnchorPane" prefHeight="233.0" prefWidth="329.0" style="-fx-border-color: 41c1be; -fx-background-color: transparent;" styleClass="myproject_widget" stylesheets="@../com/example/taskfa/styles/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.project.ProjectItemController">
    <children>
       <VBox layoutY="4.0" prefHeight="233.0" prefWidth="327.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <children>
@@ -118,5 +119,6 @@
             </StackPane>
          </children>
       </VBox>
+      <Button fx:id="invisibleProjectId" mnemonicParsing="false" onAction="#mouseClick" opacity="0.0" prefHeight="233.0" prefWidth="329.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

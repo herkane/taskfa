@@ -23,6 +23,7 @@ public class IDandUsers {
         user.setStatus("Active");
         user.setImgSrc("/media/profile_pic_1.jfif");
         user.setIdUser(100);
+        user.setAdmin(true);
         loginInfo.put(user.getFirstName()+' '+user.getLastName(), user);
 
         user = new User();
@@ -31,6 +32,7 @@ public class IDandUsers {
         user.setStatus("Acive");
         user.setImgSrc("/media/profile_pic_6.jpg");
         user.setIdUser(101);
+        user.setAdmin(false);
         loginInfo.put(user.getFirstName()+' '+user.getLastName(), user);
         user = new User();
         user.setFirstName("Mariah");
@@ -38,6 +40,7 @@ public class IDandUsers {
         user.setStatus("Last seen 8min ago");
         user.setImgSrc("/media/profile_pic_2.jfif");
         user.setIdUser(103);
+        user.setAdmin(false);
         loginInfo.put(user.getFirstName()+' '+user.getLastName(), user);
         user = new User();
         user.setFirstName("Donald");
@@ -45,6 +48,7 @@ public class IDandUsers {
         user.setStatus("Last seen 1h ago");
         user.setImgSrc("/media/profile_pic_4.jfif");
         user.setIdUser(104);
+        user.setAdmin(false);
         loginInfo.put(user.getFirstName()+' '+user.getLastName(), user);
     }
 

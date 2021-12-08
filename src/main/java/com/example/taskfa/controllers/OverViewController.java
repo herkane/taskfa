@@ -3,12 +3,17 @@ package com.example.taskfa.controllers;
 import com.example.taskfa.model.*;
 import com.example.taskfa.utils.IDandUsers;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -35,7 +40,7 @@ public class OverViewController implements Initializable {
     private Label officialVcsFile;
 
     @FXML
-    private Button quitPorijectButton;
+    private Button quitProjectButton;
 
     @FXML
     private ListView<String> resourceListView;
@@ -48,9 +53,11 @@ public class OverViewController implements Initializable {
 
     private ArrayList<Message> messages = null;
     private ArrayList<Task> tasks = null;
+    private User user = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        user = IDandUsers.getUserObject(IDandUsers.getCurrentUser());
         setChatMessages();
         setTaks();
         setVcsFiles();
@@ -92,6 +99,14 @@ public class OverViewController implements Initializable {
     public void setResourceFiles() {
          resourceListView.getItems().add("PDF : JavaOriented.pdf");
          resourceListView.getItems().add("MP4 : JavaCourse.pdf");
+    }
+
+    public void quitProject() throws IOException {
+        Parent root  = FXMLLoader.load(getClass().getResource("/views/projectView.fxml"));
+        Stage window = (Stage) quitProjectButton.getScene().getWindow();
+        window.setScene(new Scene(root));
+        window.centerOnScreen();
+        window.setFullScreen(true);
     }
 
     public ArrayList<Message> getChatMessages() {
@@ -170,5 +185,6 @@ public class OverViewController implements Initializable {
         tasks.add(task);
         return tasks;
     }
+
 
 }

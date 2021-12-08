@@ -1,6 +1,7 @@
 package com.example.taskfa.model;
 
 public class Project {
+    private int projectId;
     private String title;
     private String createdDate;
     private int membersNum;
@@ -39,7 +40,11 @@ public class Project {
     }
 
 
+    public int getProjectId() {
+        return projectId;
+    }
 
-
-
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
 }

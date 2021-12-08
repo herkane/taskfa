@@ -13,7 +13,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <GridPane prefHeight="950.0" prefWidth="1113.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.OverViewController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -342,7 +341,7 @@
                   </GridPane>
                </children>
             </GridPane>
-            <Button fx:id="quitPorijectButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: red;" text="Quit Project" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="quitProjectButton" mnemonicParsing="false" onAction="#quitProject" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: red;" text="Quit Project" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

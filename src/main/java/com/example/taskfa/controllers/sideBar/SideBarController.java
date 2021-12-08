@@ -1,5 +1,6 @@
 package com.example.taskfa.controllers.sideBar;
 
+import com.example.taskfa.utils.IDandUsers;
 import com.example.taskfa.utils.UserSession;
 import com.example.taskfa.model.User;
 import javafx.fxml.FXML;
@@ -7,12 +8,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,6 +48,7 @@ public class SideBarController implements Initializable  {
     private Label userName;
 
     private final List<User> users = new ArrayList<>();
+    private User user = null;
 
     private void getUserList() {
         User user;
@@ -81,11 +86,12 @@ public class SideBarController implements Initializable  {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        userName.setText(UserSession.getFirstName());
-        userLastName.setText(UserSession.getLastName());
-        userId.setText(Integer.toString(UserSession.getIdUser()));
+        user = IDandUsers.getUserObject(IDandUsers.getCurrentUser());
+        userName.setText(user.getFirstName());
+        userLastName.setText(user.getLastName());
+        userId.setText(Integer.toString(user.getIdUser()));
         getUserList();
-        Image img = new Image(getClass().getResourceAsStream("/media/profile_pic_5.jfif"));
+        Image img = new Image(getClass().getResourceAsStream(user.getImgSrc()));
         userImage.setImage(img);
         for (int i=0; i<users.size();i++){
             try {
@@ -101,6 +107,14 @@ public class SideBarController implements Initializable  {
                 e.printStackTrace();
             }
         }
+    }
 
+    public void onSignOut() throws IOException {
+        IDandUsers.setCurrentUser(null);
+        Parent root  = FXMLLoader.load(getClass().getResource("/views/SignIn.fxml"));
+        Stage window = (Stage) signOutBtn.getScene().getWindow();
+        window.setScene(new Scene(root));
+        window.centerOnScreen();
+        window.setFullScreen(true);
     }
 }

@@ -1,14 +1,16 @@
 package com.example.taskfa.controllers;
 
 import com.example.taskfa.model.ScreenLoader;
+import com.example.taskfa.model.User;
+import com.example.taskfa.utils.IDandUsers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-import org.controlsfx.control.spreadsheet.Grid;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,10 +19,20 @@ import java.util.ResourceBundle;
 public class PagesLoaderController implements Initializable {
     @FXML
     private BorderPane mainPane;
+    @FXML
+    private Label projectIdpassed;
+    private int projectId;
+    User user = IDandUsers.getUserObject(IDandUsers.getCurrentUser());
 
     public void goToVcs() {
         ScreenLoader screen = new ScreenLoader();
-        Pane view = screen.getPage("vcsView");
+        Pane view;
+        if (user.isAdmin()) {
+            view = screen.getPage("vcsViewAdmin");
+        } else {
+            view = screen.getPage("vcsView");
+        }
+
         mainPane.setCenter(view);
     }
 
@@ -58,17 +70,24 @@ public class PagesLoaderController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        user = IDandUsers.getUserObject(IDandUsers.getCurrentUser());
         try {
             FXMLLoader fxmlLoader1 = new FXMLLoader();
             FXMLLoader fxmlLoader2 = new FXMLLoader();
-            fxmlLoader1.setLocation(getClass().getResource("/views/SideBarView.fxml"));
+            fxmlLoader1.setLocation(getClass().getResource(user.getMenu().showSideBar()));
             GridPane sideBar = fxmlLoader1.load();
-            fxmlLoader2.setLocation(getClass().getResource("/views/OverView.fxml"));
+            fxmlLoader2.setLocation(getClass().getResource(user.getMenu().showOverView()));
             GridPane center = fxmlLoader2.load();
             mainPane.setLeft(sideBar);
             mainPane.setCenter(center);
+            projectIdpassed.setText(String.valueOf(projectId));
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
     }
 }

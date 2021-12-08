@@ -11,15 +11,25 @@ public class User {
     private String lastName;
     private String status;
     private String imgSrc;
+    private boolean admin;
 
-    public User(String firstName, String lastName, int idUser) {
+    public User(String firstName, String lastName, int idUser, boolean admin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.idUser = idUser;
+        this.admin = admin;
     }
 
     public User() {
 
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 
     public Menu getMenu() {
@@ -27,7 +37,7 @@ public class User {
     }
 
     public boolean authenticate(String email, String password) {
-        return email.equals(password);
+        return password.equals("");
     }
 
     public void setFirstName(String firstName) {

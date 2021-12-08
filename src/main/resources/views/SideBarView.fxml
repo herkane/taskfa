@@ -88,7 +88,7 @@
             <Insets right="5.0" />
          </opaqueInsets>
       </GridPane>
-      <Button fx:id="signOutBtn" alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="252.0" styleClass="sign-out" text="Sign Out" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+      <Button fx:id="signOutBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onSignOut" prefHeight="60.0" prefWidth="252.0" styleClass="sign-out" text="Sign Out" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="30.0" />
          </GridPane.margin>
