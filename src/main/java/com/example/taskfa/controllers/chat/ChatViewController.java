@@ -1,6 +1,7 @@
 package com.example.taskfa.controllers.chat;
 
-import com.example.taskfa.controllers.utils.UserSession;
+import com.example.taskfa.utils.IDandUsers;
+import com.example.taskfa.utils.UserSession;
 import com.example.taskfa.model.Message;
 import com.example.taskfa.model.User;
 import javafx.fxml.FXML;
@@ -36,56 +37,56 @@ public class ChatViewController implements Initializable {
     private void getMessages() {
         Message message;
         Date date = Calendar.getInstance().getTime();
+        HashMap<String, User> users = IDandUsers.getLoginInfo();
         DateFormat df = new SimpleDateFormat("hh:mm");
 
         message = new Message();
-        message.setSender(new User("Aissam","Boussoufiane"));
+        message.setSender(users.get("Lena Prince"));
         message.setMessage("Bonjour tous le monde");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
-        message.setSender(new User("Achraf","Herkane"));
+        message.setSender(users.get("Raphael Sanders"));
         message.setMessage("Salut");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
-        message.setSender(new User("Fatima","El Hadeg"));
+        message.setSender(users.get("Mariah Walker"));
         message.setMessage("Bonjour");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
-        message.setSender(new User("Anas","Laouissi"));
+        message.setSender(users.get("Donald Michael"));
         message.setMessage("Bonjour ");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
-        message.setSender(new User("Aissam","Boussoufiane"));
+        message.setSender(users.get("Mariah Walker"));
         message.setMessage("Lorem");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
-        message.setSender(new User("Achraf","Herkane"));
+        message.setSender(users.get("Lena Prince"));
         message.setMessage("test 123");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
-        message.setSender(new User("Fatima","El Hadeg"));
+        message.setSender(users.get("Raphael Sanders"));
         message.setMessage("Helloo");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
-        message.setSender(new User("Anas","Laouissi"));
+        message.setSender(users.get("Lena Prince"));
         message.setMessage("Ahlan");
         message.setDate_sent(df.format(date));
         messages.add(message);
-
     }
 
     @Override
@@ -106,7 +107,7 @@ public class ChatViewController implements Initializable {
         Message messageToSend = new Message();
         Date date = Calendar.getInstance().getTime();
         DateFormat df = new SimpleDateFormat("hh:mm");
-        messageToSend.setSender(new User(UserSession.getFirstName(), UserSession.getLastName()));
+        messageToSend.setSender(IDandUsers.getUserObject(IDandUsers.getCurrentUser()));
         messageToSend.setMessage(msg);
         messageToSend.setDate_sent(df.format(date));
         messages.add(messageToSend);

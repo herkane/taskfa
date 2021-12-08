@@ -1,4 +1,4 @@
-package com.example.taskfa.controllers.utils;
+package com.example.taskfa.utils;
 
 public class UserSession {
     private static String firstName;

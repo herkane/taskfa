@@ -1,6 +1,8 @@
 package com.example.taskfa.controllers;
 
-import com.example.taskfa.controllers.utils.UserSession;
+import com.example.taskfa.model.User;
+import com.example.taskfa.utils.IDandUsers;
+import com.example.taskfa.utils.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -49,11 +51,20 @@ public class SignInController {
     REDIRECT TO PROJECT VIEW WHEN LOGIN
  */
     public void goToProjectView() throws IOException {
-        UserSession userSession = new UserSession("Hamid","Lmohmadi",100300);
-        Parent root  = FXMLLoader.load(getClass().getResource("/views/pagesLoader.fxml"));
-        Stage window = (Stage) signUpButton.getScene().getWindow();
-        window.setScene(new Scene(root));
-        window.setFullScreen(true);
+        String email = emailinput.getText();
+        String password = passwordInput.getText();
+        IDandUsers.setCurrentUser(email);
+        User user = IDandUsers.getUserObject(email);
+        if (user == null){
+            System.out.println("Sign Up please");
+        } else if (user.authenticate(email, password)) {
+            Parent root  = FXMLLoader.load(getClass().getResource(user.getMenu().showProjects()));
+            Stage window = (Stage) signUpButton.getScene().getWindow();
+            window.setScene(new Scene(root));
+            window.setFullScreen(true);
+        } else {
+            System.out.println("Password wrong");
+        }
     }
 
     public void showPassword() {

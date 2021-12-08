@@ -1,21 +1,28 @@
 package com.example.taskfa.controllers.project;
 
 import com.example.taskfa.model.Project;
+import com.example.taskfa.model.User;
+import com.example.taskfa.utils.IDandUsers;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -73,6 +80,13 @@ public class ProjectViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        User user = IDandUsers.getUserObject(IDandUsers.getCurrentUser());
+        userName.setText(user.getFirstName());
+        userLastName.setText(user.getLastName());
+        userId.setText(Integer.toString(user.getIdUser()));
+        Image img = new Image(getClass().getResourceAsStream(user.getImgSrc()));
+        userImage.setImage(img);
+
     projects.addAll(getData());
         int column = 0;
         int row = 1;
@@ -106,6 +120,7 @@ public class ProjectViewController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        addGridEvent();
     }
 
     public void goToVcsView() throws IOException {
@@ -116,5 +131,33 @@ public class ProjectViewController implements Initializable {
         window.setFullScreen(true);
     }
 
+    @FXML
+    void onSignOutClick(ActionEvent event) throws IOException {
+        IDandUsers.setCurrentUser(null);
+        Parent root  = FXMLLoader.load(getClass().getResource("/views/SignIn.fxml"));
+        Stage window = (Stage) grid.getScene().getWindow();
+        window.setScene(new Scene(root));
+        window.centerOnScreen();
+        window.setFullScreen(false);
+    }
 
+    private void addGridEvent() {
+        grid.getChildren().forEach(item -> {
+            item.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if (event.getClickCount() == 1) {
+                        System.out.println("click");
+                        Node clickedNode = event.getPickResult().getIntersectedNode();
+                        Object controller = clickedNode.getUserData();
+                        }
+                    if (event.isPrimaryButtonDown()) {
+                        System.out.println("PrimaryKey event");
+                    }
+
+                }
+            });
+
+        });
+    }
 }

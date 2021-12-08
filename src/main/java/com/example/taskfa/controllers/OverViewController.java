@@ -1,6 +1,7 @@
 package com.example.taskfa.controllers;
 
 import com.example.taskfa.model.*;
+import com.example.taskfa.utils.IDandUsers;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,10 +12,7 @@ import javafx.scene.control.ProgressBar;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class OverViewController implements Initializable {
 
@@ -100,52 +98,53 @@ public class OverViewController implements Initializable {
         ArrayList<Message> messages = new ArrayList<>();
         Message message;
         Date date = Calendar.getInstance().getTime();
+        HashMap<String, User> users = IDandUsers.getLoginInfo();
         DateFormat df = new SimpleDateFormat("hh:mm");
 
         message = new Message();
-        message.setSender(new User("Aissam","Boussoufiane"));
+        message.setSender(users.get("Lena Prince"));
         message.setMessage("Bonjour tous le monde");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
-        message.setSender(new User("Achraf","Herkane"));
+        message.setSender(users.get("Raphael Sanders"));
         message.setMessage("Salut");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
-        message.setSender(new User("Fatima","El Hadeg"));
+        message.setSender(users.get("Mariah Walker"));
         message.setMessage("Bonjour");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
-        message.setSender(new User("Anas","Laouissi"));
+        message.setSender(users.get("Donald Michael"));
         message.setMessage("Bonjour ");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
-        message.setSender(new User("Aissam","Boussoufiane"));
+        message.setSender(users.get("Mariah Walker"));
         message.setMessage("Lorem");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
-        message.setSender(new User("Achraf","Herkane"));
+        message.setSender(users.get("Lena Prince"));
         message.setMessage("test 123");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
-        message.setSender(new User("Fatima","El Hadeg"));
+        message.setSender(users.get("Raphael Sanders"));
         message.setMessage("Helloo");
         message.setDate_sent(df.format(date));
         messages.add(message);
 
         message = new Message();
-        message.setSender(new User("Anas","Laouissi"));
+        message.setSender(users.get("Lena Prince"));
         message.setMessage("Ahlan");
         message.setDate_sent(df.format(date));
         messages.add(message);

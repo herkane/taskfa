@@ -23,6 +23,6 @@ module com.example.taskfa {
     opens com.example.taskfa.controllers.vcs to javafx.fxml;
     exports com.example.taskfa.controllers.sideBar;
     opens com.example.taskfa.controllers.sideBar to javafx.fxml;
-    exports com.example.taskfa.controllers.utils;
-    opens com.example.taskfa.controllers.utils to javafx.fxml;
+    exports com.example.taskfa.utils;
+    opens com.example.taskfa.utils to javafx.fxml;
 }

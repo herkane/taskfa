@@ -1,6 +1,6 @@
 package com.example.taskfa.controllers.sideBar;
 
-import com.example.taskfa.controllers.utils.UserSession;
+import com.example.taskfa.utils.UserSession;
 import com.example.taskfa.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
