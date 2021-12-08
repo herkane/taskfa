@@ -19,6 +19,12 @@ import javafx.scene.layout.Region;
 import javafx.stage.Modality;
 import javafx.scene.control.Label;
 
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -40,7 +46,6 @@ public class VcsViewController implements Initializable {
 
     @FXML
     private Label outputField;
-
 
     private List<File> files = new ArrayList<>();
 
@@ -127,5 +132,6 @@ public class VcsViewController implements Initializable {
     }
 
     }
+
 
 

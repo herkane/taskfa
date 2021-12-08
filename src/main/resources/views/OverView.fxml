@@ -208,6 +208,7 @@
                                     <RowConstraints maxHeight="78.00002034505206" minHeight="10.0" prefHeight="63.77783203125" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="42.00002034505209" minHeight="0.0" prefHeight="42.00002034505209" valignment="CENTER" vgrow="SOMETIMES" />
                                 </rowConstraints>
+
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Official Version :" GridPane.halignment="CENTER">
                                        <font>
@@ -263,6 +264,7 @@
                                     <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
+
                                     <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TASKFA VCS" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                                        <font>
                                           <Font name="System Bold" size="38.0" />
