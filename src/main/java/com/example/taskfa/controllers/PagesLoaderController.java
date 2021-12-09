@@ -6,10 +6,9 @@ import com.example.taskfa.utils.IDandUsers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 
 
 import java.io.IOException;
@@ -79,6 +78,7 @@ public class PagesLoaderController implements Initializable {
             fxmlLoader2.setLocation(getClass().getResource(user.getMenu().showOverView()));
             GridPane center = fxmlLoader2.load();
             mainPane.setLeft(sideBar);
+            BorderPane.setMargin(mainPane.getLeft(), new Insets(-50,0,0,0));
             mainPane.setCenter(center);
             projectIdpassed.setText(String.valueOf(projectId));
         } catch (IOException e) {

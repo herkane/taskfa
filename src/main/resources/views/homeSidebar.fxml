@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" fx:id="homeSideBar" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.project.ProjectViewController">
+<GridPane fx:id="homeSideBar" alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.project.ProjectViewController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="704.0" minWidth="10.0" prefWidth="405.99998982747394" />
    </columnConstraints>
