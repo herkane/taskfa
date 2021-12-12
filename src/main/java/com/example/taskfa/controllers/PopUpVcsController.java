@@ -15,7 +15,7 @@ public class PopUpVcsController {
 
     public Button details;
     public void toDetails(ActionEvent event)  throws IOException {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/detailsPopUp.fxml") );
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/VcsDetailsPopUp.fxml") );
             Parent parent = fxmlLoader.load();
 
         Platform.runLater(()->{

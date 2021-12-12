@@ -110,7 +110,7 @@ public class VcsViewController implements Initializable {
 
 
     public void toPopUp(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/PopUpVCS.fxml") );
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/vcsPopupVersion.fxml") );
         Parent parent = fxmlLoader.load();
         Platform.runLater(()->{
             Stage stage1=(Stage)version.getScene().getWindow();

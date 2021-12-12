@@ -17,12 +17,6 @@ import javafx.scene.layout.Region;
 import javafx.stage.Modality;
 import javafx.scene.control.Label;
 
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -115,7 +109,7 @@ public class VcsViewControllerAdmin implements Initializable {
 
 
     public void toPopUp(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/PopUpVCS.fxml") );
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/vcsPopupVersion.fxml") );
         Parent parent = fxmlLoader.load();
         Platform.runLater(()->{
                     Stage stage1=(Stage)version.getScene().getWindow();
