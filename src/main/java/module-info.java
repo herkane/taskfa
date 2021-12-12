@@ -9,6 +9,7 @@ module com.example.taskfa {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires javafx.graphics;
+    requires javafx.base;
     // requires eu.hansolo.tilesfx;
 
     opens com.example.taskfa to javafx.fxml;

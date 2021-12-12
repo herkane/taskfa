@@ -1,6 +1,7 @@
 package com.example.taskfa.controllers.vcs;
 
 import com.example.taskfa.model.*;
+
 import com.example.taskfa.utils.IDandUsers;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -17,12 +18,6 @@ import javafx.scene.layout.Region;
 import javafx.stage.Modality;
 import javafx.scene.control.Label;
 
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 import java.io.IOException;
