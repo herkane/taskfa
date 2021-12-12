@@ -11,7 +11,7 @@
 
 <BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.PagesLoaderController">
    <top>
-      <GridPane prefHeight="50.0" prefWidth="1066.0" BorderPane.alignment="CENTER">
+      <GridPane alignment="CENTER" prefHeight="50.0" prefWidth="1066.0" BorderPane.alignment="CENTER">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
@@ -19,7 +19,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="overviewBtn" mnemonicParsing="false" onAction="#gotoOverview" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="OVERVIEW" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="overviewBtn" alignment="CENTER" mnemonicParsing="false" onAction="#gotoOverview" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="OVERVIEW" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets right="120.0" />
                </GridPane.margin>
@@ -33,7 +33,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </Button>
-            <Button fx:id="tasksBtn" mnemonicParsing="false" onAction="#goToTasks" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="TASKS" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="tasksBtn" alignment="CENTER" mnemonicParsing="false" onAction="#goToTasks" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="TASKS" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="110.0" />
                </GridPane.margin>
@@ -47,7 +47,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </Button>
-            <Button fx:id="resourcesBtn" mnemonicParsing="false" onAction="#goToResources" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="RESOURCES" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="resourcesBtn" alignment="CENTER" mnemonicParsing="false" onAction="#goToResources" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="RESOURCES" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets right="350.0" />
                </GridPane.margin>
@@ -61,7 +61,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </Button>
-            <Button fx:id="vcsBtn" mnemonicParsing="false" onAction="#goToVcs" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="VCS" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="vcsBtn" alignment="CENTER" mnemonicParsing="false" onAction="#goToVcs" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="VCS" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="340.0" />
                </GridPane.margin>
@@ -75,7 +75,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </Button>
-            <Button fx:id="chatBtn" mnemonicParsing="false" onAction="#goToChat" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="CHAT" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="chatBtn" alignment="CENTER" mnemonicParsing="false" onAction="#goToChat" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="CHAT" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="570.0" />
                </GridPane.margin>

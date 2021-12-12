@@ -8,14 +8,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
-import javafx.scene.control.Label;
 
 import javafx.stage.Stage;
 
@@ -33,6 +39,8 @@ public class VcsViewControllerAdmin implements Initializable {
     @FXML
     private  Button version;
 
+    @FXML
+    private AnchorPane pane;
     @FXML
     private Button uploadBtn;
 
@@ -109,7 +117,8 @@ public class VcsViewControllerAdmin implements Initializable {
 
 
     public void toPopUp(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/vcsPopupVersion.fxml") );
+
+       /* FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/vcsPopupVersion.fxml") );
         Parent parent = fxmlLoader.load();
         Platform.runLater(()->{
                     Stage stage1=(Stage)version.getScene().getWindow();
@@ -122,9 +131,27 @@ public class VcsViewControllerAdmin implements Initializable {
         stage.setAlwaysOnTop(true);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
+        stage.show();*/
+
+
+        Stage stage = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/vcsPopupVersion.fxml") );
+
+        Dialog<String> dialog = new Dialog<>();
+          dialog.getDialogPane().setContent(fxmlLoader.load());
+         version.setOnAction(e -> {
+            dialog.showAndWait();
+        });
+        FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/views/popups/vcsPopupVersion.fxml") );
+        Parent parent = fxmlLoader1.load();
+
+        Scene scene = new Scene(parent);//Creating a scene object
+        stage.setTitle("Dialog");
+
+        stage.setScene(scene);
+
         stage.show();
     }
-
 }
 
 

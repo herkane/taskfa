@@ -2,18 +2,27 @@ package com.example.taskfa.controllers;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class PopUpVcsController {
+AnchorPane pane;
+    @FXML
+        public Text name,file;
+        @FXML
+        public Button no,ok,details;
 
-    public Button details;
     public void toDetails(ActionEvent event)  throws IOException {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/VcsDetailsPopUp.fxml") );
             Parent parent = fxmlLoader.load();
@@ -31,5 +40,16 @@ public class PopUpVcsController {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
+    }
+
+
+    public void delete(ActionEvent event) {
+        //getChildren().removeAll();
+            name.setText("");
+            file.setText("");
+          no.setDisable(true);
+           ok.setDisable(true);
+        details.setDisable(true);
+
     }
 }
