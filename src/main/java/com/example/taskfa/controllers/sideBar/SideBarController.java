@@ -86,7 +86,7 @@ public class SideBarController implements Initializable  {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        user = IDandUsers.getUserObject(IDandUsers.getCurrentUser());
+        user = UserSession.getCurrentUser();
         userName.setText(user.getFirstName());
         userLastName.setText(user.getLastName());
         userId.setText(Integer.toString(user.getIdUser()));
@@ -110,7 +110,7 @@ public class SideBarController implements Initializable  {
     }
 
     public void onSignOut() throws IOException {
-        IDandUsers.setCurrentUser(null);
+        UserSession.setCurrentUser(null);
         Parent root  = FXMLLoader.load(getClass().getResource("/views/SignIn.fxml"));
         Stage window = (Stage) signOutBtn.getScene().getWindow();
         window.setScene(new Scene(root));

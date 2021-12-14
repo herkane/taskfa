@@ -2,6 +2,7 @@ package com.example.taskfa.controllers;
 
 import com.example.taskfa.model.*;
 import com.example.taskfa.utils.IDandUsers;
+import com.example.taskfa.utils.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -57,13 +58,13 @@ public class OverViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        user = IDandUsers.getUserObject(IDandUsers.getCurrentUser());
-        setChatMessages();
+        user = UserSession.getCurrentUser();
+        //setChatMessages();
         setTaks();
         setVcsFiles();
         setResourceFiles();
     }
-
+    /*
     public void setChatMessages() {
         messages = getChatMessages();
         Message message;
@@ -72,6 +73,7 @@ public class OverViewController implements Initializable {
             chatListView.getItems().add(message.getSender().getLastName()+" : "+message.getMessage());
         }
     }
+     */
     public void setTaks() {
         int progressTerminated = 0;
         tasks = getTasks();
@@ -108,7 +110,7 @@ public class OverViewController implements Initializable {
         window.centerOnScreen();
         window.setFullScreen(true);
     }
-
+    /*
     public ArrayList<Message> getChatMessages() {
         ArrayList<Message> messages = new ArrayList<>();
         Message message;
@@ -166,6 +168,7 @@ public class OverViewController implements Initializable {
 
         return messages;
     }
+     */
     public ArrayList<Task> getTasks(){
         ArrayList<Task> tasks = new ArrayList();
         Task task;

@@ -16,6 +16,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class ProjectItemController {
     @FXML
@@ -38,11 +40,13 @@ public class ProjectItemController {
     private Project project;
 
     public void setData(Project project) {
+        DateFormat yearFormat = new SimpleDateFormat("yyyy-mm-dd");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh-mm");
         this.project = project;
         invisibleProjectId.setText(Integer.toString(project.getProjectId()));
         projectTitle.setText(project.getTitle());
-        projectDateCreation.setText(project.getCreatedDate());
-        meetingDate.setText(project.getNextMeeting());
+        projectDateCreation.setText(yearFormat.format(project.getCreatedDate()));
+        meetingDate.setText(dateFormat.format(project.getNextMeeting()));
         meetingDate.setFont(Font.font("System", 12));
         projectNumMembers.setText(Integer.toString(project.getMembersNum()));
         projectStatus.setText("In progress");

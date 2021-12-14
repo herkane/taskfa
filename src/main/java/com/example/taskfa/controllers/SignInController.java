@@ -1,6 +1,7 @@
 package com.example.taskfa.controllers;
 
 import com.example.taskfa.model.User;
+import com.example.taskfa.modelDao.UserDAO;
 import com.example.taskfa.utils.IDandUsers;
 import com.example.taskfa.utils.UserSession;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 public class SignInController {
     @FXML
@@ -50,9 +52,24 @@ public class SignInController {
     /*
     REDIRECT TO PROJECT VIEW WHEN LOGIN
  */
-    public void goToProjectView() throws IOException {
+
+    public void goToProjectView() throws IOException, NoSuchAlgorithmException {
         String email = emailinput.getText();
         String password = passwordInput.getText();
+        try {
+            User user = UserDAO.searchUser(email, password);
+            UserSession.setCurrentUser(user);
+            System.out.println(user.getLastName());
+            Parent root  = FXMLLoader.load(getClass().getResource(user.getMenu().showProjects()));
+            Stage window = (Stage) signUpButton.getScene().getWindow();
+            window.setScene(new Scene(root));
+            window.setFullScreen(true);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            System.out.println("Error occurred while getting User information from DB.\n" + e);
+            throw e;
+        }
+        /*
         IDandUsers.setCurrentUser(email);
         User user = IDandUsers.getUserObject(email);
         if (user == null){
@@ -65,6 +82,7 @@ public class SignInController {
         } else {
             System.out.println("Password wrong");
         }
+         */
     }
 
     public void showPassword() {

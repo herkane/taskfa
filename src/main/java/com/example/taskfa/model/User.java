@@ -9,6 +9,7 @@ public class User {
     private int idUser;
     private String firstName;
     private String lastName;
+    private String email;
     private String status;
     private String imgSrc;
     private boolean admin;

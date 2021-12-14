@@ -1,25 +1,15 @@
 package com.example.taskfa.utils;
 
+import com.example.taskfa.model.User;
+
 public class UserSession {
-    private static String firstName;
-    private static String lastName;
-    private static int IdUser;
+    private static User currentUser;
 
-    public UserSession(String firstName, String lastName, int idUser) {
-        UserSession.firstName = firstName;
-        UserSession.lastName = lastName;
-        IdUser = idUser;
+    public static void setCurrentUser(User user){
+        currentUser = user;
     }
 
-    public static String getFirstName() {
-        return firstName;
-    }
-
-    public static String getLastName() {
-        return lastName;
-    }
-
-    public static int getIdUser() {
-        return IdUser;
+    public static User getCurrentUser() {
+        return currentUser;
     }
 }
