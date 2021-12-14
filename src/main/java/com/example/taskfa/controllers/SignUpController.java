@@ -50,6 +50,5 @@ public class SignUpController {
         Stage window = (Stage) reduceBtn.getScene().getWindow();
         window.setScene(new Scene(root));
         window.centerOnScreen();
-        window.setFullScreen(true);
     }
 }

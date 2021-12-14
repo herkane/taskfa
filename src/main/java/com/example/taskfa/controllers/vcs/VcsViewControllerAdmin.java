@@ -144,12 +144,17 @@ public class VcsViewControllerAdmin implements Initializable {
         });
         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/views/popups/vcsPopupVersion.fxml") );
         Parent parent = fxmlLoader1.load();
-
+        Platform.runLater(()->{
+                    Stage stage1=(Stage)version.getScene().getWindow();
+                    stage1.setFullScreen(false);
+                    stage1.setFullScreen(true);
+                }
+        );
         Scene scene = new Scene(parent);//Creating a scene object
         stage.setTitle("Dialog");
-
+        stage.setAlwaysOnTop(true);
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
-
         stage.show();
     }
 }
