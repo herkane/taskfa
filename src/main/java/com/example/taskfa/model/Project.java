@@ -1,17 +1,19 @@
 package com.example.taskfa.model;
 
+import java.util.Date;
+
 public class Project {
     private int projectId;
     private String title;
-    private String createdDate;
+    private Date createdDate;
     private int membersNum;
-    private String nextMeeting;
+    private Date nextMeeting;
 
-    public String getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(String createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 
@@ -23,11 +25,11 @@ public class Project {
         this.membersNum = membersNum;
     }
 
-    public String getNextMeeting() {
+    public Date getNextMeeting() {
         return nextMeeting;
     }
 
-    public void setNextMeeting(String nextMeeting) {
+    public void setNextMeeting(Date nextMeeting) {
         this.nextMeeting = nextMeeting;
     }
 

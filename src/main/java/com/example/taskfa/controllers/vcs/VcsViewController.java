@@ -3,6 +3,7 @@ package com.example.taskfa.controllers.vcs;
 import com.example.taskfa.model.*;
 
 import com.example.taskfa.utils.IDandUsers;
+import com.example.taskfa.utils.UserSession;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -56,7 +57,7 @@ public class VcsViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        user = IDandUsers.getUserObject(IDandUsers.getCurrentUser());
+        User user = UserSession.getCurrentUser();
         files.addAll(getData());
         int column = 0;
         int row = 1;

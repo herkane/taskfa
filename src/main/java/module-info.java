@@ -10,6 +10,7 @@ module com.example.taskfa {
     requires org.kordamp.bootstrapfx.core;
     requires javafx.graphics;
     requires javafx.base;
+    requires java.sql;
     // requires eu.hansolo.tilesfx;
 
     opens com.example.taskfa to javafx.fxml;
