@@ -3,8 +3,14 @@ package com.example.taskfa.controllers;
 import com.example.taskfa.model.User;
 import com.example.taskfa.utils.IDandUsers;
 import com.example.taskfa.utils.UserSession;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,11 +19,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class SignInController {
+public class SignInController  implements Initializable {
     @FXML
     private Button signInButton;
     @FXML
@@ -41,10 +52,28 @@ public class SignInController {
     @FXML
     private Tooltip tooltip;
 
-    public void goToSignUp() throws IOException {
+    @FXML
+    private GridPane anchorRoot;
+    @FXML
+    private StackPane parentContainer;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+    }
+
+    public void goToSignUp(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/views/SignUp.fxml"));
-        Stage window = (Stage) signUpButton.getScene().getWindow();
-        window.setScene(new Scene(root));
+        Scene scene= signUpButton.getScene();
+        root.translateYProperty().set(scene.getHeight());
+        parentContainer.getChildren().add(root);
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(root.translateYProperty(), 0, Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.setOnFinished(t -> {
+            parentContainer.getChildren().remove(anchorRoot);
+        });
+        timeline.play();
     }
 
     /*
