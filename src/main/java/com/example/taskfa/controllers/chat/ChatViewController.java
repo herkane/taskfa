@@ -35,6 +35,7 @@ public class ChatViewController implements Initializable {
     private final List<Message> messages = new ArrayList<>();
 
     private void getMessages() {
+        /*
         Message message;
         Date date = Calendar.getInstance().getTime();
         HashMap<String, User> users = IDandUsers.getLoginInfo();
@@ -87,6 +88,8 @@ public class ChatViewController implements Initializable {
         message.setMessage("Ahlan");
         message.setDate_sent(df.format(date));
         messages.add(message);
+
+         */
     }
 
     @Override
@@ -94,15 +97,18 @@ public class ChatViewController implements Initializable {
         /*
             Update Grid Message List With Messages
          */
+        /*
         getMessages();
         try {
             fillChat();
         } catch (IOException e) {
             e.printStackTrace();
         }
+         */
     }
 
     public void onEnterMessage() throws IOException {
+        /*
         String msg = message.getText();
         Message messageToSend = new Message();
         Date date = Calendar.getInstance().getTime();
@@ -124,6 +130,8 @@ public class ChatViewController implements Initializable {
         scrollMessages.needsLayoutProperty().addListener((observable, oldValue, newValue) -> {
             scrollMessages.setVvalue(scrollMessages.getVmax());
         });
+
+         */
     }
 
     public void fillChat() throws IOException {

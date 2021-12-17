@@ -51,12 +51,12 @@
                         </Text>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
                             <children>
-                                <PasswordField layoutX="324.0" layoutY="25.0" prefHeight="66.0" prefWidth="300.0" promptText="Confirm password" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 0 3 0; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;">
+                                <PasswordField fx:id="confirmPassword" layoutX="324.0" layoutY="25.0" prefHeight="66.0" prefWidth="300.0" promptText="Confirm password" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 0 3 0; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;">
                                     <font>
                                         <Font size="20.0" />
                                     </font>
                                 </PasswordField>
-                                <PasswordField layoutX="14.0" layoutY="26.0" prefHeight="66.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 0 3 0; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;">
+                                <PasswordField fx:id="password" layoutX="14.0" layoutY="26.0" prefHeight="66.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 0 3 0; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;">
                                     <font>
                                         <Font size="20.0" />
                                     </font>
@@ -65,7 +65,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
                             <children>
-                                <TextField layoutX="12.0" layoutY="21.0" prefHeight="67.0" prefWidth="300.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;" />
+                                <TextField fx:id="email" layoutX="12.0" layoutY="21.0" prefHeight="67.0" prefWidth="300.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;" />
                                 <Button fx:id="uploadBtn" layoutX="324.0" layoutY="23.0" mnemonicParsing="false" onAction="#upload" prefHeight="67.0" prefWidth="300.0" style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-effect: null; -fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 3; -fx-border-radius: 3; -fx-text-fill: white;" text="Upload picture">
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -75,12 +75,12 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                             <children>
-                                <TextField layoutX="12.0" layoutY="25.0" prefHeight="67.0" prefWidth="300.0" promptText="First name" style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;" />
-                                <TextField layoutX="325.0" layoutY="25.0" prefHeight="67.0" prefWidth="300.0" promptText="Last name" style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;" />
+                                <TextField fx:id="firstName" layoutX="12.0" layoutY="25.0" prefHeight="67.0" prefWidth="300.0" promptText="First name" style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;" />
+                                <TextField fx:id="lastName" layoutX="325.0" layoutY="25.0" prefHeight="67.0" prefWidth="300.0" promptText="Last name" style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;" />
                             </children>
                         </AnchorPane>
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-font-family: Changa Bold; -fx-font-size: 25; -fx-font-weight: 700;" text="Be ready to start a new managment experience" wrappingWidth="624.7135314941406" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                          <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="310.0" style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-effect: null; -fx-background-color: #41c1be; -fx-border-width: 2; -fx-border-color: white; -fx-font-weight: 800; -fx-text-fill: white; -fx-border-radius: 5;" text="Sign Up" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                          <Button fx:id="signUpBtn" mnemonicParsing="false" onAction="#SignUp" prefHeight="50.0" prefWidth="310.0" style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-effect: null; -fx-background-color: #41c1be; -fx-border-width: 2; -fx-border-color: white; -fx-font-weight: 800; -fx-text-fill: white; -fx-border-radius: 5;" text="Sign Up" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="60.0" />
                      </GridPane.margin>

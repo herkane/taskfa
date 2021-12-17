@@ -3,6 +3,7 @@ package com.example.taskfa.controllers;
 import com.example.taskfa.model.ScreenLoader;
 import com.example.taskfa.model.User;
 import com.example.taskfa.utils.IDandUsers;
+import com.example.taskfa.utils.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,7 +22,7 @@ public class PagesLoaderController implements Initializable {
     @FXML
     private Label projectIdpassed;
     private int projectId;
-    User user = IDandUsers.getUserObject(IDandUsers.getCurrentUser());
+    User user = UserSession.getCurrentUser();
 
     public void goToVcs() {
         ScreenLoader screen = new ScreenLoader();
@@ -69,7 +70,7 @@ public class PagesLoaderController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        user = IDandUsers.getUserObject(IDandUsers.getCurrentUser());
+        user = UserSession.getCurrentUser();
         try {
             FXMLLoader fxmlLoader1 = new FXMLLoader();
             FXMLLoader fxmlLoader2 = new FXMLLoader();

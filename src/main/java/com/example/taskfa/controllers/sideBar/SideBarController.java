@@ -59,26 +59,26 @@ public class SideBarController implements Initializable  {
         user.setFirstName("Aissam");
         user.setLastName("Boussoufiane");
         user.setStatus("Active");
-        user.setImgSrc("/media/profile_pic_1.jfif");
+       // user.setImgSrc("/media/profile_pic_1.jfif");
         users.add(user);
 
         user = new User();
         user.setFirstName("Anas");
         user.setLastName("Laouissi");
         user.setStatus("Acive");
-        user.setImgSrc("/media/profile_pic_6.jpg");
+     //   user.setImgSrc("/media/profile_pic_6.jpg");
         users.add(user);
         user = new User();
         user.setFirstName("Achraf");
         user.setLastName("Herkane");
         user.setStatus("Last seen 8min ago");
-        user.setImgSrc("/media/profile_pic_2.jfif");
+      //  user.setImgSrc("/media/profile_pic_2.jfif");
         users.add(user);
         user = new User();
         user.setFirstName("Fatima");
         user.setLastName("El hadeg");
         user.setStatus("Last seen 1h ago");
-        user.setImgSrc("/media/profile_pic_4.jfif");
+       // user.setImgSrc("/media/profile_pic_4.jfif");
         users.add(user);
 
 
@@ -86,13 +86,13 @@ public class SideBarController implements Initializable  {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        user = IDandUsers.getUserObject(IDandUsers.getCurrentUser());
+        user = UserSession.getCurrentUser();
         userName.setText(user.getFirstName());
         userLastName.setText(user.getLastName());
         userId.setText(Integer.toString(user.getIdUser()));
         getUserList();
-        Image img = new Image(getClass().getResourceAsStream(user.getImgSrc()));
-        userImage.setImage(img);
+      //  Image img = new Image(getClass().getResourceAsStream(user.getImgSrc()));
+        userImage.setImage(user.getImage());
         for (int i=0; i<users.size();i++){
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -110,7 +110,7 @@ public class SideBarController implements Initializable  {
     }
 
     public void onSignOut() throws IOException {
-        IDandUsers.setCurrentUser(null);
+        UserSession.setCurrentUser(null);
         Parent root  = FXMLLoader.load(getClass().getResource("/views/SignIn.fxml"));
         Stage window = (Stage) signOutBtn.getScene().getWindow();
         window.setScene(new Scene(root));
