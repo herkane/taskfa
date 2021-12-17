@@ -115,9 +115,9 @@ public class ProjectViewController implements Initializable {
         userName.setText(user.getFirstName());
         userLastName.setText(user.getLastName());
         userId.setText(Integer.toString(user.getIdUser()));
-        Image img = new Image(getClass().getResourceAsStream("/media/profile_pic_6.jpg"));
-        userImage.setImage(img);
+        userImage.setImage(user.getImage());
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setUserInfo();

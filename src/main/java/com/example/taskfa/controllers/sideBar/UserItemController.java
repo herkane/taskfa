@@ -28,8 +28,7 @@ public class UserItemController {
         this.user = user;
         userConnStatus.setText(user.getStatus());
         userFullName.setText(user.getLastName() + " " + user.getFirstName());
-        Image img = new Image(getClass().getResourceAsStream(user.getImgSrc()));
-        userImage.setImage(img);
+        userImage.setImage(user.getImage());
     }
 
 }

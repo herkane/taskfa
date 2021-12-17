@@ -4,14 +4,13 @@ import com.example.taskfa.model.User;
 import com.example.taskfa.modelDao.UserDAO;
 import com.example.taskfa.utils.IDandUsers;
 import com.example.taskfa.utils.UserSession;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -58,31 +57,24 @@ public class SignInController {
         String password = passwordInput.getText();
         try {
             User user = UserDAO.searchUser(email, password);
-            UserSession.setCurrentUser(user);
-            System.out.println(user.getLastName());
-            Parent root  = FXMLLoader.load(getClass().getResource(user.getMenu().showProjects()));
-            Stage window = (Stage) signUpButton.getScene().getWindow();
-            window.setScene(new Scene(root));
-            window.setFullScreen(true);
+            if (user == null) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+               a.setTitle("Login Error");
+                a.setContentText("Login Informations error");
+                a.showAndWait();
+            } else {
+                UserSession.setCurrentUser(user);
+                Parent root  = FXMLLoader.load(getClass().getResource(user.getMenu().showProjects()));
+                Stage window = (Stage) signUpButton.getScene().getWindow();
+                window.setScene(new Scene(root));
+                window.setFullScreen(true);
+            }
+
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             System.out.println("Error occurred while getting User information from DB.\n" + e);
             throw e;
         }
-        /*
-        IDandUsers.setCurrentUser(email);
-        User user = IDandUsers.getUserObject(email);
-        if (user == null){
-            System.out.println("Sign Up please");
-        } else if (user.authenticate(email, password)) {
-            Parent root  = FXMLLoader.load(getClass().getResource(user.getMenu().showProjects()));
-            Stage window = (Stage) signUpButton.getScene().getWindow();
-            window.setScene(new Scene(root));
-            window.setFullScreen(true);
-        } else {
-            System.out.println("Password wrong");
-        }
-         */
     }
 
     public void showPassword() {

@@ -2,6 +2,7 @@ package com.example.taskfa.model;
 
 import com.example.taskfa.utils.Menu;
 import com.example.taskfa.utils.UserMenu;
+import javafx.scene.image.Image;
 
 public class User {
 
@@ -9,10 +10,17 @@ public class User {
     private int idUser;
     private String firstName;
     private String lastName;
-    private String email;
     private String status;
-    private String imgSrc;
+    private Image image;
     private boolean admin;
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
 
     public User(String firstName, String lastName, int idUser, boolean admin) {
         this.firstName = firstName;
@@ -63,14 +71,6 @@ public class User {
 
     public String getStatus() {
         return status;
-    }
-
-    public void setImgSrc(String imgSrc) {
-        this.imgSrc = imgSrc;
-    }
-
-    public String getImgSrc() {
-        return imgSrc;
     }
 
     public int getIdUser() {

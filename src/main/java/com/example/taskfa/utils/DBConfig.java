@@ -9,6 +9,10 @@ public class DBConfig {
     private static final String USERDB = "root";
     private static final String PASSDB = "aissam123";
 
+    public static Connection getConn() {
+        return conn;
+    }
+
     private static Connection conn = null;
 
     public static void dbConnect() throws SQLException, ClassNotFoundException {
@@ -72,12 +76,14 @@ public class DBConfig {
             System.out.println("Problem occurred at executeUpdate operation : " + e);
             throw e;
         } finally {
+            /*
             if (stmt != null) {
                 //Close statement
                 stmt.close();
             }
             //Close connection
             dbDisconnect();
+             */
         }
     }
 }
