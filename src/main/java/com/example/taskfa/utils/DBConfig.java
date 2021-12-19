@@ -53,7 +53,7 @@ public class DBConfig {
             //CachedRowSet Implementation
             //In order to prevent "java.sql.SQLRecoverableException: Closed Connection: next" error
             //We are using CachedRowSet
-           // crs = new CachedRowSetImpl();
+            // crs = new CachedRowSetImpl();
             // crs.populate(resultSet);
         } catch (SQLException e) {
             System.out.println("Problem occurred at executeQuery operation : " + e);

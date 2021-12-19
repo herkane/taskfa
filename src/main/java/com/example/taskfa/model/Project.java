@@ -49,4 +49,9 @@ public class Project {
     public void setProjectId(int projectId) {
         this.projectId = projectId;
     }
+
+    @Override
+    public String toString() {
+        return this.title+ " " +this.projectId+" "+this.membersNum+" "+this.nextMeeting+" "+this.createdDate;
+    }
 }

@@ -2,24 +2,21 @@ package com.example.taskfa.controllers.project;
 
 import com.example.taskfa.model.Project;
 import com.example.taskfa.model.User;
+import com.example.taskfa.modelDao.ProjectDAO;
 import com.example.taskfa.modelDao.UserDAO;
-import com.example.taskfa.utils.IDandUsers;
 import com.example.taskfa.utils.UserSession;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -30,16 +27,26 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ProjectViewController implements Initializable {
     @FXML
+    private ImageView createProjectButton;
+
+    @FXML
     private TextField createProjectTitle;
 
     @FXML
+    private GridPane grid;
+
+    @FXML
+    private ImageView joinProectButton;
+
+    @FXML
     private TextField joinProjectCode;
+
+    @FXML
+    private ScrollPane scroll;
 
     @FXML
     private Button signOutBtn;
@@ -56,18 +63,31 @@ public class ProjectViewController implements Initializable {
     @FXML
     private Label userName;
 
-    @FXML
-    private GridPane grid;
-
-    @FXML
-    private ScrollPane scroll;
-
     User user = UserSession.getCurrentUser();
+
+    @FXML
+    void createProject(MouseEvent event) throws SQLException, ClassNotFoundException {
+        String projectTitle = createProjectTitle.getText();
+        if (!projectTitle.equals("")) {
+            ProjectDAO.createProject(projectTitle, user.getIdUser());
+            getData();
+        }
+    }
+
+    @FXML
+    void joinProject(MouseEvent event) throws SQLException, ClassNotFoundException {
+        int projectId = Integer.parseInt(joinProjectCode.getText());
+        System.out.println(projectId);
+        ProjectDAO.joinProject(projectId, user.getIdUser());
+        getData();
+    }
+
+
 
 
     private void getData() throws SQLException, ClassNotFoundException{
        try {
-           ObservableList<Project> projectsData = UserDAO.searchProjects(user.getIdUser());
+           ObservableList<Project> projectsData = ProjectDAO.searchProjects(user.getIdUser());
            populateProjects(projectsData);
        } catch (SQLException e){
            System.out.println("Error occurred while getting projects information from DB.\n" + e);

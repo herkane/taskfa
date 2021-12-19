@@ -2,10 +2,7 @@ package com.example.taskfa.controllers;
 
 import com.example.taskfa.model.User;
 import com.example.taskfa.modelDao.UserDAO;
-import com.example.taskfa.utils.IDandUsers;
 import com.example.taskfa.utils.UserSession;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

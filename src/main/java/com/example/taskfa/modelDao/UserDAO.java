@@ -68,55 +68,11 @@ public class UserDAO {
         return user;
     }
 
-    /*
-    SELECT USER's PROJECT LIST
-     */
-    public static ObservableList<Project> searchProjects(int userId) throws SQLException, ClassNotFoundException {
-        String selectStm = "SELECT title,usersNumber,nextmeeting,role,project.status,projectid,created_at " +
-                "FROM project " +
-                "INNER JOIN user_has_project ON projectid = project_projectid " +
-                "INNER JOIN user ON iduser = user_iduser " +
-                "WHERE iduser = "+userId+" ;";
-        try {
-            ResultSet rsProjects = DBConfig.dbExecuteQuery(selectStm);
-            ObservableList<Project> projectlist = getProjectsList(rsProjects);
-            return projectlist;
-        } catch (SQLException e) {
-            System.out.println("SQL select operation has been failed: " + e);
-            //Return exception
-            throw e;
-        }
-    }
-
-    /*
-    GET PROJECTS DATA FROM RESULT SET
-     */
-    private static ObservableList<Project> getProjectsList(ResultSet rs) throws SQLException, ClassNotFoundException {
-        ObservableList<Project> projectsList = FXCollections.observableArrayList();
-
-        while (rs.next()) {
-            Project project = new Project();
-            project.setProjectId(rs.getInt("projectid"));
-            project.setTitle(rs.getString("title"));
-            project.setCreatedDate(rs.getDate("created_at"));
-            project.setMembersNum(rs.getInt("usersNumber"));
-            project.setNextMeeting(rs.getDate("nextmeeting"));
-            projectsList.add(project);
-        }
-        return projectsList;
-    }
 
     /*
     CREATE USER ROW IN DATABASE FOR SIGN UP
      */
     public static void createUser(String firstName, String lastName, String status, File selectedFile, String email, String password) throws ClassNotFoundException {
-        /*
-        String insertStmt = "INSERT INTO user" +
-        "(firstName, lastName, status, image, email, password) " +
-                "VALUES " +
-                "('"+firstName+"','"+lastName+"','"+status+"','"+email+"','"+MD5(password)+"');";
-
-         */
 
         String insertStmtprepared = "INSERT INTO user" +
                 "(firstName, lastName, status, image, email, password) " +
@@ -153,4 +109,5 @@ public class UserDAO {
         }
          */
     }
+
 }

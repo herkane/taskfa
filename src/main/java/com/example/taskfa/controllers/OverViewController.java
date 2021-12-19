@@ -1,7 +1,6 @@
 package com.example.taskfa.controllers;
 
 import com.example.taskfa.model.*;
-import com.example.taskfa.utils.IDandUsers;
 import com.example.taskfa.utils.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,8 +15,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class OverViewController implements Initializable {

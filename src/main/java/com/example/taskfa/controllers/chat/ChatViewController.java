@@ -1,13 +1,9 @@
 package com.example.taskfa.controllers.chat;
 
-import com.example.taskfa.utils.IDandUsers;
-import com.example.taskfa.utils.UserSession;
 import com.example.taskfa.model.Message;
-import com.example.taskfa.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -16,8 +12,6 @@ import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ChatViewController implements Initializable {

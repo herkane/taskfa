@@ -155,7 +155,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </TextField>
-                              <ImageView fitHeight="39.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                              <ImageView fx:id="joinProectButton" fitHeight="39.0" fitWidth="57.0" onMouseClicked="#joinProject" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
                                  <image>
                                     <Image url="@../com/example/taskfa/media/cyan_add_icon.png" />
                                  </image>
@@ -182,7 +182,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </TextField>
-                              <ImageView fitHeight="39.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                              <ImageView fx:id="createProjectButton" fitHeight="39.0" fitWidth="57.0" onMouseClicked="#createProject" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
                                  <image>
                                     <Image url="@../com/example/taskfa/media/gray_add_project_icon.png" />
                                  </image>

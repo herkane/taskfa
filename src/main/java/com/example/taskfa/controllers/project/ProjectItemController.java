@@ -40,13 +40,17 @@ public class ProjectItemController {
     private Project project;
 
     public void setData(Project project) {
-        DateFormat yearFormat = new SimpleDateFormat("yyyy-mm-dd");
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh-mm");
+        DateFormat yearFormat = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh-mm");
         this.project = project;
         invisibleProjectId.setText(Integer.toString(project.getProjectId()));
         projectTitle.setText(project.getTitle());
         projectDateCreation.setText(yearFormat.format(project.getCreatedDate()));
-        meetingDate.setText(dateFormat.format(project.getNextMeeting()));
+        if (project.getNextMeeting() == null){
+            meetingDate.setText("no meeting");
+        } else {
+            meetingDate.setText(dateFormat.format(project.getNextMeeting()));
+        }
         meetingDate.setFont(Font.font("System", 12));
         projectNumMembers.setText(Integer.toString(project.getMembersNum()));
         projectStatus.setText("In progress");

@@ -1,7 +1,6 @@
 package com.example.taskfa.controllers.vcs;
 
 import com.example.taskfa.model.*;
-import com.example.taskfa.utils.IDandUsers;
 import com.example.taskfa.utils.UserSession;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -9,19 +8,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Modality;
 
 import javafx.stage.Stage;
