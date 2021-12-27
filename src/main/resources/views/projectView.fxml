@@ -29,8 +29,8 @@
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="252.4444580078125" minHeight="0.0" prefHeight="82.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="786.6666666666666" minHeight="10.0" prefHeight="782.6666666666666" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="252.4444580078125" minHeight="0.0" prefHeight="63.66666158040365" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="786.6666666666666" minHeight="10.0" prefHeight="769.000010172526" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label alignment="CENTER" text="MY PROJECTS" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
@@ -49,6 +49,14 @@
                   </GridPane>
                </content>
             </ScrollPane>
+            <ImageView fx:id="invitationNotifimage" fitHeight="75.0" fitWidth="93.0" onMouseClicked="#showInvitations" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT">
+               <image>
+                  <Image url="@../media/notification_invitation_project_icon.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets right="50.0" />
+               </GridPane.margin>
+            </ImageView>
          </children>
          <styleClass>
             <String fx:value="my_projects_title" />

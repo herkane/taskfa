@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-public class ChatViewController implements Initializable {
+public class ChatViewController{
     @FXML
     public TextField message;
     @FXML
@@ -86,20 +86,6 @@ public class ChatViewController implements Initializable {
          */
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        /*
-            Update Grid Message List With Messages
-         */
-        /*
-        getMessages();
-        try {
-            fillChat();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-         */
-    }
 
     public void onEnterMessage() throws IOException {
         /*
@@ -150,5 +136,17 @@ public class ChatViewController implements Initializable {
     }
 
 
-
+    public void loadFXML(int projectIdpassed) {
+           /*
+            Update Grid Message List With Messages
+         */
+        /*
+        getMessages();
+        try {
+            fillChat();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+         */
+    }
 }

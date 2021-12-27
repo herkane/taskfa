@@ -71,7 +71,6 @@ public class ProjectDAO {
             try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     int projectId = (int) generatedKeys.getLong(1);
-                    System.out.println(projectId);
                     ps = conn.prepareStatement(insertStatment2);
                     ps.setInt(1, userId);
                     ps.setInt(2, projectId);
@@ -104,5 +103,51 @@ public class ProjectDAO {
             throwables.printStackTrace();
         }
 
+    }
+
+    public static void addMember(String userEmail, int projectId) throws SQLException, ClassNotFoundException  {
+        String insertStatment = "INSERT INTO user_has_invitation" +
+                " VALUES(?,?,?);";
+        String selectStatement = "SELECT iduser FROM user WHERE email = '"+userEmail+"';";
+        try {
+            ResultSet rsUser = DBConfig.dbExecuteQuery(selectStatement);
+            if (rsUser.next()) {
+                int userid = rsUser.getInt(1);
+                System.out.println("user id : " + userid);
+                Connection conn = DBConfig.getConn();
+                PreparedStatement ps = conn.prepareStatement(insertStatment);
+                ps.setInt(1, projectId);
+                ps.setInt(2, userid);
+                ps.setInt(3,0);
+                ps.executeUpdate();
+                System.out.println("user added successfly to invitation ");
+            } else {
+                throw new SQLException();
+            }
+        } catch (SQLException e) {
+            System.out.println("SQL select operation has been failed: " + e);
+            //Return exception
+            throw e;
+        }
+        /*
+        try {
+            DBConfig.dbConnect();
+            ResultSet rsUser = DBConfig.dbExecuteQuery(selectStatement);
+            int userid = rsUser.getInt("iduser");
+            System.out.println("user id : "+userid);
+            Connection conn = DBConfig.getConn();
+            PreparedStatement ps = conn.prepareStatement(selectStatement, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, userEmail);
+            ps.executeQuery();
+            ps = conn.prepareStatement(insertStatment);
+            ps.setInt(1, projectId);
+            ps.setInt(2, userid);
+            ps.setInt(3,0);
+            ps.executeUpdate();
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throw new SQLException("User invitation to Project failed !");
+        }
+         */
     }
 }

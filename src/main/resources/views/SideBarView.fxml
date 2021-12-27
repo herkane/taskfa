@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="651.0" prefWidth="275.0" style="-fx-background-color: black;" stylesheets="@../com/example/taskfa/styles/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.sideBar.SideBarController">
+<GridPane prefHeight="651.0" prefWidth="292.0" style="-fx-background-color: black;" stylesheets="@../com/example/taskfa/styles/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.sideBar.SideBarController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" />
    </columnConstraints>
@@ -93,7 +93,7 @@
             <Insets bottom="30.0" />
          </GridPane.margin>
       </Button>
-      <VBox maxWidth="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;" styleClass="join_project_widget" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
+      <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="222.0" style="-fx-background-color: white;" styleClass="join_project_widget" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
          <children>
             <StackPane prefWidth="200.0" styleClass="join-project">
                <children>
@@ -106,12 +106,12 @@
             </StackPane>
             <StackPane>
                <children>
-                  <TextField fx:id="joinProjectCode" alignment="CENTER" promptText="Enter Member ID..." styleClass="join_project_widget_textView">
+                  <TextField fx:id="addMemberEmail" alignment="CENTER" promptText="Enter Email ..." styleClass="join_project_widget_textView">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                  <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#addMemberToProject" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
                      <image>
                         <Image url="@../media/cyan_add_icon.png" />
                      </image>

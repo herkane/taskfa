@@ -2,30 +2,42 @@ package com.example.taskfa.controllers.sideBar;
 
 import com.example.taskfa.utils.UserSession;
 import com.example.taskfa.model.User;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class SideBarController implements Initializable  {
+import static com.example.taskfa.modelDao.ProjectDAO.addMember;
+import static com.example.taskfa.modelDao.ProjectDAO.joinProject;
+
+public class SideBarController {
 
     @FXML
-    private TextField joinProjectCode;
+    private TextField addMemberEmail;
 
     @FXML
     private Button signOutBtn;
@@ -44,6 +56,8 @@ public class SideBarController implements Initializable  {
 
     @FXML
     private Label userName;
+
+    private int projectIdpassed;
 
     private final List<User> users = new ArrayList<>();
     private User user = null;
@@ -82,14 +96,13 @@ public class SideBarController implements Initializable  {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void loadFXML(int projectId) {
+        projectIdpassed = projectId;
         user = UserSession.getCurrentUser();
         userName.setText(user.getFirstName());
         userLastName.setText(user.getLastName());
         userId.setText(Integer.toString(user.getIdUser()));
         getUserList();
-      //  Image img = new Image(getClass().getResourceAsStream(user.getImgSrc()));
         userImage.setImage(user.getImage());
         for (int i=0; i<users.size();i++){
             try {
@@ -107,6 +120,48 @@ public class SideBarController implements Initializable  {
         }
     }
 
+    /*
+        Add Member to Project
+     */
+    @FXML
+    void addMemberToProject(MouseEvent event) {
+        String email = addMemberEmail.getText();
+        if (!email.equals("")) {
+            try {
+                System.out.println(email + " " +projectIdpassed);
+                addMember(email, projectIdpassed);
+                Image img = new Image(getClass().getResourceAsStream("/media/blue_notification_success.png"));
+                Notifications notificationBuilder = Notifications.create()
+                        .title("Invitation")
+                        .text("User Invited with Success")
+                        .graphic(new ImageView(img))
+                        .hideAfter(Duration.seconds(4))
+                        .position(Pos.TOP_RIGHT)
+                        .onAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent actionEvent) {
+                                System.out.println("clicked on notification");
+                            }
+                        });
+                notificationBuilder.show();
+            } catch (SQLException | ClassNotFoundException e) {
+                Notifications notificationBuilder = Notifications.create()
+                        .title("Invitation")
+                        .text("No user with this email")
+                        .hideAfter(Duration.seconds(3))
+                        .position(Pos.TOP_RIGHT)
+                        .onAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent actionEvent) {
+                                System.out.println("clicked on notification");
+                            }
+                        });
+                notificationBuilder.show();
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void onSignOut() throws IOException {
         UserSession.setCurrentUser(null);
         Parent root  = FXMLLoader.load(getClass().getResource("/views/SignIn.fxml"));
@@ -115,4 +170,5 @@ public class SideBarController implements Initializable  {
         window.centerOnScreen();
         window.setFullScreen(true);
     }
+
 }

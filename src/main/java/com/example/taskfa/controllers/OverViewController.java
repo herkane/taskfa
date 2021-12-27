@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-public class OverViewController implements Initializable {
+public class OverViewController {
 
     @FXML
     private ListView<String> chatListView;
@@ -52,15 +52,8 @@ public class OverViewController implements Initializable {
     private ArrayList<Message> messages = null;
     private ArrayList<Task> tasks = null;
     private User user = null;
+    private int projectIdpassed;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        user = UserSession.getCurrentUser();
-        //setChatMessages();
-        setTaks();
-        setVcsFiles();
-        setResourceFiles();
-    }
     /*
     public void setChatMessages() {
         messages = getChatMessages();
@@ -71,6 +64,16 @@ public class OverViewController implements Initializable {
         }
     }
      */
+    public void loadFXML(int projectId) {
+        // Use PROJECT ID WITH USER ID TO GET DATA
+        projectIdpassed = projectId;
+        user = UserSession.getCurrentUser();
+        //setChatMessages();
+        setTaks();
+        setVcsFiles();
+        setResourceFiles();
+    }
+
     public void setTaks() {
         int progressTerminated = 0;
         tasks = getTasks();
@@ -90,7 +93,7 @@ public class OverViewController implements Initializable {
         progressPourcentage.setText(Double.toString(Math.floor(taskProgressBar.getProgress()*100) ) +"%");
     }
     public void setVcsFiles() {
-        officialVcsFile.setText("JavaProject.zip");
+        officialVcsFile.setText(String.valueOf(projectIdpassed));
         File file = new File("MyProjectJava.zip", FileStatus.APPROVED);
         fileSubmitVcs.setText(file.getFileName());
         fileStatusVcs.setText(file.getStatus().toString());
@@ -107,6 +110,7 @@ public class OverViewController implements Initializable {
         window.centerOnScreen();
         window.setFullScreen(true);
     }
+
     /*
     public ArrayList<Message> getChatMessages() {
         ArrayList<Message> messages = new ArrayList<>();
@@ -185,6 +189,9 @@ public class OverViewController implements Initializable {
         tasks.add(task);
         return tasks;
     }
+
+
+
 
 
 }

@@ -58,16 +58,15 @@ public class ProjectItemController {
 
     public void mouseClick() throws IOException {
         int projectId = Integer.parseInt(invisibleProjectId.getText());
-
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("/views/pagesLoader.fxml"));
         BorderPane border = fxmlLoader.load();
         PagesLoaderController pagesLoaderController = fxmlLoader.getController();
+        System.out.println("In project item controller : " + projectId);
         pagesLoaderController.setProjectId(projectId);
         Stage window = (Stage) invisibleProjectId.getScene().getWindow();
         window.setScene(new Scene(border));
         window.setFullScreen(true);
-
         System.out.println(projectId);
     }
 }

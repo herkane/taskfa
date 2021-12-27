@@ -27,7 +27,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="taskfa" options="--add-exports java.sql.rowset/com.sun.rowset=com.example.taskfa" />
+      <module name="taskfa" options="" />
     </option>
   </component>
 </project>

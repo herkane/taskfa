@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class VcsViewController implements Initializable {
+public class VcsViewController {
 
     @FXML
     private GridPane gridVersionControl;
@@ -42,7 +42,7 @@ public class VcsViewController implements Initializable {
 
     private List<File> files = new ArrayList<>();
     private User user = null;
-
+    private int projectid;
 
     private List<File> getData() {
         List<File> files = new ArrayList<>();
@@ -54,9 +54,43 @@ public class VcsViewController implements Initializable {
         return files;
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        User user = UserSession.getCurrentUser();
+    public void uploadProject() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/upload_vcs_popUp.fxml"));
+        Scene newScene = null;
+        try {
+            newScene = new Scene(fxmlLoader.load());
+        } catch (IOException ex) {
+            System.out.println("ERROOOOOOOR WHATCH OUT !");
+        }
+        Stage inputStage = new Stage();
+        inputStage.initOwner(uploadBtn.getScene().getWindow());
+        inputStage.setScene(newScene);
+        inputStage.showAndWait();
+
+       // String input = fxmlLoader.<UploadVcsController>getController().getValue();
+     //   outputField.setText(input);
+    }
+
+    public void toPopUp(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/vcsPopupVersion.fxml") );
+        Parent parent = fxmlLoader.load();
+        Platform.runLater(()->{
+            Stage stage1=(Stage)version.getScene().getWindow();
+            stage1.setFullScreen(false);
+            stage1.setFullScreen(true);
+                }
+                );
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setAlwaysOnTop(true);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void loadFXML(int projectIdpassed) {
+        projectid = projectIdpassed;
+        user = UserSession.getCurrentUser();
         files.addAll(getData());
         int column = 0;
         int row = 1;
@@ -91,42 +125,7 @@ public class VcsViewController implements Initializable {
             e.printStackTrace();
         }
     }
-    public void uploadProject() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/upload_vcs_popUp.fxml"));
-        Scene newScene = null;
-        try {
-            newScene = new Scene(fxmlLoader.load());
-        } catch (IOException ex) {
-            System.out.println("ERROOOOOOOR WHATCH OUT !");
-        }
-        Stage inputStage = new Stage();
-        inputStage.initOwner(uploadBtn.getScene().getWindow());
-        inputStage.setScene(newScene);
-        inputStage.showAndWait();
-
-       // String input = fxmlLoader.<UploadVcsController>getController().getValue();
-     //   outputField.setText(input);
-    }
-
-
-    public void toPopUp(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/vcsPopupVersion.fxml") );
-        Parent parent = fxmlLoader.load();
-        Platform.runLater(()->{
-            Stage stage1=(Stage)version.getScene().getWindow();
-            stage1.setFullScreen(false);
-            stage1.setFullScreen(true);
-                }
-                );
-        Scene scene = new Scene(parent);
-        Stage stage = new Stage();
-        stage.setAlwaysOnTop(true);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    }
+}
 
 
 

@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class RessourceController implements Initializable {
+public class RessourceController  {
 
 
     @FXML
@@ -37,6 +37,8 @@ public class RessourceController implements Initializable {
 
     @FXML
     private Button pdfbtn;
+
+    private int projectId;
 
     private ObservableList<String> listPdfFiles = FXCollections.observableArrayList(
             "Gi_5.pdf", "File.pdf", "WhitePaper.pdf");
@@ -86,8 +88,9 @@ public class RessourceController implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    public void loadFXML(int projectIdpassed) {
+        projectId = projectIdpassed;
         ListView<String> lvPdf = new ListView<>(listPdfFiles);
         ListView<String> lvOthers = new ListView<>(listOtherFiles);
         ListView<String> lvLinks = new ListView<>(listLinks);

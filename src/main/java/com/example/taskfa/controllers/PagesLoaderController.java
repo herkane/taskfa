@@ -1,5 +1,9 @@
 package com.example.taskfa.controllers;
 
+import com.example.taskfa.controllers.chat.ChatViewController;
+import com.example.taskfa.controllers.sideBar.SideBarController;
+import com.example.taskfa.controllers.vcs.VcsViewController;
+import com.example.taskfa.controllers.vcs.VcsViewControllerAdmin;
 import com.example.taskfa.model.ScreenLoader;
 import com.example.taskfa.model.User;
 import com.example.taskfa.utils.UserSession;
@@ -9,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 
 
 import java.io.IOException;
@@ -18,27 +23,41 @@ import java.util.ResourceBundle;
 public class PagesLoaderController implements Initializable {
     @FXML
     private BorderPane mainPane;
-    @FXML
-    private Label projectIdpassed;
-    private int projectId;
+
+    private SideBarController sideBarController;
+    private OverViewController overViewController;
+
+    private int projectIdpassed;
+
     User user = UserSession.getCurrentUser();
 
-    public void goToVcs() {
-        ScreenLoader screen = new ScreenLoader();
-        Pane view;
-        if (user.isAdmin()) {
-            view = screen.getPage("vcsViewAdmin");
+    public void goToVcs() throws IOException {
+        VcsViewController vcsViewController;
+        VcsViewControllerAdmin vcsViewControllerAdmin;
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        user.setAdmin(true);
+        fxmlLoader.setLocation(getClass().getResource(user.getMenu().showVcsView()));
+        Pane overview = fxmlLoader.load();
+        if (user.isAdmin()){
+            vcsViewControllerAdmin = fxmlLoader.getController();
+            vcsViewControllerAdmin.loadFXML(projectIdpassed);
         } else {
-            view = screen.getPage("vcsView");
+            vcsViewController = fxmlLoader.getController();
+            vcsViewController.loadFXML(projectIdpassed);
         }
 
-        mainPane.setCenter(view);
+        mainPane.setCenter(overview);
+
     }
 
-    public void goToChat() {
-        ScreenLoader screen = new ScreenLoader();
-        Pane view = screen.getPage("chatView");
-        mainPane.setCenter(view);
+    public void goToChat() throws IOException {
+        ChatViewController chatViewController;
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource(user.getMenu().showChat()));
+        Pane overview = fxmlLoader.load();
+        chatViewController = fxmlLoader.getController();
+        chatViewController.loadFXML(projectIdpassed);
+        mainPane.setCenter(overview);
     }
 
     public void goToTasks() {
@@ -55,16 +74,24 @@ public class PagesLoaderController implements Initializable {
         mainPane.setCenter(view);
     }
 
-    public void gotoOverview() {
-        ScreenLoader screen = new ScreenLoader();
-        Pane view = screen.getPage("OverView");
-        mainPane.setCenter(view);
+    public void gotoOverview() throws IOException {
+        OverViewController overviewController;
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource(user.getMenu().showOverView()));
+        Pane overview = fxmlLoader.load();
+        overviewController = fxmlLoader.getController();
+        overviewController.loadFXML(projectIdpassed);
+        mainPane.setCenter(overview);
     }
 
-    public void goToResources() {
-        ScreenLoader screen = new ScreenLoader();
-        Pane view = screen.getPage("Ressource");
-        mainPane.setCenter(view);
+    public void goToResources() throws IOException {
+        RessourceController ressourceController;
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource(user.getMenu().showResources()));
+        Pane overview = fxmlLoader.load();
+        ressourceController = fxmlLoader.getController();
+        ressourceController.loadFXML(projectIdpassed);
+        mainPane.setCenter(overview);
     }
 
     @Override
@@ -75,12 +102,13 @@ public class PagesLoaderController implements Initializable {
             FXMLLoader fxmlLoader2 = new FXMLLoader();
             fxmlLoader1.setLocation(getClass().getResource(user.getMenu().showSideBar()));
             GridPane sideBar = fxmlLoader1.load();
+            sideBarController = fxmlLoader1.getController();
             fxmlLoader2.setLocation(getClass().getResource(user.getMenu().showOverView()));
             GridPane center = fxmlLoader2.load();
+            overViewController = fxmlLoader2.getController();
             mainPane.setLeft(sideBar);
             BorderPane.setMargin(mainPane.getLeft(), new Insets(-50,0,0,0));
             mainPane.setCenter(center);
-            projectIdpassed.setText(String.valueOf(projectId));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -88,6 +116,10 @@ public class PagesLoaderController implements Initializable {
 
 
     public void setProjectId(int projectId) {
-        this.projectId = projectId;
+        projectIdpassed = projectId;
+        sideBarController.loadFXML(projectIdpassed);
+        overViewController.loadFXML(projectIdpassed);
+        System.out.println("In loader controller : " + projectId);
     }
+
 }

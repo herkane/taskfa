@@ -22,7 +22,7 @@ public class AdminMenu implements Menu{
 
     @Override
     public String showVcsView() {
-        return "/views/vcsView.fxml";
+        return "/views/vcsViewAdmin.fxml";
     }
 
     @Override
@@ -30,6 +30,10 @@ public class AdminMenu implements Menu{
         return "/views/SideBarView.fxml";
     }
 
+    @Override
+    public String showChat() {
+        return "/views/chatView.fxml";
+    }
 
 
 }

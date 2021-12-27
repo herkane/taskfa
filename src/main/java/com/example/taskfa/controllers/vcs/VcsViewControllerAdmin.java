@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class VcsViewControllerAdmin implements Initializable {
+public class VcsViewControllerAdmin {
 
     @FXML
     private GridPane gridVersionControl;
@@ -42,6 +42,7 @@ public class VcsViewControllerAdmin implements Initializable {
 
     private List<File> files = new ArrayList<>();
     private User user = null;
+    private int projectId;
 
 
     private List<File> getData() {
@@ -54,43 +55,6 @@ public class VcsViewControllerAdmin implements Initializable {
         return files;
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        User user = UserSession.getCurrentUser();
-        files.addAll(getData());
-        int column = 0;
-        int row = 1;
-        try {
-            for (int i = 0; i < files.size(); i++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/views/VersionControlItem.fxml"));
-                AnchorPane anchorPane = fxmlLoader.load();
-
-                VcsItemController vcsItemController = fxmlLoader.getController();
-                vcsItemController.setData(files.get(i));
-
-                if (column == 2) {
-                    column = 0;
-                    row++;
-                }
-
-                gridVersionControl.add(anchorPane, column++, row); //(child,column,row)
-                //set grid width
-                gridVersionControl.setMinWidth(Region.USE_COMPUTED_SIZE);
-                gridVersionControl.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                gridVersionControl.setMaxWidth(Region.USE_PREF_SIZE);
-
-                //set grid height
-                gridVersionControl.setMinHeight(Region.USE_COMPUTED_SIZE);
-                gridVersionControl.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                gridVersionControl.setMaxHeight(Region.USE_PREF_SIZE);
-
-                GridPane.setMargin(anchorPane, new Insets(10));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
     public void uploadProject() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/upload_vcs_popUp.fxml"));
         Scene newScene = null;
@@ -149,6 +113,44 @@ public class VcsViewControllerAdmin implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void loadFXML(int projectIdpassed) {
+        projectId = projectIdpassed;
+        user = UserSession.getCurrentUser();
+        files.addAll(getData());
+        int column = 0;
+        int row = 1;
+        try {
+            for (int i = 0; i < files.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/views/VersionControlItem.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                VcsItemController vcsItemController = fxmlLoader.getController();
+                vcsItemController.setData(files.get(i));
+
+                if (column == 2) {
+                    column = 0;
+                    row++;
+                }
+
+                gridVersionControl.add(anchorPane, column++, row); //(child,column,row)
+                //set grid width
+                gridVersionControl.setMinWidth(Region.USE_COMPUTED_SIZE);
+                gridVersionControl.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                gridVersionControl.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                gridVersionControl.setMinHeight(Region.USE_COMPUTED_SIZE);
+                gridVersionControl.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                gridVersionControl.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

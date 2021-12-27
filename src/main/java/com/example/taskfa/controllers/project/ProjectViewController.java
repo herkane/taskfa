@@ -30,17 +30,12 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class ProjectViewController implements Initializable {
-    @FXML
-    private ImageView createProjectButton;
 
     @FXML
     private TextField createProjectTitle;
 
     @FXML
     private GridPane grid;
-
-    @FXML
-    private ImageView joinProectButton;
 
     @FXML
     private TextField joinProjectCode;
@@ -63,6 +58,9 @@ public class ProjectViewController implements Initializable {
     @FXML
     private Label userName;
 
+    @FXML
+    private ImageView invitationNotifimage;
+
     User user = UserSession.getCurrentUser();
 
     @FXML
@@ -84,11 +82,18 @@ public class ProjectViewController implements Initializable {
 
 
 
-
+    /*
+    Function that englobes all functions
+     */
     private void getData() throws SQLException, ClassNotFoundException{
        try {
+           // Get Projects List from database
            ObservableList<Project> projectsData = ProjectDAO.searchProjects(user.getIdUser());
+           // Get User's Project Invitations
+           ObservableList<Project> invitationData = UserDAO.getInvitations(user.getIdUser());
+           // Display them
            populateProjects(projectsData);
+           populateInvitation(invitationData);
        } catch (SQLException e){
            System.out.println("Error occurred while getting projects information from DB.\n" + e);
            throw e;
@@ -96,6 +101,9 @@ public class ProjectViewController implements Initializable {
 
     }
 
+    /*
+    Display List of Projects passeed In parametrs in GridCells
+     */
     private void populateProjects(ObservableList<Project> projectsData) {
         int column = 0;
         int row = 1;
@@ -130,7 +138,19 @@ public class ProjectViewController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    /*
+        If User has invitation show invitations Icon on Top
+     */
+    private void populateInvitation(ObservableList<Project> invitationsData) {
+        if (invitationsData.isEmpty()) {
+            invitationNotifimage.setVisible(false);
+        } else {
+            invitationNotifimage.setVisible(true);
+        }
+    }
+    /*
+        This functions set Users info into sideBar
+     */
     private void setUserInfo(){
         userName.setText(user.getFirstName());
         userLastName.setText(user.getLastName());
@@ -165,5 +185,22 @@ public class ProjectViewController implements Initializable {
         window.setScene(new Scene(root));
         window.centerOnScreen();
         window.setFullScreen(false);
+    }
+
+    @FXML
+    void showInvitations(MouseEvent event) {
+        /*
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/upload_vcs_popUp.fxml"));
+        Scene newScene = null;
+        try {
+            newScene = new Scene(fxmlLoader.load());
+        } catch (IOException ex) {
+
+        }
+        Stage inputStage = new Stage();
+        inputStage.initOwner(uploadBtn.getScene().getWindow());
+        inputStage.setScene(newScene);
+        inputStage.showAndWait();
+         */
     }
 }

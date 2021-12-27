@@ -33,4 +33,8 @@ public class UserMenu implements Menu{
         return "/views/SideBarView.fxml";
     }
 
+    @Override
+    public String showChat() { return "/views/chatView.fxml"; }
+
+
 }

@@ -1,5 +1,6 @@
 package com.example.taskfa.model;
 
+import com.example.taskfa.utils.AdminMenu;
 import com.example.taskfa.utils.Menu;
 import com.example.taskfa.utils.UserMenu;
 import javafx.scene.image.Image;
@@ -13,6 +14,7 @@ public class User {
     private String status;
     private Image image;
     private boolean admin;
+    Menu menu = null;
 
     public Image getImage() {
         return image;
@@ -27,6 +29,7 @@ public class User {
         this.lastName = lastName;
         this.idUser = idUser;
         this.admin = admin;
+        menu = new UserMenu();
     }
 
     public User() {
@@ -39,10 +42,15 @@ public class User {
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
+        if (admin){
+            menu = new AdminMenu();
+        } else  {
+            menu = new UserMenu();
+        }
     }
 
     public Menu getMenu() {
-        return new UserMenu();
+        return menu;
     }
 
     public boolean authenticate(String email, String password) {

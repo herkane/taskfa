@@ -8,4 +8,5 @@ public interface Menu {
     String showTask();
     String showVcsView();
     String showSideBar();
+    String showChat();
 }

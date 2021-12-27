@@ -60,6 +60,7 @@ public class UserDAO {
             user.setFirstName(rs.getString("firstName"));
             user.setLastName(rs.getString("lastName"));
             user.setStatus(rs.getString("status"));
+            user.setAdmin(false);
             Blob blob = rs.getBlob("image");
             InputStream inputStream = blob.getBinaryStream();
             Image image = new Image(inputStream);
@@ -67,7 +68,6 @@ public class UserDAO {
         }
         return user;
     }
-
 
     /*
     CREATE USER ROW IN DATABASE FOR SIGN UP
@@ -110,4 +110,33 @@ public class UserDAO {
          */
     }
 
+    /*
+       Get Invitations for the user to join projects
+     */
+    public static ObservableList<Project> getInvitations(int userid) throws ClassNotFoundException, SQLException {
+        String selectStatement = "SELECT projectid,title,usersNumber,created_at,nextmeeting FROM user_has_invitation " +
+                "INNER JOIN project ON  project_projectid = projectid " +
+                "WHERE user_iduser = "+userid+";";
+
+        try {
+            ResultSet rs = DBConfig.dbExecuteQuery(selectStatement);
+            ObservableList<Project> invitationList = getInvitationList(rs);
+            return invitationList;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+    private static ObservableList<Project> getInvitationList(ResultSet rs) throws SQLException {
+        ObservableList<Project> invitationList = FXCollections.observableArrayList();
+        while (rs.next()) {
+            Project project = new Project();
+            project.setProjectId(rs.getInt("projectid"));
+            project.setTitle(rs.getString("title"));
+            project.setCreatedDate(rs.getDate("created_at"));
+            project.setMembersNum(rs.getInt("usersNumber"));
+            project.setNextMeeting(rs.getDate("nextmeeting"));
+            invitationList.add(project);
+        }
+        return invitationList;
+    }
 }
