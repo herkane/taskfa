@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<GridPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.popups.PopupInvitation">
+<GridPane prefHeight="431.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.project.InvitationController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -19,7 +18,7 @@
       <RowConstraints maxHeight="367.3333435058594" minHeight="10.0" prefHeight="367.3333435058594" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <Label prefHeight="51.0" text="Invitation" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Label prefHeight="51.0" text="Invitations" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="35.0" />
          </font>
@@ -27,12 +26,16 @@
       <AnchorPane prefHeight="400.0" prefWidth="614.0">
 
 </AnchorPane>
-      <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+      <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
         <columns>
-          <TableColumn prefWidth="171.33336889743805" text="Project Name" />
-          <TableColumn prefWidth="158.0000762939453" text="Project Owner" />
-            <TableColumn prefWidth="141.33331298828125" text="Users Number" />
-            <TableColumn prefWidth="140.66665649414062" text="Status" />
+            <TableColumn fx:id="userid" editable="false" prefWidth="75.0" sortable="false" text="userid" visible="false" />
+            <TableColumn fx:id="projectId" prefWidth="37.33334219455719" text="Id" />
+          <TableColumn fx:id="projectName" prefWidth="162.66665267944336" text="Project Name" />
+          <TableColumn fx:id="projectOwner" prefWidth="129.33330535888672" text="Project Owner" />
+            <TableColumn fx:id="usersNumber" prefWidth="72.66664123535156" text="Users" />
+            <TableColumn fx:id="status" prefWidth="112.6666259765625" text="Status" />
+            <TableColumn fx:id="accept" prefWidth="86.66665649414062" text="Accept" />
+            <TableColumn fx:id="decline" prefWidth="86.66668701171875" text="Decline" />
         </columns>
       </TableView>
    </children>

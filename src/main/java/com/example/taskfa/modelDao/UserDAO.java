@@ -1,5 +1,6 @@
 package com.example.taskfa.modelDao;
 
+import com.example.taskfa.controllers.project.InvitationModelTable;
 import com.example.taskfa.model.Project;
 import com.example.taskfa.model.User;
 import com.example.taskfa.utils.DBConfig;
@@ -113,30 +114,50 @@ public class UserDAO {
     /*
        Get Invitations for the user to join projects
      */
-    public static ObservableList<Project> getInvitations(int userid) throws ClassNotFoundException, SQLException {
-        String selectStatement = "SELECT projectid,title,usersNumber,created_at,nextmeeting FROM user_has_invitation " +
-                "INNER JOIN project ON  project_projectid = projectid " +
-                "WHERE user_iduser = "+userid+";";
+    public static ObservableList<InvitationModelTable> getInvitations(int userid) throws ClassNotFoundException, SQLException {
+        String selectStatement = "SELECT iduser,projectid,title,usersNumber,project.status,firstName,lastName FROM user_has_invitation " +
+                "INNER JOIN project ON  user_has_invitation.project_projectid = projectid " +
+                "INNER JOIN user_has_project ON user_has_project.project_projectid = user_has_invitation.project_projectid " +
+                "INNER JOIN user ON user_has_project.user_iduser = user.iduser " +
+                "WHERE user_has_invitation.user_iduser = "+userid+" AND invitation_status = 0;";
 
         try {
             ResultSet rs = DBConfig.dbExecuteQuery(selectStatement);
-            ObservableList<Project> invitationList = getInvitationList(rs);
+            ObservableList<InvitationModelTable> invitationList = getInvitationList(rs);
             return invitationList;
         } catch (SQLException e) {
             throw e;
         }
     }
-    private static ObservableList<Project> getInvitationList(ResultSet rs) throws SQLException {
-        ObservableList<Project> invitationList = FXCollections.observableArrayList();
+    private static ObservableList<InvitationModelTable> getInvitationList(ResultSet rs) throws SQLException {
+        ObservableList<InvitationModelTable> invitationList = FXCollections.observableArrayList();
         while (rs.next()) {
-            Project project = new Project();
-            project.setProjectId(rs.getInt("projectid"));
-            project.setTitle(rs.getString("title"));
-            project.setCreatedDate(rs.getDate("created_at"));
-            project.setMembersNum(rs.getInt("usersNumber"));
-            project.setNextMeeting(rs.getDate("nextmeeting"));
-            invitationList.add(project);
+            InvitationModelTable invitationModel = new InvitationModelTable();
+            invitationModel.setUserId(rs.getInt("iduser"));
+            invitationModel.setProjectId(rs.getInt("projectid"));
+            invitationModel.setTitle(rs.getString("title"));
+            invitationModel.setMembersNum(rs.getInt("usersNumber"));
+            invitationModel.setStatus(rs.getString("status"));
+            invitationModel.setProjectOwner(rs.getString("firstName")+" "+rs.getString("lastName"));
+            System.out.println(invitationModel);
+            invitationList.add(invitationModel);
         }
         return invitationList;
+    }
+
+    public static void updateInvitation(int projectId, int userId, int status) throws SQLException, ClassNotFoundException {
+        String preparedStatement = "UPDATE user_has_invitation" +
+                " SET invitation_status = ? WHERE project_projectid = ? AND user_iduser = ?;";
+
+
+            DBConfig.dbConnect();
+            Connection conn = DBConfig.getConn();
+            PreparedStatement ps = conn.prepareStatement(preparedStatement);
+            ps.setInt(2, projectId);
+            ps.setInt(3, userId);
+            ps.setInt(1, status);
+            ps.executeUpdate();
+
+
     }
 }

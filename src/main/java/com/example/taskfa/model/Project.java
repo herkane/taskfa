@@ -8,6 +8,8 @@ public class Project {
     private Date createdDate;
     private int membersNum;
     private Date nextMeeting;
+    private String status;
+    private String projectOwner;
 
     public Date getCreatedDate() {
         return createdDate;

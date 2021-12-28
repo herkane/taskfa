@@ -41,12 +41,6 @@ public class ProjectViewController implements Initializable {
     private TextField joinProjectCode;
 
     @FXML
-    private ScrollPane scroll;
-
-    @FXML
-    private Button signOutBtn;
-
-    @FXML
     private Label userId;
 
     @FXML
@@ -62,6 +56,9 @@ public class ProjectViewController implements Initializable {
     private ImageView invitationNotifimage;
 
     User user = UserSession.getCurrentUser();
+
+    ObservableList<InvitationModelTable> invitationData = null;
+    ObservableList<Project> projectsData = null;
 
     @FXML
     void createProject(MouseEvent event) throws SQLException, ClassNotFoundException {
@@ -88,9 +85,10 @@ public class ProjectViewController implements Initializable {
     private void getData() throws SQLException, ClassNotFoundException{
        try {
            // Get Projects List from database
-           ObservableList<Project> projectsData = ProjectDAO.searchProjects(user.getIdUser());
+            projectsData = ProjectDAO.searchProjects(user.getIdUser());
            // Get User's Project Invitations
-           ObservableList<Project> invitationData = UserDAO.getInvitations(user.getIdUser());
+            invitationData = UserDAO.getInvitations(user.getIdUser());
+            // GET INIVATIONS COUNT
            // Display them
            populateProjects(projectsData);
            populateInvitation(invitationData);
@@ -141,7 +139,7 @@ public class ProjectViewController implements Initializable {
     /*
         If User has invitation show invitations Icon on Top
      */
-    private void populateInvitation(ObservableList<Project> invitationsData) {
+    private void populateInvitation(ObservableList<InvitationModelTable> invitationsData) {
         if (invitationsData.isEmpty()) {
             invitationNotifimage.setVisible(false);
         } else {
@@ -189,18 +187,18 @@ public class ProjectViewController implements Initializable {
 
     @FXML
     void showInvitations(MouseEvent event) {
-        /*
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/upload_vcs_popUp.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/popup_invitation.fxml"));
         Scene newScene = null;
         try {
             newScene = new Scene(fxmlLoader.load());
         } catch (IOException ex) {
-
+            System.out.println("Error loading Pop up invitation");
         }
+        InvitationController invitationController = fxmlLoader.getController();
+        invitationController.loadFXML();
         Stage inputStage = new Stage();
-        inputStage.initOwner(uploadBtn.getScene().getWindow());
+        inputStage.initOwner(invitationNotifimage.getScene().getWindow());
         inputStage.setScene(newScene);
         inputStage.showAndWait();
-         */
     }
 }

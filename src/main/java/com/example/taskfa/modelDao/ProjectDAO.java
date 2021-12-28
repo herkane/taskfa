@@ -129,25 +129,5 @@ public class ProjectDAO {
             //Return exception
             throw e;
         }
-        /*
-        try {
-            DBConfig.dbConnect();
-            ResultSet rsUser = DBConfig.dbExecuteQuery(selectStatement);
-            int userid = rsUser.getInt("iduser");
-            System.out.println("user id : "+userid);
-            Connection conn = DBConfig.getConn();
-            PreparedStatement ps = conn.prepareStatement(selectStatement, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, userEmail);
-            ps.executeQuery();
-            ps = conn.prepareStatement(insertStatment);
-            ps.setInt(1, projectId);
-            ps.setInt(2, userid);
-            ps.setInt(3,0);
-            ps.executeUpdate();
-
-        } catch (SQLException | ClassNotFoundException throwables) {
-            throw new SQLException("User invitation to Project failed !");
-        }
-         */
     }
 }

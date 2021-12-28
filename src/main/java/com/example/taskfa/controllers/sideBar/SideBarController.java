@@ -145,9 +145,11 @@ public class SideBarController {
                         });
                 notificationBuilder.show();
             } catch (SQLException | ClassNotFoundException e) {
+                Image img = new Image(getClass().getResourceAsStream("/media/reject_notification.png"));
                 Notifications notificationBuilder = Notifications.create()
                         .title("Invitation")
                         .text("No user with this email")
+                        .graphic(new ImageView(img))
                         .hideAfter(Duration.seconds(3))
                         .position(Pos.TOP_RIGHT)
                         .onAction(new EventHandler<ActionEvent>() {
