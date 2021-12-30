@@ -156,14 +156,22 @@ public class UserDAO {
             ps.setInt(1, status);
             ps.executeUpdate();
 
-        preparedStatement = "INSERT INTO user_has_project" +
-                " VALUES (?,?,?);";
+
 
             if (status == 1) {
+                preparedStatement = "INSERT INTO user_has_project" +
+                        " VALUES (?,?,?);";
                 ps = conn.prepareStatement(preparedStatement);
                 ps.setInt(2, projectId);
                 ps.setInt(3, 0);
                 ps.setInt(1, userId);
+                ps.executeUpdate();
+            } else {
+                preparedStatement = "DELETE FROM user_has_invitation" +
+                        " WHERE project_projectid = ? AND user_iduser = ?;";
+                ps = conn.prepareStatement(preparedStatement);
+                ps.setInt(1, projectId);
+                ps.setInt(2, userId);
                 ps.executeUpdate();
             }
 

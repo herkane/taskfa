@@ -58,7 +58,7 @@ public class InvitationController  {
         status.setCellValueFactory(new PropertyValueFactory<>("status"));
         usersNumber.setCellValueFactory(new PropertyValueFactory<>("membersNum"));
         accept.setCellFactory(new AcceptButtonCell(projectViewController));
-        decline.setCellFactory(new DeclineButtonCell());
+        decline.setCellFactory(new DeclineButtonCell(projectViewController));
         table.setItems(invitationsList);
     }
 }

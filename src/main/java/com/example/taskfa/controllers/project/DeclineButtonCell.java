@@ -1,6 +1,7 @@
 package com.example.taskfa.controllers.project;
 
 import com.example.taskfa.modelDao.UserDAO;
+import com.example.taskfa.utils.UserSession;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -18,6 +19,12 @@ import org.controlsfx.control.Notifications;
 import java.sql.SQLException;
 
 public class DeclineButtonCell implements Callback<TableColumn<InvitationModelTable, String>, TableCell<InvitationModelTable, String>> {
+
+    private ProjectViewController projectViewController;
+
+    public DeclineButtonCell(ProjectViewController projectViewController){
+        this.projectViewController = projectViewController;
+    }
 
     @Override
     public TableCell<InvitationModelTable, String> call(TableColumn<InvitationModelTable, String> arg) {
@@ -54,7 +61,12 @@ public class DeclineButtonCell implements Callback<TableColumn<InvitationModelTa
                                     }
                                 });
                         try {
-                            UserDAO.updateInvitation(invitationModelTable.getProjectId(), invitationModelTable.getUserId(), -1);
+                            UserDAO.updateInvitation(invitationModelTable.getProjectId(), UserSession.getCurrentUser().getIdUser(), -1);
+                            try {
+                                projectViewController.getData();
+                            } catch (SQLException | ClassNotFoundException e) {
+                                e.printStackTrace();
+                            }
                         } catch (SQLException | ClassNotFoundException e) {
                             e.printStackTrace();
                             Notifications notificationBuilderSQL = Notifications.create()
