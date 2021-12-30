@@ -44,7 +44,6 @@ public class UserDAO {
 
             try {
                 ResultSet rsUser = DBConfig.dbExecuteQuery(selectStm);
-                System.out.println("wsel");
                 User user =  getUserFromResultSet(rsUser);
                 return user;
             } catch (SQLException | ClassNotFoundException e) {
@@ -149,7 +148,6 @@ public class UserDAO {
         String preparedStatement = "UPDATE user_has_invitation" +
                 " SET invitation_status = ? WHERE project_projectid = ? AND user_iduser = ?;";
 
-
             DBConfig.dbConnect();
             Connection conn = DBConfig.getConn();
             PreparedStatement ps = conn.prepareStatement(preparedStatement);
@@ -158,6 +156,16 @@ public class UserDAO {
             ps.setInt(1, status);
             ps.executeUpdate();
 
+        preparedStatement = "INSERT INTO user_has_project" +
+                " VALUES (?,?,?);";
+
+            if (status == 1) {
+                ps = conn.prepareStatement(preparedStatement);
+                ps.setInt(2, projectId);
+                ps.setInt(3, 0);
+                ps.setInt(1, userId);
+                ps.executeUpdate();
+            }
 
     }
 }

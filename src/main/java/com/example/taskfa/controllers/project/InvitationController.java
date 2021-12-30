@@ -41,7 +41,9 @@ public class InvitationController  {
     private ObservableList<InvitationModelTable> invitationsList = null;
 
 
-    public void loadFXML() {
+    private ProjectViewController projectViewController;
+
+    public void loadFXML(ProjectViewController projectViewController) {
         //observableList = UserDAO.getInvitations()
         try {
             invitationsList = UserDAO.getInvitations(UserSession.getCurrentUser().getIdUser());
@@ -55,7 +57,7 @@ public class InvitationController  {
         projectOwner.setCellValueFactory(new PropertyValueFactory<>("projectOwner"));
         status.setCellValueFactory(new PropertyValueFactory<>("status"));
         usersNumber.setCellValueFactory(new PropertyValueFactory<>("membersNum"));
-        accept.setCellFactory(new AcceptButtonCell());
+        accept.setCellFactory(new AcceptButtonCell(projectViewController));
         decline.setCellFactory(new DeclineButtonCell());
         table.setItems(invitationsList);
     }

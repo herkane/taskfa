@@ -82,7 +82,7 @@ public class ProjectViewController implements Initializable {
     /*
     Function that englobes all functions
      */
-    private void getData() throws SQLException, ClassNotFoundException{
+    public void getData() throws SQLException, ClassNotFoundException{
        try {
            // Get Projects List from database
             projectsData = ProjectDAO.searchProjects(user.getIdUser());
@@ -177,7 +177,7 @@ public class ProjectViewController implements Initializable {
 
     @FXML
     void onSignOutClick(ActionEvent event) throws IOException {
-        // IDandUsers.setCurrentUser(null);
+        UserSession.setCurrentUser(null);
         Parent root  = FXMLLoader.load(getClass().getResource("/views/SignIn.fxml"));
         Stage window = (Stage) grid.getScene().getWindow();
         window.setScene(new Scene(root));
@@ -195,7 +195,7 @@ public class ProjectViewController implements Initializable {
             System.out.println("Error loading Pop up invitation");
         }
         InvitationController invitationController = fxmlLoader.getController();
-        invitationController.loadFXML();
+        invitationController.loadFXML(this);
         Stage inputStage = new Stage();
         inputStage.initOwner(invitationNotifimage.getScene().getWindow());
         inputStage.setScene(newScene);
