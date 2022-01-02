@@ -67,6 +67,7 @@ public class ProjectViewController implements Initializable {
             ProjectDAO.createProject(projectTitle, user.getIdUser());
             getData();
         }
+        createProjectTitle.setText("");
     }
 
     @FXML
