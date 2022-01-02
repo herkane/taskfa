@@ -20,8 +20,8 @@
    </columnConstraints>
    <rowConstraints>
       <RowConstraints vgrow="SOMETIMES" />
-      <RowConstraints vgrow="SOMETIMES" />
-      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="358.0" minHeight="319.0" prefHeight="319.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="67.0" minHeight="28.0" prefHeight="67.0" vgrow="SOMETIMES" />
       <RowConstraints vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
@@ -90,39 +90,9 @@
       </GridPane>
       <Button fx:id="signOutBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onSignOut" prefHeight="60.0" prefWidth="252.0" styleClass="sign-out" text="Sign Out" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets bottom="30.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Button>
-      <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="222.0" style="-fx-background-color: white;" styleClass="join_project_widget" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER">
-         <children>
-            <StackPane prefWidth="200.0" styleClass="join-project">
-               <children>
-                  <Label alignment="CENTER" text="Add Member" textFill="WHITE">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-               </children>
-            </StackPane>
-            <StackPane>
-               <children>
-                  <TextField fx:id="addMemberEmail" alignment="CENTER" promptText="Enter Email ..." styleClass="join_project_widget_textView">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#addMemberToProject" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
-                     <image>
-                        <Image url="@../media/cyan_add_icon.png" />
-                     </image>
-                     <StackPane.margin>
-                        <Insets right="5.0" />
-                     </StackPane.margin>
-                  </ImageView>
-               </children>
-            </StackPane>
-         </children>
-      </VBox>
       <GridPane prefHeight="340.0" prefWidth="322.0" style="-fx-background-color: black;" GridPane.rowIndex="1">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" />
@@ -152,6 +122,46 @@
                   <Insets top="5.0" />
                </padding>
             </ScrollPane>
+         </children>
+      </GridPane>
+      <GridPane GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="222.0" style="-fx-background-color: white;" styleClass="join_project_widget" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <StackPane prefWidth="200.0" styleClass="join-project">
+                     <children>
+                        <Label alignment="CENTER" text="Add Member" textFill="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane>
+                     <children>
+                        <TextField fx:id="addMemberEmail" alignment="CENTER" prefHeight="35.0" prefWidth="222.0" promptText="Enter Email ..." styleClass="join_project_widget_textView">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </TextField>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#addMemberToProject" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                           <image>
+                              <Image url="@../media/cyan_add_icon.png" />
+                           </image>
+                           <StackPane.margin>
+                              <Insets right="5.0" />
+                           </StackPane.margin>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
          </children>
       </GridPane>
    </children>

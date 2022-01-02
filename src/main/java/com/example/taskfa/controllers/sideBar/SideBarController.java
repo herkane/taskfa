@@ -170,7 +170,6 @@ public class SideBarController {
         Stage window = (Stage) signOutBtn.getScene().getWindow();
         window.setScene(new Scene(root));
         window.centerOnScreen();
-        window.setFullScreen(true);
     }
 
 }
