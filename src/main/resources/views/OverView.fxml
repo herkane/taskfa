@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane prefHeight="950.0" prefWidth="1113.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.OverViewController">
+<GridPane prefHeight="718.0" prefWidth="1113.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.OverViewController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
    </columnConstraints>
@@ -27,9 +27,9 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints maxHeight="360.0" minHeight="10.0" prefHeight="42.33333206176758" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="784.8888142903646" minHeight="10.0" prefHeight="784.8888142903646" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="682.0" minHeight="10.0" prefHeight="74.11118570963538" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="360.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="784.8888142903646" minHeight="10.0" prefHeight="617.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="682.0" minHeight="10.0" prefHeight="78.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="OverView" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -63,12 +63,12 @@
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="65.99999491373698" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="280.000005086263" minHeight="10.0" prefHeight="280.000005086263" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="280.000005086263" minHeight="10.0" prefHeight="210.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
                               <ListView fx:id="chatListView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
-                              <GridPane style="-fx-background-color: #365b6d;">
+                              <GridPane prefHeight="39.0" prefWidth="501.0" style="-fx-background-color: #365b6d;">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.888916015625" minWidth="10.0" prefWidth="91.11111450195312" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.8888854980469" minWidth="10.0" prefWidth="408.8888854980469" />
@@ -109,8 +109,8 @@
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints maxHeight="135.0" minHeight="10.0" prefHeight="65.77776590983073" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="280.22223409016925" minHeight="10.0" prefHeight="280.22223409016925" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="135.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="280.22223409016925" minHeight="10.0" prefHeight="210.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
                               <GridPane GridPane.rowIndex="1">
@@ -118,14 +118,14 @@
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
                                 <rowConstraints>
-                                  <RowConstraints maxHeight="43.33331298828125" minHeight="10.0" prefHeight="19.333313624064136" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="84.66668637593588" minHeight="10.0" prefHeight="84.66668637593588" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="53.666687011718764" minHeight="10.0" prefHeight="24.77777099609375" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="97.55553181966147" minHeight="10.0" prefHeight="97.55553181966147" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="43.33331298828125" minHeight="10.0" prefHeight="28.666664123535156" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="84.66668637593588" minHeight="10.0" prefHeight="53.333335876464844" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="53.666687011718764" minHeight="10.0" prefHeight="26.333328247070312" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="97.55553181966147" minHeight="10.0" prefHeight="80.66667175292969" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="70.3333511352539" minHeight="10.0" prefHeight="33.44446818033856" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Not started" GridPane.halignment="CENTER">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Not started" wrappingWidth="100.341796875" GridPane.halignment="CENTER">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -155,7 +155,7 @@
                                     <Insets bottom="5.0" top="5.0" />
                                  </padding>
                               </GridPane>
-                              <GridPane style="-fx-background-color: #365b6d;">
+                              <GridPane prefHeight="43.0" prefWidth="500.0" style="-fx-background-color: #365b6d;">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.77783203125" minWidth="10.0" prefWidth="90.22222900390625" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="409.77777099609375" minWidth="10.0" prefWidth="409.77777099609375" />
@@ -199,8 +199,8 @@
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints maxHeight="134.0" minHeight="10.0" prefHeight="75.33331044514973" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="260.0000228881836" minHeight="10.0" prefHeight="260.0000228881836" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="134.0" minHeight="10.0" prefHeight="41.66668701171875" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="260.0000228881836" minHeight="10.0" prefHeight="198.33331298828125" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
                               <GridPane GridPane.rowIndex="1">
@@ -261,7 +261,7 @@
                                     </GridPane>
                                  </children>
                               </GridPane>
-                              <GridPane style="-fx-background-color: #365b6d;">
+                              <GridPane prefHeight="39.0" prefWidth="501.0" style="-fx-background-color: #365b6d;">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.88888549804688" minWidth="10.0" prefWidth="83.11111704508463" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="444.8888676961263" minWidth="10.0" prefWidth="416.8888829549154" />
@@ -306,8 +306,8 @@
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints maxHeight="158.0" minHeight="10.0" prefHeight="67.4443868001302" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="267.8889465332031" minHeight="10.0" prefHeight="267.8889465332031" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="158.0" minHeight="10.0" prefHeight="45.333343505859375" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="267.8889465332031" minHeight="10.0" prefHeight="194.66665649414062" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
                               <GridPane GridPane.rowIndex="1">
@@ -321,7 +321,7 @@
                                     <ListView fx:id="resourceListView" prefHeight="200.0" prefWidth="200.0" />
                                  </children>
                               </GridPane>
-                              <GridPane style="-fx-background-color: #365b6d;">
+                              <GridPane prefHeight="31.0" prefWidth="500.0" style="-fx-background-color: #365b6d;">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.8887939453125" minWidth="10.0" prefWidth="77.1110610961914" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="422.8889389038086" minWidth="10.0" prefWidth="422.8889389038086" />
@@ -358,6 +358,9 @@
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
          <padding>
