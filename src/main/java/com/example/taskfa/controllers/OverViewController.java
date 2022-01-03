@@ -49,7 +49,7 @@ public class OverViewController {
     @FXML
     private Label progressPourcentage;
 
-    private ArrayList<Message> messages = null;
+    private final ArrayList<Message> messages = null;
     private ArrayList<Task> tasks = null;
     private User user = null;
     private int projectIdpassed;
@@ -90,7 +90,7 @@ public class OverViewController {
         }
         float progress = (float)progressTerminated / tasks.size();
         taskProgressBar.setProgress(progress);
-        progressPourcentage.setText(Double.toString(Math.floor(taskProgressBar.getProgress()*100) ) +"%");
+        progressPourcentage.setText(Math.floor(taskProgressBar.getProgress() * 100) +"%");
     }
     public void setVcsFiles() {
         officialVcsFile.setText(String.valueOf(projectIdpassed));

@@ -40,7 +40,7 @@ public class VcsViewControllerAdmin {
     @FXML
     private Label outputField;
 
-    private List<File> files = new ArrayList<>();
+    private final List<File> files = new ArrayList<>();
     private User user = null;
     private int projectId;
 

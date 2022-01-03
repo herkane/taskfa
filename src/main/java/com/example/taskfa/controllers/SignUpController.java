@@ -112,11 +112,7 @@ public class SignUpController {
     }
 
     private boolean checkData(String firstNameData,String lastNameData, String emailData, String passwordData, String confirmPassword) {
-        if (firstNameData.equals("") || lastNameData.equals("") || emailData.equals("") || passwordData.equals("")
-        || confirmPassword.equals("")) {
-            return false;
-        } else {
-            return true;
-        }
+        return !firstNameData.equals("") && !lastNameData.equals("") && !emailData.equals("") && !passwordData.equals("")
+                && !confirmPassword.equals("");
     }
 }

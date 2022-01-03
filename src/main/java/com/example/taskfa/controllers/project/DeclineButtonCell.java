@@ -20,7 +20,7 @@ import java.sql.SQLException;
 
 public class DeclineButtonCell implements Callback<TableColumn<InvitationModelTable, String>, TableCell<InvitationModelTable, String>> {
 
-    private ProjectViewController projectViewController;
+    private final ProjectViewController projectViewController;
 
     public DeclineButtonCell(ProjectViewController projectViewController){
         this.projectViewController = projectViewController;
@@ -36,7 +36,7 @@ public class DeclineButtonCell implements Callback<TableColumn<InvitationModelTa
             {
                 button = new Button();
                 button.setOnAction(evt -> {
-                    InvitationModelTable item = (InvitationModelTable) getTableRow().getItem();
+                    InvitationModelTable item = getTableRow().getItem();
                 });
                 button.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override

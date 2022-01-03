@@ -31,6 +31,13 @@ public class User {
         this.admin = admin;
         menu = new UserMenu();
     }
+    public User(String firstName, String lastName, int idUser) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.idUser = idUser;
+        this.admin = admin;
+        menu = new UserMenu();
+    }
 
     public User() {
 

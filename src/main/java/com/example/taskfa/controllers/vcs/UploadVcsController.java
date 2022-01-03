@@ -35,7 +35,7 @@ public class UploadVcsController implements Initializable {
 
     String fileName, task;
 
-    private ArrayList<Task> tasks = new ArrayList();
+    private final ArrayList<Task> tasks = new ArrayList();
 
     public void uploadFile(ActionEvent event) {
         FileChooser fc = new FileChooser();
@@ -54,7 +54,7 @@ public class UploadVcsController implements Initializable {
     public void submit() {
         System.out.println("File  : " + fileNameLabel.getText());
         System.out.println("Task " + task);
-        System.out.println("Changes : "+ changesDescriptionLabel.getText().toString());
+        System.out.println("Changes : "+ changesDescriptionLabel.getText());
         submitBtn.getScene().getWindow().hide();
     }
 
@@ -72,7 +72,7 @@ public class UploadVcsController implements Initializable {
     public void setMenuItems(int UserId) {
        for (Task task : tasks) {
            if (task.getUserId() == UserId) {
-               taskChoiceBtn.getItems().add("#"+Integer.toString(task.getTaskId())+" : "+task.getTitle());
+               taskChoiceBtn.getItems().add("#"+ task.getTaskId() +" : "+task.getTitle());
            }
        }
     }

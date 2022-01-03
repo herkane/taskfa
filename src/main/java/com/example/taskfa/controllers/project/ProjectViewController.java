@@ -143,11 +143,7 @@ public class ProjectViewController implements Initializable {
         If User has invitation show invitations Icon on Top
      */
     private void populateInvitation(ObservableList<InvitationModelTable> invitationsData) {
-        if (invitationsData.isEmpty()) {
-            invitationNotifimage.setVisible(false);
-        } else {
-            invitationNotifimage.setVisible(true);
-        }
+        invitationNotifimage.setVisible(!invitationsData.isEmpty());
     }
     /*
         This functions set Users info into sideBar

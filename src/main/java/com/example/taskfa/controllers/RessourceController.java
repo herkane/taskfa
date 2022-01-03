@@ -40,11 +40,11 @@ public class RessourceController  {
 
     private int projectId;
 
-    private ObservableList<String> listPdfFiles = FXCollections.observableArrayList(
+    private final ObservableList<String> listPdfFiles = FXCollections.observableArrayList(
             "Gi_5.pdf", "File.pdf", "WhitePaper.pdf");
-    private ObservableList<String> listOtherFiles = FXCollections.observableArrayList(
+    private final ObservableList<String> listOtherFiles = FXCollections.observableArrayList(
             "File 1", "File 2", "File 3");
-    private ObservableList<String> listLinks = FXCollections.observableArrayList(
+    private final ObservableList<String> listLinks = FXCollections.observableArrayList(
             "google.com", "facebook.com", "youtube.com");
 
     public void pdf(ActionEvent event){
