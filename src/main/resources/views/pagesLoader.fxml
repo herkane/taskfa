@@ -3,6 +3,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -13,7 +16,8 @@
    <top>
       <GridPane alignment="CENTER" prefHeight="50.0" prefWidth="1066.0" BorderPane.alignment="CENTER">
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="986.0" minWidth="10.0" prefWidth="979.3333740234375" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="521.0" minWidth="10.0" prefWidth="66.6666259765625" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -21,7 +25,7 @@
          <children>
             <Button fx:id="overviewBtn" alignment="CENTER" mnemonicParsing="false" onAction="#gotoOverview" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="OVERVIEW" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets right="120.0" />
+                  <Insets left="70.0" />
                </GridPane.margin>
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -38,7 +42,7 @@
             </Button>
             <Button fx:id="tasksBtn" alignment="CENTER" mnemonicParsing="false" onAction="#goToTasks" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="TASKS" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets left="110.0" />
+                  <Insets right="160.0" />
                </GridPane.margin>
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -55,7 +59,7 @@
             </Button>
             <Button fx:id="resourcesBtn" alignment="CENTER" mnemonicParsing="false" onAction="#goToResources" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="RESOURCES" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets right="350.0" />
+                  <Insets right="390.0" />
                </GridPane.margin>
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -72,7 +76,7 @@
             </Button>
             <Button fx:id="vcsBtn" alignment="CENTER" mnemonicParsing="false" onAction="#goToVcs" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="VCS" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets left="340.0" />
+                  <Insets left="300.0" />
                </GridPane.margin>
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -89,7 +93,7 @@
             </Button>
             <Button fx:id="chatBtn" alignment="CENTER" mnemonicParsing="false" onAction="#goToChat" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #41c1be;" text="CHAT" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets left="570.0" />
+                  <Insets left="530.0" />
                </GridPane.margin>
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -103,6 +107,42 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+            </Button>
+            <Button fx:id="closeWindow" mnemonicParsing="false" onAction="#closeWindow" style="-fx-effect: null; -fx-background-color: transparent; -fx-focus-color: transparent;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <tooltip>
+                  <Tooltip id="tooltipBar" text="Close" />
+               </tooltip>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../com/example/taskfa/media/exit.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="reduceWindow" mnemonicParsing="false" onAction="#reduceWindow" prefHeight="30.0" prefWidth="27.0" style="-fx-effect: null; -fx-background-color: transparent; -fx-focus-color: transparent;" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <tooltip>
+                  <Tooltip id="tooltipBar" showDelay="0.1s" text="Reduce" />
+               </tooltip>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../com/example/taskfa/media/reduce.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
          <padding>

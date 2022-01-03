@@ -11,9 +11,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 
 import java.io.IOException;
@@ -23,6 +25,8 @@ import java.util.ResourceBundle;
 public class PagesLoaderController implements Initializable {
     @FXML
     private BorderPane mainPane;
+    @FXML
+    private Button closeWindow,reduceWindow;
 
     private SideBarController sideBarController;
     private OverViewController overViewController;
@@ -120,6 +124,18 @@ public class PagesLoaderController implements Initializable {
         sideBarController.loadFXML(projectIdpassed);
         overViewController.loadFXML(projectIdpassed);
         System.out.println("In loader controller : " + projectId);
+    }
+
+    public void closeWindow() {
+        // get a handle to the stage
+        Stage stage = (Stage) closeWindow.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+    }
+
+    public void reduceWindow() {
+        Stage stage = (Stage) reduceWindow.getScene().getWindow();
+        stage.setIconified(true);
     }
 
 }

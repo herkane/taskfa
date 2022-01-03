@@ -33,6 +33,8 @@ public class ProjectViewController implements Initializable {
 
     @FXML
     private TextField createProjectTitle;
+    @FXML
+    private Button closeWindow,reduceWindow;
 
     @FXML
     private GridPane grid;
@@ -201,5 +203,17 @@ public class ProjectViewController implements Initializable {
         inputStage.initOwner(invitationNotifimage.getScene().getWindow());
         inputStage.setScene(newScene);
         inputStage.showAndWait();
+    }
+
+    public void closeWindow() {
+        // get a handle to the stage
+        Stage stage = (Stage) closeWindow.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+    }
+
+    public void reduceWindow() {
+        Stage stage = (Stage) reduceWindow.getScene().getWindow();
+        stage.setIconified(true);
     }
 }
