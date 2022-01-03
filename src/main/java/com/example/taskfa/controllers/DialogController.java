@@ -29,9 +29,9 @@ public class DialogController  implements Initializable {
     private TextField taskTitle;
 
     @FXML
-    private ChoiceBox memberChoiceBox;
+    private ChoiceBox<String> memberChoiceBox;
 
-    ArrayList<User> users = null;
+    private final ArrayList<User> users =  new ArrayList();
     private ObservableList<Task> appMainObservableList;
 
     @FXML
@@ -67,12 +67,15 @@ public class DialogController  implements Initializable {
     }
 
     public void setUsers(){
-        ChoiceBox usersChoiceBox = new ChoiceBox(FXCollections.observableArrayList(getUsers()));
-        System.out.println("How many users : " + usersChoiceBox.getItems().size());
+        for (int i = 0; i< users.size();i++) {
+            memberChoiceBox.getItems().add(users.get(i).getLastName() + " " + users.get(i).getFirstName());
+        }
+        System.out.println("How many users : " + memberChoiceBox.getItems().size());
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        users.addAll(getUsers());
         setUsers();
     }
 }
