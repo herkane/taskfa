@@ -1,5 +1,6 @@
 package com.example.taskfa.controllers;
 
+import com.example.taskfa.controllers.tasks.TaskCell;
 import com.example.taskfa.model.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,10 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -24,12 +24,13 @@ import java.util.ResourceBundle;
 public class TaskController implements Initializable {
 
     @FXML
-    private TableView<Task> taskTableView;
+    private ListView taskList;
     @FXML
     private TableColumn titleCol = new TableColumn("Title");
     @FXML
     private TableColumn descriptionCol = new TableColumn("Description");
-
+    @FXML
+    private StackPane taskPane;
     @FXML
     private Button add_task_btn;
     private final ObservableList<Task> tvObservableList = FXCollections.observableArrayList();
@@ -56,12 +57,12 @@ public class TaskController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initialize triggered");
-
-        //titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-        //descriptionCol.setCellValueFactory(new PropertyValueFactory<>("descirption"));
-        taskTableView.setItems(tvObservableList);
+        taskList = new ListView<Task>(tvObservableList);
+        taskList.setCellFactory(param -> new TaskCell());
+        /*taskTableView.setItems(tvObservableList);
         titleCol.setCellValueFactory(new PropertyValueFactory<Task,String>("title"));
-        descriptionCol.setCellValueFactory(new PropertyValueFactory<Task,String>("description"));
+        descriptionCol.setCellValueFactory(new PropertyValueFactory<Task,String>("description"));*/
+        taskPane.getChildren().add(taskList);
 
     }
 }
