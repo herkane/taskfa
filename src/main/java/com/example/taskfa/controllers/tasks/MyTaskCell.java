@@ -1,6 +1,7 @@
 package com.example.taskfa.controllers.tasks;
 
 import com.example.taskfa.model.Task;
+import com.example.taskfa.model.User;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -8,17 +9,18 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 
-public class TaskCell extends ListCell<Task> {
+public class MyTaskCell extends ListCell<Task>{
     HBox hbox = new HBox();
-    Label label = new Label("");
+    Label title = new Label("");
     Pane pane = new Pane();
-    Button button = new Button("Start");
+    Button detailsBtn = new Button("Show details");
+    Button startBtn = new Button("Start");
 
-    public TaskCell() {
+    public MyTaskCell() {
         super();
-        hbox.getChildren().addAll(label, pane, button);
+        hbox.getChildren().addAll( title,pane, detailsBtn, startBtn);
         HBox.setHgrow(pane, Priority.ALWAYS);
-        button.setOnAction(event -> getListView().getItems().remove(getItem()));
+        startBtn.setOnAction(event -> getListView().getItems().remove(getItem()));
     }
 
     protected void updateItem(Task item, boolean empty) {
@@ -26,7 +28,7 @@ public class TaskCell extends ListCell<Task> {
         setText(null);
         setGraphic(null);
         if (item != null && !empty) {
-            label.setText(item.getTitle());
+            title.setText(item.getTitle());
             setGraphic(hbox);
         }
     }

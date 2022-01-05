@@ -1,6 +1,7 @@
 package com.example.taskfa.controllers;
 
-import com.example.taskfa.controllers.tasks.TaskCell;
+import com.example.taskfa.controllers.tasks.MyTaskCell;
+import com.example.taskfa.controllers.tasks.ViewTaskCell;
 import com.example.taskfa.model.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,12 +11,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,14 +25,15 @@ public class TaskController implements Initializable {
     @FXML
     private ListView taskList;
     @FXML
-    private TableColumn titleCol = new TableColumn("Title");
-    @FXML
-    private TableColumn descriptionCol = new TableColumn("Description");
+    private  ListView myTaskList;
     @FXML
     private StackPane taskPane;
     @FXML
+    private StackPane myTaskPane;
+    @FXML
     private Button add_task_btn;
-    private final ObservableList<Task> tvObservableList = FXCollections.observableArrayList();
+    private final ObservableList<Task> taskObList = FXCollections.observableArrayList();
+    private final ObservableList<Task> myTaskObList = FXCollections.observableArrayList();
 
 
     public void add_task() throws IOException {
@@ -41,7 +41,7 @@ public class TaskController implements Initializable {
         Parent parent = fxmlLoader.load();
 
         DialogController dialogController = fxmlLoader.getController();
-        dialogController.setObservableList(tvObservableList);
+        dialogController.setObservableList(taskObList);
 
         Scene scene = new Scene(parent, 600, 500);
         Stage stage = new Stage();
@@ -56,14 +56,21 @@ public class TaskController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Task task;
         System.out.println("Initialize triggered");
-        taskList = new ListView<Task>(tvObservableList);
-        taskList.setCellFactory(param -> new TaskCell());
-        /*taskTableView.setItems(tvObservableList);
-        titleCol.setCellValueFactory(new PropertyValueFactory<Task,String>("title"));
-        descriptionCol.setCellValueFactory(new PropertyValueFactory<Task,String>("description"));*/
+
+        //Users Task List
+        taskList = new ListView<Task>(taskObList);
+        taskList.setCellFactory(param -> new ViewTaskCell());
         taskPane.getChildren().add(taskList);
 
+        //Initialize my observable list
+        myTaskObList.add(new Task("Title","Description"));
+
+        //My task List
+        myTaskList = new ListView(myTaskObList);
+        myTaskList.setCellFactory(param -> new MyTaskCell());
+        myTaskPane.getChildren().add(myTaskList);
     }
 }
 

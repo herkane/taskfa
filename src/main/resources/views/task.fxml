@@ -59,7 +59,7 @@
                                     <children>
                                         <ScrollPane prefHeight="200.0" prefWidth="280.0" GridPane.rowIndex="1">
                                  <content>
-                                    <StackPane fx:id="taskPane" prefHeight="214.0" prefWidth="269.0" />
+                                    <StackPane fx:id="myTaskPane" prefHeight="217.0" prefWidth="261.0" />
                                  </content></ScrollPane>
                                         <AnchorPane prefHeight="47.0" prefWidth="267.0" style="-fx-background-color: #365b6d;">
                                             <children>
@@ -97,8 +97,13 @@
                                                 <Image url="@../com/example/taskfa/media/13.png" />
                                             </ImageView>
                                         </AnchorPane>
-                                        <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
-                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="297.0" prefWidth="268.0" />
+                                        <ScrollPane prefHeight="296.0" prefWidth="255.0" GridPane.rowIndex="3">
+                                 <content>
+                                    <StackPane fx:id="taskPane" prefHeight="291.0" prefWidth="272.0" />
+                                 </content>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
                                         </ScrollPane>
                                     </children>
                                 </GridPane>

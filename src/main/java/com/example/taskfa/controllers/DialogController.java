@@ -43,9 +43,9 @@ public class DialogController  implements Initializable {
         System.out.println("submit task clicked");
         String title = taskTitle.getText().trim();
         String details = taskDetails.getText().trim();
-
-        Task task = new Task(title, details);
-        observableList.add(task);
+        //int memberId = users.get(Integer.parseInt(memberChoiceBox.getId())).getIdUser();
+        String member = memberChoiceBox.getSelectionModel().getSelectedItem().trim();
+        observableList.add(new Task(title, details, member));
         closeStage();
     }
 
@@ -56,12 +56,12 @@ public class DialogController  implements Initializable {
 
     public ArrayList<User> getUsers(){
         users.add(new User("Herkane","Achraf",1 ));
-        users.add(new User("El Hadeg","Fatima",2 ));
+        users.add(new User("Elhadeg","Fatima",2 ));
         users.add(new User("Boussoufiane","Aissam",3 ));
         users.add(new User("Laouissi","Anass",4 ));
         System.out.println("How many users in list : " + users.size());
         for (int i = 0; i< users.size();i++) {
-            memberChoiceBox.getItems().add(users.get(i).getLastName() + " " + users.get(i).getFirstName());
+            memberChoiceBox.getItems().add(users.get(i).getFirstName() + " " + users.get(i).getLastName());
         }
         System.out.println("How many users : " + memberChoiceBox.getItems().size());
         return users;
