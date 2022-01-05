@@ -17,7 +17,7 @@ public class AdminMenu implements Menu{
 
     @Override
     public String showTask() {
-        return "/views/TASK.fxml";
+        return "/views/task.fxml";
     }
 
     @Override

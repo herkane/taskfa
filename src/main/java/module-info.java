@@ -11,6 +11,7 @@ module com.example.taskfa {
     requires javafx.graphics;
     requires javafx.base;
     requires java.sql;
+
     // requires eu.hansolo.tilesfx;
 
     opens com.example.taskfa to javafx.fxml;
@@ -27,4 +28,5 @@ module com.example.taskfa {
     opens com.example.taskfa.controllers.sideBar to javafx.fxml;
     exports com.example.taskfa.utils;
     opens com.example.taskfa.utils to javafx.fxml;
+    opens com.example.taskfa.model;
 }

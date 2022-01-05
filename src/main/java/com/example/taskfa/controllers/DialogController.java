@@ -32,51 +32,44 @@ public class DialogController  implements Initializable {
     private ChoiceBox<String> memberChoiceBox;
 
     private final ArrayList<User> users =  new ArrayList();
-    private ObservableList<Task> appMainObservableList;
+    private ObservableList<Task> observableList;
+
+    public void setObservableList(ObservableList<Task> observableList) {
+        this.observableList = observableList;
+    }
 
     @FXML
-    void submit(ActionEvent event) {
+    void submit() {
         System.out.println("submit task clicked");
-        String title = taskTitle.getText();
-        String details = taskDetails.getText();
-        int memberId = Integer.parseInt(memberChoiceBox.getId());
+        String title = taskTitle.getText().trim();
+        String details = taskDetails.getText().trim();
 
-        Task data = new Task(title, details, Status.NOT_STARTED, memberId);
-        appMainObservableList.add(data);
-        closeStage(event);
+        Task task = new Task(title, details);
+        observableList.add(task);
+        closeStage();
     }
 
-    public void setAppMainObservableList(ObservableList<Task> tvObservableList) {
-        this.appMainObservableList = tvObservableList;
-
-    }
-
-    private void closeStage(ActionEvent event) {
-        Node  source = (Node)  event.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
+    private void closeStage() {
+        Stage stage  = (Stage) taskTitle.getScene().getWindow();
         stage.close();
     }
 
     public ArrayList<User> getUsers(){
-        ArrayList<User> users = new ArrayList();
         users.add(new User("Herkane","Achraf",1 ));
-        users.add(new User("Herkane","Achraf",2 ));
-        users.add(new User("Herkane","Achraf",3 ));
-        users.add(new User("Herkane","Achraf",4 ));
-        return users;
-    }
-
-    public void setUsers(){
+        users.add(new User("El Hadeg","Fatima",2 ));
+        users.add(new User("Boussoufiane","Aissam",3 ));
+        users.add(new User("Laouissi","Anass",4 ));
+        System.out.println("How many users in list : " + users.size());
         for (int i = 0; i< users.size();i++) {
             memberChoiceBox.getItems().add(users.get(i).getLastName() + " " + users.get(i).getFirstName());
         }
         System.out.println("How many users : " + memberChoiceBox.getItems().size());
+        return users;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        users.addAll(getUsers());
-        setUsers();
+        getUsers();
     }
 }
 

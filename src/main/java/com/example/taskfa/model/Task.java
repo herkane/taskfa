@@ -1,26 +1,33 @@
 package com.example.taskfa.model;
 
+import javafx.beans.property.SimpleSetProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 public class Task {
     private int taskId;
-    private final String title;
-    private final String description;
-    private final Status STATUS;
-    private final int UserId;
+    private SimpleStringProperty title;
+    private SimpleStringProperty description;
+    private Status STATUS;
+    private int UserId;
 
     public Task(int taskId, String title, String description, Status STATUS, int UserId) {
         this.taskId = taskId;
-        this.title = title;
-        this.description = description;
+        this.title = new SimpleStringProperty(title);
+        this.description = new SimpleStringProperty(description);
         this.STATUS = STATUS;
         this.UserId = UserId;
     }
 
     public Task(String title, String description, Status STATUS, int UserId) {
-        this.taskId = taskId;
-        this.title = title;
-        this.description = description;
+        this.title = new SimpleStringProperty(title);
+        this.description = new SimpleStringProperty(description);
         this.STATUS = STATUS;
         this.UserId = UserId;
+    }
+
+    public Task(String title, String description) {
+        this.title = new SimpleStringProperty(title);
+        this.description = new SimpleStringProperty(description);
     }
 
     public int getTaskId() {
@@ -28,11 +35,11 @@ public class Task {
     }
 
     public String getTitle() {
-        return title;
+        return title.get();
     }
 
     public String getDescription() {
-        return description;
+        return description.get();
     }
 
     public Status getSTATUS() {
