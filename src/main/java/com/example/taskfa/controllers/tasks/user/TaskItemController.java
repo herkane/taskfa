@@ -26,12 +26,30 @@ public class TaskItemController implements Initializable {
     @FXML
     private Button btnInfo;
 
+    private TaskItemController taskItemController;
+
     private TasksModel tasksModel;
 
-    private Consumer<TasksModel> tasksModelConsumer;
+    public int getPosition() {
+        return position;
+    }
 
-    public void setTasksModelConsumer(Consumer<TasksModel> tasksModelConsumer) {
-        this.tasksModelConsumer = tasksModelConsumer;
+    public void setPosition(int position) {
+        System.out.println("New position " + position);
+        this.position = position;
+    }
+
+    // to help get position inside vbox
+    private int position;
+
+    private Consumer<TaskItemController> taskItemControllerConsumer;
+
+    public void setTasksModelConsumer(Consumer<TaskItemController> taskItemControllerConsumer) {
+        this.taskItemControllerConsumer = taskItemControllerConsumer;
+    }
+
+    public TasksModel getTasksModel() {
+        return tasksModel;
     }
 
     /**
@@ -43,22 +61,29 @@ public class TaskItemController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        taskItemController = this;
         // TODO
         btnInfo.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 if (tasksModel.getStatus() == TaskStatus.NOTSTARTED) {
                     tasksModel.setStatus(TaskStatus.PENDING);
+                    tasksModel.setCompleted(false);
                 } else if (tasksModel.getStatus() == TaskStatus.PENDING) {
                     tasksModel.setStatus(TaskStatus.DONE);
-                } else tasksModel.setStatus(TaskStatus.NOTSTARTED);
+                    tasksModel.setCompleted(true);
+                } else {
+                    tasksModel.setStatus(TaskStatus.NOTSTARTED);
+                    tasksModel.setCompleted(false);
+                }
 
-                tasksModelConsumer.accept(tasksModel);
+                taskItemControllerConsumer.accept(taskItemController);
             }
         });
     }
 
-    public void setTask(TasksModel model) {
+    public void setTask(TasksModel model, int position) {
+        this.position = position;
         this.tasksModel = model;
         ContextMenu menu = new ContextMenu();
         System.out.println(model.toString() + " i'm heeere");
