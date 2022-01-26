@@ -29,4 +29,6 @@ module com.example.taskfa {
     exports com.example.taskfa.utils;
     opens com.example.taskfa.utils to javafx.fxml;
     opens com.example.taskfa.model;
+    opens com.example.taskfa.controllers.tasks.user to javafx.fxml;
+    exports com.example.taskfa.controllers.tasks.user;
 }

@@ -66,7 +66,7 @@ public class PagesLoaderController implements Initializable {
 
     public void goToTasks() {
         ScreenLoader screen = new ScreenLoader();
-        Pane view = screen.getPage("TASK");
+        Pane view = screen.getPage("newUserTaskView");
         mainPane.setCenter(view);
     }
 
