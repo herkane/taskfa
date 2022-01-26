@@ -56,7 +56,7 @@ public class DBConfig {
             // crs = new CachedRowSetImpl();
             // crs.populate(resultSet);
         } catch (SQLException e) {
-            System.out.println("Problem occurred at executeQuery operation : " + e);
+            e.printStackTrace();
             throw e;
         }
         //Return CachedRowSet

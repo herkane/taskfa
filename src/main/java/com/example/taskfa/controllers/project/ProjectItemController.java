@@ -3,6 +3,7 @@ package com.example.taskfa.controllers.project;
 import com.example.taskfa.controllers.PagesLoaderController;
 import com.example.taskfa.controllers.chat.ChatItemController;
 import com.example.taskfa.model.Project;
+import com.example.taskfa.modelDao.ResourcesDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;

@@ -15,6 +15,7 @@ C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\mode
 C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\controllers\vcs\VcsViewController.java
 C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\controllers\project\ProjectItemController.java
 C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\controllers\RessourceController.java
+C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\controllers\tasks\MyTaskCell.java
 C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\controllers\TaskController.java
 C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\controllers\vcs\VcsItemController.java
 C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\model\File.java
@@ -38,6 +39,7 @@ C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\mode
 C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\controllers\chat\ChatViewController.java
 C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\controllers\OverViewController.java
 C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\utils\DBConfig.java
+C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\controllers\tasks\ViewTaskCell.java
 C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\utils\UserMenu.java
 C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\module-info.java
 C:\Users\herka_lvzfxpq\IdeaProjects\taskfa\src\main\java\com\example\taskfa\model\Project.java

@@ -1,7 +1,11 @@
 package com.example.taskfa.controllers;
 
 
+import com.example.taskfa.controllers.project.ProjectItemController;
 import com.example.taskfa.controllers.resource.FileCell;
+import com.example.taskfa.modelDao.ProjectDAO;
+import com.example.taskfa.modelDao.ResourcesDAO;
+import com.example.taskfa.utils.DBConfig;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,12 +19,17 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
 
+import java.io.File;
 import java.net.URL;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class RessourceController  {
+public class RessourceController  implements Initializable{
 
 
     @FXML
@@ -40,30 +49,34 @@ public class RessourceController  {
 
     private int projectId;
 
-    private final ObservableList<String> listPdfFiles = FXCollections.observableArrayList(
-            "Gi_5.pdf", "File.pdf", "WhitePaper.pdf");
+    private File file;
+
+    private ObservableList<String> listPdfFiles = null;
     private final ObservableList<String> listOtherFiles = FXCollections.observableArrayList(
             "File 1", "File 2", "File 3");
     private final ObservableList<String> listLinks = FXCollections.observableArrayList(
             "google.com", "facebook.com", "youtube.com");
 
-    public void pdf(ActionEvent event){
+    public void pdf(ActionEvent event) throws SQLException, ClassNotFoundException, ParseException {
         FileChooser fc = new FileChooser();
+        String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
         fc.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("pdf","*.pdf")
         );
-
-        List<java.io.File> selectedFiles = fc.showOpenMultipleDialog(pdfPaneList.getScene().getWindow());
+        List<File> selectedFiles = fc.showOpenMultipleDialog(pdfPaneList.getScene().getWindow());
+        projectId = 24;
         if (selectedFiles!=null){
             for (int i=0; i<selectedFiles.size()  ; i++) {
-                listPdfFiles.add(selectedFiles.get(i).getName());
+                listPdfFiles.add(selectedFiles.get(i).getName() + " " + date);
+                System.out.println("Controller : " + selectedFiles.get(i).getName() + " " + date);
+                ResourcesDAO.addPdf(selectedFiles.get(i),projectId);
             }
         }else{
-            System.out.println("not valid");
+            System.out.println("PDF : not valid");
         }
     }
 
-    public void other(ActionEvent event){
+    public void other(ActionEvent event) throws SQLException, ClassNotFoundException, ParseException {
         FileChooser ot = new FileChooser();
 
 
@@ -71,6 +84,7 @@ public class RessourceController  {
         if (selectedFiles!=null){
             for (int i=0; i<selectedFiles.size()  ; i++) {
                 listOtherFiles.add(selectedFiles.get(i).getName());
+                ResourcesDAO.addPdf(selectedFiles.get(i),24);
             }
         }else{
             System.out.println("not valid");
@@ -103,5 +117,11 @@ public class RessourceController  {
         pdfPaneList.getChildren().add(lvPdf);
         othersPaneList.getChildren().add(lvOthers);
         linkPaneList.getChildren().add(lvLinks);
+    }
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        listPdfFiles = ResourcesDAO.getPdf(24);
     }
 }

@@ -4,6 +4,7 @@ import com.example.taskfa.controllers.project.InvitationModelTable;
 import com.example.taskfa.model.Project;
 import com.example.taskfa.model.User;
 import com.example.taskfa.utils.DBConfig;
+import com.example.taskfa.utils.UserSession;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
@@ -38,17 +39,18 @@ public class UserDAO {
     SELECT USER INFORMATIONS FOR LOGIN
      */
     public static User searchUser(String email, String password) throws NoSuchAlgorithmException {
-
+        User user = null;
         String selectStm = "SELECT * FROM user WHERE email = '"+email
                 +"' AND password = '"+ MD5(password) +"';";
 
             try {
                 ResultSet rsUser = DBConfig.dbExecuteQuery(selectStm);
-                User user =  getUserFromResultSet(rsUser);
+                user =  getUserFromResultSet(rsUser);
                 return user;
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
+        UserSession.setCurrentUser(user);
         return null;
     }
 
@@ -78,7 +80,9 @@ public class UserDAO {
                 "(firstName, lastName, status, image, email, password) " +
                 "VALUES " +
                 "(?,?,?,?,?,?)";
+
         FileInputStream fileInputStream = null;
+
         try {
             fileInputStream = new FileInputStream(selectedFile);
         } catch (FileNotFoundException e) {

@@ -11,6 +11,7 @@ com\example\taskfa\controllers\vcs\DetailsPopUpController.class
 com\example\taskfa\utils\Menu.class
 com\example\taskfa\controllers\PopUpVcsController.class
 com\example\taskfa\controllers\sideBar\SideBarController.class
+com\example\taskfa\controllers\tasks\ViewTaskCell.class
 com\example\taskfa\controllers\project\AcceptButtonCell$1.class
 com\example\taskfa\controllers\project\DeclineButtonCell$1$1$1.class
 com\example\taskfa\controllers\project\AcceptButtonCell.class
@@ -22,6 +23,7 @@ com\example\taskfa\controllers\project\InvitationModelTable.class
 com\example\taskfa\model\User.class
 com\example\taskfa\controllers\project\DeclineButtonCell$1$1.class
 com\example\taskfa\controllers\TaskController.class
+com\example\taskfa\controllers\tasks\MyTaskCell.class
 com\example\taskfa\modelDao\UserDAO.class
 com\example\taskfa\controllers\project\AcceptButtonCell$1$1$1.class
 com\example\taskfa\model\Task.class

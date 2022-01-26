@@ -31,10 +31,27 @@ public class ProjectDAO {
         }
     }
 
+    public static int getProjectId(int userId) throws SQLException, ClassNotFoundException {
+        String selectStm = "SELECT projectid" +
+                "FROM project " +
+                "INNER JOIN user_has_project ON projectid = project_projectid " +
+                "INNER JOIN user ON iduser = user_iduser " +
+                "WHERE iduser = "+userId+" ;";
+        try {
+            ResultSet rsProjects = DBConfig.dbExecuteQuery(selectStm);
+            int projectId = rsProjects.getInt("projectid");
+            return projectId;
+        } catch (SQLException e) {
+            System.out.println("SQL select operation has been failed: " + e);
+            //Return exception
+            throw e;
+        }
+    }
+
     /*
     GET PROJECTS DATA FROM RESULT SET
      */
-    private static ObservableList<Project> getProjectsList(ResultSet rs) throws SQLException, ClassNotFoundException {
+    private static ObservableList<Project> getProjectsList(ResultSet rs) throws SQLException {
         ObservableList<Project> projectsList = FXCollections.observableArrayList();
 
         while (rs.next()) {
