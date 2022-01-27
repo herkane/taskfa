@@ -182,7 +182,7 @@ public class TaskViewController implements Initializable {
             node.setVisible(true);
             nodes3[position] = null;
             int newPosition = getLastIndex(nodes1);
-            System.out.println(tasksModel.getTitle()+" : nodes3["+validPosition+ "] -> nodes1["+newPosition+"]");
+            System.out.println(tasksModel.getTitle()+" : nodes3["+position+ "] -> nodes1["+newPosition+"]");
             nodes1[newPosition] = node;
             vTaskItems.getChildren().add(node);
             taskItemController.setPosition(newPosition);
@@ -204,7 +204,7 @@ public class TaskViewController implements Initializable {
             node.setVisible(true);
             nodes1[position] = null;
             int newPosition = getLastIndex(nodes2);
-            System.out.println(tasksModel.getTitle()+" : nodes1["+validPosition+ "] -> nodes2["+newPosition+"]");
+            System.out.println(tasksModel.getTitle()+" : nodes1["+position+ "] -> nodes2["+newPosition+"]");
             nodes2[newPosition] = node;
             vTaskItemsInProgress.getChildren().add(node);
             taskItemController.setPosition(newPosition);
@@ -262,13 +262,19 @@ public class TaskViewController implements Initializable {
 
     }
     private int checkPosition(Node[] array, int position) {
-        System.out.println("ra dwztonii");
+        int count = 0;
         for (int i=0; i < array.length; i++) {
+            /*
             if (i == position && i-1>0 &&array[i-1] == null) {
                 System.out.println("position : " + (i-1) +  " -> "+position);
-                return i-1;
+                return (i-1);
+            }
+             */
+            if (array[i] == null && i < position) {
+                count++;
             }
         }
+        if (position - count >= 0) return position - count;
         return position;
     }
     private int getLastIndex(Node[] array) {
