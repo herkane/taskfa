@@ -7,6 +7,7 @@ import com.example.taskfa.controllers.vcs.VcsViewController;
 import com.example.taskfa.controllers.vcs.VcsViewControllerAdmin;
 import com.example.taskfa.model.ScreenLoader;
 import com.example.taskfa.model.User;
+import com.example.taskfa.modelDao.UserDAO;
 import com.example.taskfa.utils.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class PagesLoaderController implements Initializable {
@@ -40,7 +42,6 @@ public class PagesLoaderController implements Initializable {
         VcsViewController vcsViewController;
         VcsViewControllerAdmin vcsViewControllerAdmin;
         FXMLLoader fxmlLoader = new FXMLLoader();
-        user.setAdmin(true);
         fxmlLoader.setLocation(getClass().getResource(user.getMenu().showVcsView()));
         Pane overview = fxmlLoader.load();
         if (user.isAdmin()){
@@ -69,7 +70,6 @@ public class PagesLoaderController implements Initializable {
         TaskViewController taskViewControllerAdmin;
         com.example.taskfa.controllers.tasks.user.TaskViewController taskViewControllerUser;
         FXMLLoader fxmlLoader = new FXMLLoader();
-        user.setAdmin(true);
         fxmlLoader.setLocation(getClass().getResource(user.getMenu().showTask()));
         Pane task = fxmlLoader.load();
         if (user.isAdmin()){
@@ -81,7 +81,7 @@ public class PagesLoaderController implements Initializable {
         }
         mainPane.setCenter(task);
     }
-
+    
     public void goToHome() throws IOException {
         GridPane homeSideBar;
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -133,6 +133,11 @@ public class PagesLoaderController implements Initializable {
 
     public void setProjectId(int projectId) {
         projectIdpassed = projectId;
+        try {
+            user.setAdmin(UserDAO.isAdminInProject(user.getIdUser(), projectId));
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         sideBarController.loadFXML(projectIdpassed);
         overViewController.loadFXML(projectIdpassed);
         System.out.println("In loader controller : " + projectId);

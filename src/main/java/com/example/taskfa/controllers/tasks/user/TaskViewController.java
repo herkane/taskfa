@@ -2,6 +2,8 @@ package com.example.taskfa.controllers.tasks.user;
 
 import com.example.taskfa.controllers.project.ProjectItemController;
 import com.example.taskfa.controllers.tasks.TaskStatus;
+import com.example.taskfa.modelDao.UserDAO;
+import com.example.taskfa.utils.UserSession;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
@@ -21,12 +23,14 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.reflect.Array;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class TaskViewController {
     @FXML
@@ -50,7 +54,9 @@ public class TaskViewController {
     @FXML
     private VBox vTaskItemsInProgress;
 
-    private ObservableList<TasksModel> listOfTasks;
+    private int projectId;
+
+    private ObservableList<TasksModel> model;
 
     ArrayList<TasksModel> taskNotStarted = null;
     ArrayList<TasksModel> taskInProgress = null;
@@ -63,17 +69,29 @@ public class TaskViewController {
         System.exit(0);
     }
 
-    public void loadFXML(int projectIdpassed){
+    public void getData() {
+        try {
+            model = UserDAO.getTasks(projectId, UserSession.getCurrentUser().getIdUser());
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
+    }
+
+    public void loadFXML(int projectIdpassed){
+        projectId = projectIdpassed;
+        getData();
         // TODO
+        /*
         ArrayList<TasksModel> model = new ArrayList<>();
+
         model.add(new TasksModel("Fix bug on issue #87", false, TaskStatus.NOTSTARTED));
         model.add(new TasksModel("Fix bug on issue #84", false,TaskStatus.NOTSTARTED));
         model.add(new TasksModel("Fix bug on issue #50", false,TaskStatus.PENDING));
         model.add(new TasksModel("Fix bug on issue #51", false, TaskStatus.PENDING));
         model.add(new TasksModel("Fix bug on issue #60", true,TaskStatus.DONE));
         model.add(new TasksModel("Fix bug on issue #61", true, TaskStatus.DONE));
-        /*
+
         model.add(new TasksModel("Fix bug on issue #87", true, TaskStatus.NOTSTARTED));
         model.add(new TasksModel("Fix bug on issue #84", false,TaskStatus.PENDING));
         model.add(new TasksModel("Fix Label - Bug ", true,TaskStatus.NOTSTARTED));
@@ -81,10 +99,10 @@ public class TaskViewController {
         model.add(new TasksModel("Fix bug on issue #87", true,TaskStatus.DONE));
         model.add(new TasksModel("Remove Button on FXML Project 23", false, TaskStatus.DONE));
          */
-
-       taskNotStarted = filterList(model, TaskStatus.NOTSTARTED);
-       taskInProgress = filterList(model, TaskStatus.PENDING);
-       taskDone = filterList(model, TaskStatus.DONE);
+        ArrayList<TasksModel> modelList = new ArrayList<>(model);
+       taskNotStarted = filterList(modelList, TaskStatus.NOTSTARTED);
+       taskInProgress = filterList( modelList, TaskStatus.PENDING);
+       taskDone = filterList(modelList, TaskStatus.DONE);
 
         nodes1 = new Node[model.size()];
         nodes2 = new Node[model.size()];
@@ -186,6 +204,11 @@ public class TaskViewController {
             vTaskItems.getChildren().add(node);
             taskItemController.setPosition(newPosition);
             showStatus();
+            try {
+                UserDAO.updateTask(tasksModel.getTaskId(), tasksModel.getStatus());
+            } catch (SQLException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
             return ;
         }
         if (tasksModel.getStatus() == TaskStatus.PENDING) {
@@ -208,6 +231,11 @@ public class TaskViewController {
             vTaskItemsInProgress.getChildren().add(node);
             taskItemController.setPosition(newPosition);
             showStatus();
+            try {
+                UserDAO.updateTask(tasksModel.getTaskId(), tasksModel.getStatus());
+            } catch (SQLException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
             return;
         }
         else {
@@ -230,6 +258,11 @@ public class TaskViewController {
             vTaskItemsdone.getChildren().add(node);
             taskItemController.setPosition(newPosition);
             showStatus();
+            try {
+                UserDAO.updateTask(tasksModel.getTaskId(), tasksModel.getStatus());
+            } catch (SQLException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
             return ;
         }
     }
