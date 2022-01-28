@@ -59,11 +59,9 @@ public class DialogController  implements Initializable {
         users.add(new User("Elhadeg","Fatima",2 ));
         users.add(new User("Boussoufiane","Aissam",3 ));
         users.add(new User("Laouissi","Anass",4 ));
-        System.out.println("How many users in list : " + users.size());
         for (int i = 0; i< users.size();i++) {
             memberChoiceBox.getItems().add(users.get(i).getFirstName() + " " + users.get(i).getLastName());
         }
-        System.out.println("How many users : " + memberChoiceBox.getItems().size());
         return users;
     }
 

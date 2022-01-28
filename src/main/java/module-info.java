@@ -31,4 +31,6 @@ module com.example.taskfa {
     opens com.example.taskfa.model;
     opens com.example.taskfa.controllers.tasks.user to javafx.fxml;
     exports com.example.taskfa.controllers.tasks.user;
+    exports com.example.taskfa.modelDao;
+    opens com.example.taskfa.modelDao to javafx.fxml;
 }

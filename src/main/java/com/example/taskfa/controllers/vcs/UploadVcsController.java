@@ -42,10 +42,10 @@ public class UploadVcsController implements Initializable {
         fc.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("zip","*.zip")
         );
-        List<File> selectedFiles = fc.showOpenMultipleDialog(submitBtn.getScene().getWindow());
-        if (selectedFiles!=null){
-            fileNameLabel.setText(selectedFiles.get(0).getName());
-            fileName = selectedFiles.get(0).getName();
+        File selectedFile = fc.showOpenDialog(submitBtn.getScene().getWindow());
+        if (selectedFile!=null){
+            fileNameLabel.setText(selectedFile.getName());
+            fileName = selectedFile.getName();
         }else{
             System.out.println("not valid");
         }
