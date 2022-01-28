@@ -28,7 +28,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.Consumer;
 
-public class TaskViewController implements Initializable {
+public class TaskViewController {
     @FXML
     private Label lblGreeting1;
 
@@ -63,8 +63,7 @@ public class TaskViewController implements Initializable {
         System.exit(0);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void loadFXML(int projectIdpassed){
 
         // TODO
         ArrayList<TasksModel> model = new ArrayList<>();
@@ -257,10 +256,11 @@ public class TaskViewController implements Initializable {
         }
         System.out.println();
     }
-
+    /*
     private void loadFXML() {
 
     }
+     */
     private int checkPosition(Node[] array, int position) {
         int count = 0;
         for (int i=0; i < array.length; i++) {

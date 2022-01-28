@@ -20,7 +20,7 @@ public class UserMenu implements Menu{
 
     @Override
     public String showTask() {
-        return "/views/task.fxml";
+        return "/views/newUserTaskView.fxml";
     }
 
     @Override

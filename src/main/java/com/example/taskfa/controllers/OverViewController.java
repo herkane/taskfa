@@ -53,7 +53,6 @@ public class OverViewController {
     private ArrayList<Task> tasks = null;
     private User user = null;
     private int projectIdpassed;
-
     /*
     public void setChatMessages() {
         messages = getChatMessages();

@@ -91,6 +91,7 @@ public class RessourceController  {
 
     public void loadFXML(int projectIdpassed) {
         projectId = projectIdpassed;
+        System.out.println("Project id from RESOURCE CONTROLLER : " + projectIdpassed);
         ListView<String> lvPdf = new ListView<>(listPdfFiles);
         ListView<String> lvOthers = new ListView<>(listOtherFiles);
         ListView<String> lvLinks = new ListView<>(listLinks);

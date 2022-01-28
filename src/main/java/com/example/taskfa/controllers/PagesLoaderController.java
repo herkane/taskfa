@@ -2,6 +2,7 @@ package com.example.taskfa.controllers;
 
 import com.example.taskfa.controllers.chat.ChatViewController;
 import com.example.taskfa.controllers.sideBar.SideBarController;
+import com.example.taskfa.controllers.tasks.admin.TaskViewController;
 import com.example.taskfa.controllers.vcs.VcsViewController;
 import com.example.taskfa.controllers.vcs.VcsViewControllerAdmin;
 import com.example.taskfa.model.ScreenLoader;
@@ -64,10 +65,21 @@ public class PagesLoaderController implements Initializable {
         mainPane.setCenter(overview);
     }
 
-    public void goToTasks() {
-        ScreenLoader screen = new ScreenLoader();
-        Pane view = screen.getPage("newUserTaskView");
-        mainPane.setCenter(view);
+    public void goToTasks() throws IOException {
+        TaskViewController taskViewControllerAdmin;
+        com.example.taskfa.controllers.tasks.user.TaskViewController taskViewControllerUser;
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        user.setAdmin(true);
+        fxmlLoader.setLocation(getClass().getResource(user.getMenu().showTask()));
+        Pane task = fxmlLoader.load();
+        if (user.isAdmin()){
+            taskViewControllerAdmin = fxmlLoader.getController();
+            taskViewControllerAdmin.loadFXML(projectIdpassed);
+        } else {
+            taskViewControllerUser = fxmlLoader.getController();
+            taskViewControllerUser.loadFXML(projectIdpassed);
+        }
+        mainPane.setCenter(task);
     }
 
     public void goToHome() throws IOException {
