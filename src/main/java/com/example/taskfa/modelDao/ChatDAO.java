@@ -32,6 +32,21 @@ public class ChatDAO {
         }
     }
 
+    public static ObservableList<Message> searchMessagesLimit(int projectId) throws SQLException, ClassNotFoundException {
+        String selectStm = "SELECT message_content,time_sent,lastName,image,iduser FROM message " +
+                "INNER JOIN user ON user_iduser = iduser WHERE project_projectid = "+projectId+" " +
+                "ORDER BY time_sent DESC LIMIT 10;";
+        try {
+            ResultSet rsProjects = DBConfig.dbExecuteQuery(selectStm);
+            ObservableList<Message> projectlist = getMessageList(rsProjects);
+            return projectlist;
+        } catch (SQLException e) {
+            System.out.println("SQL select operation has been failed: " + e);
+            //Return exception
+            throw e;
+        }
+    }
+
     private static ObservableList<Message> getMessageList(ResultSet rs) throws SQLException {
         ObservableList<Message> messagesList = FXCollections.observableArrayList();
         DateFormat df = new SimpleDateFormat("hh:mm");

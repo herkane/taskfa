@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -67,7 +68,6 @@
                               <RowConstraints maxHeight="280.000005086263" minHeight="10.0" prefHeight="276.7777557373047" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <ListView fx:id="chatListView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
                               <GridPane prefHeight="39.0" prefWidth="501.0" style="-fx-background-color: #365b6d;">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.888916015625" minWidth="10.0" prefWidth="91.11111450195312" />
@@ -92,6 +92,11 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </GridPane>
+                              <VBox fx:id="vbox_messages" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </GridPane.margin>
+                              </VBox>
                            </children>
                         </GridPane>
                      </children>

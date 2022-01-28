@@ -3,19 +3,30 @@ package com.example.taskfa.controllers;
 import com.example.taskfa.controllers.tasks.TaskStatus;
 import com.example.taskfa.controllers.tasks.user.TasksModel;
 import com.example.taskfa.model.*;
+import com.example.taskfa.modelDao.ChatDAO;
 import com.example.taskfa.modelDao.TaskDAO;
 import com.example.taskfa.utils.UserSession;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,7 +36,7 @@ import java.util.*;
 public class OverViewController {
 
     @FXML
-    private ListView<String> chatListView;
+    private VBox vbox_messages;
 
     @FXML
     private Label fileStatusVcs;
@@ -72,7 +83,7 @@ public class OverViewController {
         // Use PROJECT ID WITH USER ID TO GET DATA
         projectIdpassed = projectId;
         user = UserSession.getCurrentUser();
-        //setChatMessages();
+        getChatMessages();
         setTaks();
         setVcsFiles();
         setResourceFiles();
@@ -124,65 +135,44 @@ public class OverViewController {
         window.setFullScreen(true);
     }
 
-    /*
-    public ArrayList<Message> getChatMessages() {
-        ArrayList<Message> messages = new ArrayList<>();
-        Message message;
-        Date date = Calendar.getInstance().getTime();
-        HashMap<String, User> users = IDandUsers.getLoginInfo();
-        DateFormat df = new SimpleDateFormat("hh:mm");
 
-        message = new Message();
-        message.setSender(users.get("Lena Prince"));
-        message.setMessage("Bonjour tous le monde");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-
-        message = new Message();
-        message.setSender(users.get("Raphael Sanders"));
-        message.setMessage("Salut");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-
-        message = new Message();
-        message.setSender(users.get("Mariah Walker"));
-        message.setMessage("Bonjour");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-
-        message = new Message();
-        message.setSender(users.get("Donald Michael"));
-        message.setMessage("Bonjour ");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-
-        message = new Message();
-        message.setSender(users.get("Mariah Walker"));
-        message.setMessage("Lorem");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-
-        message = new Message();
-        message.setSender(users.get("Lena Prince"));
-        message.setMessage("test 123");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-
-        message = new Message();
-        message.setSender(users.get("Raphael Sanders"));
-        message.setMessage("Helloo");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-
-        message = new Message();
-        message.setSender(users.get("Lena Prince"));
-        message.setMessage("Ahlan");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-
-        return messages;
+    public void getChatMessages() {
+        ObservableList<Message> messages = null;
+        try {
+            messages = ChatDAO.searchMessagesLimit(projectIdpassed);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        for (Message message: messages) {
+            HBox hbox = new HBox();
+            Text text = new Text(message.getMessage());
+            TextFlow textFlow = new TextFlow(text);
+            if (message.getSender().getIdUser() == UserSession.getCurrentUser().getIdUser()){
+                hbox.setAlignment(Pos.CENTER_RIGHT);
+                textFlow.setStyle("-fx-color: rgb(239,242,255);" +
+                        "-fx-background-color: rgb(15,125,242);" +
+                        "-fx-background-radius: 20px;");
+                text.setFill(Color.color(0.934, 0.945, 0.996));
+                Circle circle = new Circle();
+                circle.setStroke(Color.BLACK);
+                circle.setFill(new ImagePattern(message.getSender().getImage()));
+                hbox.getChildren().add(textFlow);
+                hbox.getChildren().add(circle);
+            } else {
+                hbox.setAlignment(Pos.CENTER_LEFT);
+                textFlow.setStyle("-fx-background-color: rgb(233,233,235);" +
+                        "-fx-background-radius: 20px;");
+                Circle circle = new Circle();
+                circle.setStroke(Color.BLACK);
+                circle.setFill(new ImagePattern(message.getSender().getImage()));
+                hbox.getChildren().add(circle);
+                hbox.getChildren().add(textFlow);
+            }
+            textFlow.setPadding(new Insets(5,5,5,10));
+            vbox_messages.getChildren().add(hbox);
+        }
     }
-     */
+
 
 
 
