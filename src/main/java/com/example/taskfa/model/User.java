@@ -95,4 +95,17 @@ public class User {
     public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "idUser=" + idUser +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", status='" + status + '\'' +
+                ", image=" + image +
+                ", admin=" + admin +
+                ", menu=" + menu +
+                '}';
+    }
 }

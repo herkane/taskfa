@@ -30,4 +30,13 @@ public class Message {
     public void setDate_sent(String date_sent) {
         this.date_sent = date_sent;
     }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "sender=" + sender.toString() +
+                ", message='" + message + '\'' +
+                ", date_sent='" + date_sent + '\'' +
+                '}';
+    }
 }

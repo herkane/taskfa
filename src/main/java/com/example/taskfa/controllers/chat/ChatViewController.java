@@ -1,7 +1,9 @@
 package com.example.taskfa.controllers.chat;
 
 import com.example.taskfa.model.Message;
+import com.example.taskfa.modelDao.ChatDAO;
 import com.example.taskfa.utils.UserSession;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,9 +16,12 @@ import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class ChatViewController{
     @FXML
@@ -28,65 +33,36 @@ public class ChatViewController{
     @FXML
     private GridPane gridChat;
 
-    Thread thread;
+    private Executor exec ;
 
-    private final List<Message> messages = new ArrayList<>();
+    private List<Message> messages = new ArrayList<>();
+    private int projectId;
 
     private void getMessages() {
-        /*
-        Message message;
-        Date date = Calendar.getInstance().getTime();
-        HashMap<String, User> users = IDandUsers.getLoginInfo();
-        DateFormat df = new SimpleDateFormat("hh:mm");
+        try {
+            messages = ChatDAO.searchMessages(projectId);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+         /*
+        Task<List<Message>> chatSearchTask = new Task<List<Message>>() {
+            @Override
+            public List<Message> call() throws Exception {
+                return ChatDAO.searchMessages(projectId);
+            }
+        };
+        chatSearchTask.setOnFailed(e -> {
+            chatSearchTask.getException().printStackTrace();
+            // inform user of error...
+        });
 
-        message = new Message();
-        message.setSender(users.get("Lena Prince"));
-        message.setMessage("Bonjour tous le monde");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
+        chatSearchTask.setOnSucceeded(e ->
+                // Task.getValue() gives the value returned from call()...
+                messages = chatSearchTask.getValue()
+        );
 
-        message = new Message();
-        message.setSender(users.get("Raphael Sanders"));
-        message.setMessage("Salut");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-
-        message = new Message();
-        message.setSender(users.get("Mariah Walker"));
-        message.setMessage("Bonjour");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-
-        message = new Message();
-        message.setSender(users.get("Donald Michael"));
-        message.setMessage("Bonjour ");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-
-        message = new Message();
-        message.setSender(users.get("Mariah Walker"));
-        message.setMessage("Lorem");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-
-        message = new Message();
-        message.setSender(users.get("Lena Prince"));
-        message.setMessage("test 123");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-
-        message = new Message();
-        message.setSender(users.get("Raphael Sanders"));
-        message.setMessage("Helloo");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-
-        message = new Message();
-        message.setSender(users.get("Lena Prince"));
-        message.setMessage("Ahlan");
-        message.setDate_sent(df.format(date));
-        messages.add(message);
-         */
+        exec.execute(chatSearchTask);
+          */
     }
 
 
@@ -140,11 +116,18 @@ public class ChatViewController{
 
 
     public void loadFXML(int projectIdpassed) {
-           /*
+         /*
             Update Grid Message List With Messages
          */
+        // create executor that uses daemon threads:
 
-       // getMessages();
+        projectId = projectIdpassed;
+        exec = Executors.newCachedThreadPool(runnable -> {
+            Thread t = new Thread(runnable);
+            t.setDaemon(true);
+            return t ;
+        });
+        getMessages();
         try {
             fillChat();
         } catch (IOException e) {

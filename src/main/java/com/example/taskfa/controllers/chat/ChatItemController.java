@@ -35,7 +35,7 @@ public class ChatItemController {
         this.message = message;
         memberName.setText(message.getSender().getLastName());
         messageContent.setText(message.getMessage());
-        timeSentMessage.setText(message.getDate_sent());
+        timeSentMessage.setText(String.valueOf(message.getDate_sent()));
         messageContainer.setMinHeight(messageContent.getLayoutBounds().getHeight());
         if (messageContainer == null) {
             System.out.println("null");
