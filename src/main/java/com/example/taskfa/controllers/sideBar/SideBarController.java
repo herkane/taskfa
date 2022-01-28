@@ -1,5 +1,6 @@
 package com.example.taskfa.controllers.sideBar;
 
+import com.example.taskfa.modelDao.SidebarDao;
 import com.example.taskfa.utils.UserSession;
 import com.example.taskfa.model.User;
 import javafx.collections.ObservableList;
@@ -7,7 +8,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -20,20 +20,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.*;
 
 import static com.example.taskfa.modelDao.ProjectDAO.addMember;
-import static com.example.taskfa.modelDao.ProjectDAO.joinProject;
 
 public class SideBarController {
 

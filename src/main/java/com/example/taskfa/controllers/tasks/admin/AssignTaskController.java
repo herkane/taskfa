@@ -1,20 +1,24 @@
 package com.example.taskfa.controllers.tasks.admin;
 
-import com.example.taskfa.model.Task;
+import com.example.taskfa.model.User;
+import com.example.taskfa.modelDao.ProjectDAO;
+import com.example.taskfa.modelDao.TaskDAO;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.sql.SQLException;
 
-public class AssignTaskController implements Initializable {
+public class AssignTaskController {
     @FXML
     private Button submitBtn;
 
@@ -24,18 +28,14 @@ public class AssignTaskController implements Initializable {
     @FXML
     private ChoiceBox<String> userChoiceBtn;
 
-    @FXML
-    void submit(ActionEvent event) {
-        System.out.println(taskDescription.getText());
-        System.out.println(person);
-        ((Stage)userChoiceBtn.getScene().getWindow()).close();
-    }
+    private int projectId;
     private String person;
-    private ArrayList<String> users = null;
+    private ObservableList<User> users = null;
+    private TaskViewController taskViewController;
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void loadFXML(int projectIdPassed, TaskViewController taskViewController) {
+        projectId = projectIdPassed;
+        this.taskViewController = taskViewController;
         users = getUserLists();
         setMenuItems();
         userChoiceBtn.setOnAction(actionEvent -> {
@@ -43,20 +43,49 @@ public class AssignTaskController implements Initializable {
             person = selectedItem;
         });
     }
-    public void setMenuItems() {
-        for (String user : users) {
-            userChoiceBtn.getItems().add(user);
+
+    @FXML
+    void submit(ActionEvent event) {
+        String user = userChoiceBtn.getSelectionModel().getSelectedItem();
+        String task = taskDescription.getText();
+        if (user != null && !user.equals("") && !task.equals("")) {
+            int userId = getUserId(user);
+            try {
+                TaskDAO.assignTask(userId, projectId, task);
+                taskViewController.loadFXML(projectId);
+                ((Stage)userChoiceBtn.getScene().getWindow()).close();
+            } catch (SQLException | ClassNotFoundException e) {
+                Notifications notificationBuilder = Notifications.create()
+                        .title("Task")
+                        .text("Task assigning "+user+" Failed.")
+                        .hideAfter(Duration.seconds(3))
+                        .position(Pos.CENTER);
+                notificationBuilder.show();
+                e.printStackTrace();
+            }
         }
     }
-    public ArrayList<String> getUserLists() {
-        ArrayList<String> users = new ArrayList<>();
-        users.add("Aissam bsf");
-        users.add("Aissam bsf");
-        users.add("Aissam bsf");
-        users.add("Aissam bsf");
-        users.add("Aissam bsf");
-        users.add("Aissam bsf");
-        users.add("Aissam bsf");
-        return users;
+
+    public void setMenuItems() {
+        for (User user : users) {
+            userChoiceBtn.getItems().add(user.getLastName().toUpperCase() + " " + user.getFirstName().toUpperCase());
+        }
     }
+    public ObservableList<User> getUserLists() {
+        try {
+            return TaskDAO.searchUser(projectId);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public int getUserId(String user) {
+        String[] userSplit = user.split(" ");
+        for (User userC : users) {
+            if (userC.getLastName().equalsIgnoreCase(userSplit[0]) && userC.getFirstName().equalsIgnoreCase(userSplit[1])) return userC.getIdUser();
+        }
+        return 0;
+    }
+
 }

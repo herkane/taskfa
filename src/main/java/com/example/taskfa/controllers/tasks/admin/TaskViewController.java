@@ -1,89 +1,99 @@
 package com.example.taskfa.controllers.tasks.admin;
 
+import com.example.taskfa.controllers.chat.ChatViewController;
 import com.example.taskfa.controllers.tasks.TaskStatus;
+import com.example.taskfa.controllers.tasks.user.TasksModel;
+import com.example.taskfa.modelDao.TaskDAO;
+import com.example.taskfa.modelDao.UserDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class TaskViewController {
     @FXML
     private Button assignTask;
 
     @FXML
-    private TableView<TaskItemModelController> doneTable;
+    private TableView<TaskItemModel> doneTable;
 
     @FXML
-    private TableColumn<TaskItemModelController, String> firstNameDone;
+    private TableColumn<TaskItemModel, String> firstNameDone;
 
     @FXML
-    private TableView<TaskItemModelController> inProgressTable;
+    private TableView<TaskItemModel> inProgressTable;
 
     @FXML
-    private TableColumn<TaskItemModelController, String> lastNameDone;
+    private TableColumn<TaskItemModel, String> lastNameDone;
 
     @FXML
-    private TableColumn<TaskItemModelController, String> lastNameInProgress;
+    private TableColumn<TaskItemModel, String> lastNameInProgress;
 
     @FXML
-    private TableColumn<TaskItemModelController, String> lastNameToDo;
+    private TableColumn<TaskItemModel, String> lastNameToDo;
 
     @FXML
-    private TableColumn<TaskItemModelController, String> statusDone;
+    private TableColumn<TaskItemModel, String> statusDone;
 
     @FXML
-    private TableColumn<TaskItemModelController, String> statusInProgress;
+    private TableColumn<TaskItemModel, String> statusInProgress;
 
     @FXML
-    private TableColumn<TaskItemModelController, String> statusTodo;
+    private TableColumn<TaskItemModel, String> statusTodo;
 
     @FXML
-    private TableColumn<TaskItemModelController, String> taskDone;
+    private TableColumn<TaskItemModel, String> taskDone;
 
     @FXML
-    private TableColumn<TaskItemModelController, String> taskInProgress;
+    private TableColumn<TaskItemModel, String> taskInProgress;
 
     @FXML
-    private TableColumn<TaskItemModelController, String> taskToDo;
+    private TableColumn<TaskItemModel, String> taskToDo;
 
     @FXML
-    private TableView<TaskItemModelController> todoTable;
+    private TableView<TaskItemModel> todoTable;
 
     @FXML
     private TextField filterBox;
 
-    private ObservableList<TaskItemModelController> tasksDone = null;
+    private ObservableList<TaskItemModel> tasks = null;
+    private ObservableList<TaskItemModel> tasksDone, tasksInProgress,tasksToDo;
+    private ObservableList<TaskItemModel> filterList(ObservableList<TaskItemModel> list, TaskStatus taskStatus) {
+        ObservableList<TaskItemModel> tasksModels = FXCollections.observableArrayList();
 
-
+        for (TaskItemModel taskItemModel : list) {
+            if (taskItemModel.getTaskStatus() == taskStatus) {
+                tasksModels.add(taskItemModel);
+            }
+        }
+        return tasksModels;
+    }
+    private int projectId;
 
     public void loadFXML(int projectIdPassed) {
-        tasksDone = FXCollections.observableArrayList();
-        tasksDone.add(new TaskItemModelController("Aissam","Boussoufiane","This is a new task to fix", TaskStatus.DONE));
-        tasksDone.add(new TaskItemModelController("Zeeshan","Mahoney","This is a new task to fix", TaskStatus.DONE));
-        tasksDone.add(new TaskItemModelController("Blaine ","Miller","This is a new task to fix", TaskStatus.DONE));
-        tasksDone.add(new TaskItemModelController("Tanya ","Storey","This is a new task to fix", TaskStatus.DONE));
-        tasksDone.add(new TaskItemModelController("Ashleigh","Davenport","This is a new task to fix", TaskStatus.DONE));
-        tasksDone.add(new TaskItemModelController("Veer ","Battle","This is a new task to fix", TaskStatus.DONE));
-        tasksDone.add(new TaskItemModelController("Karol ","Ibarra","This is a new task to fix", TaskStatus.DONE));
-        tasksDone.add(new TaskItemModelController("Shanai ","Villa","This is a new task to fix", TaskStatus.DONE));
-        tasksDone.add(new TaskItemModelController("Timothy ","Clements","This is a new task to fix", TaskStatus.DONE));
-        tasksDone.add(new TaskItemModelController("Aissam","Boussoufiane","This is a new task to fix", TaskStatus.DONE));
-        tasksDone.add(new TaskItemModelController("Aissam","Boussoufiane","This is a new task to fix", TaskStatus.DONE));
+        projectId = projectIdPassed;
+        try {
+            tasks = TaskDAO.getTasksForAdmin(projectIdPassed);
+            tasksDone = filterList(tasks, TaskStatus.DONE);
+            tasksInProgress = filterList(tasks, TaskStatus.PENDING);
+            tasksToDo = filterList(tasks, TaskStatus.NOTSTARTED);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
         firstNameDone.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameDone.setCellValueFactory(new PropertyValueFactory<>("lastName"));
@@ -94,51 +104,91 @@ public class TaskViewController {
         lastNameInProgress.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         taskInProgress.setCellValueFactory(new PropertyValueFactory<>("task"));
         statusInProgress.setCellValueFactory(new PropertyValueFactory<>("taskStatus"));
-        inProgressTable.setItems(tasksDone);
+        inProgressTable.setItems(tasksInProgress);
 
         lastNameToDo.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         taskToDo.setCellValueFactory(new PropertyValueFactory<>("task"));
         statusTodo.setCellValueFactory(new PropertyValueFactory<>("taskStatus"));
-        todoTable.setItems(tasksDone);
+        todoTable.setItems(tasksToDo);
 
-        FilteredList<TaskItemModelController>  filtredData = new FilteredList<>(tasksDone, b -> true);
+        FilteredList<TaskItemModel>  filtredData = new FilteredList<>(tasksDone, b -> true);
+        FilteredList<TaskItemModel>  filtredData2 = new FilteredList<>(tasksInProgress, b -> true);
+        FilteredList<TaskItemModel>  filtredData3 = new FilteredList<>(tasksToDo, b -> true);
 
         filterBox.textProperty().addListener(((observableValue, oldValue, newValue) -> {
-               filtredData.setPredicate(taskItemModelController -> {
+               filtredData.setPredicate(taskItemModel -> {
                    if (newValue.isEmpty() || newValue.isBlank() || newValue == null) {
                        return true;
                    }
 
                    String searchKeyword = newValue.toLowerCase();
-                   if (taskItemModelController.getLastName().toLowerCase().indexOf(searchKeyword) > -1) {
+                   if (taskItemModel.getLastName().toLowerCase().indexOf(searchKeyword) > -1) {
                        return true;
-                   } else if (taskItemModelController.getFirstName().toLowerCase().indexOf(searchKeyword) > -1) {
+                   } else if (taskItemModel.getFirstName().toLowerCase().indexOf(searchKeyword) > -1) {
                        return true;
                    } else {
                        return false;
                    }
                });
+            filtredData2.setPredicate(taskItemModel -> {
+                if (newValue.isEmpty() || newValue.isBlank() || newValue == null) {
+                    return true;
+                }
+
+                String searchKeyword = newValue.toLowerCase();
+                if (taskItemModel.getLastName().toLowerCase().indexOf(searchKeyword) > -1) {
+                    return true;
+                } else if (taskItemModel.getFirstName().toLowerCase().indexOf(searchKeyword) > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+            filtredData3.setPredicate(taskItemModel -> {
+                if (newValue.isEmpty() || newValue.isBlank() || newValue == null) {
+                    return true;
+                }
+
+                String searchKeyword = newValue.toLowerCase();
+                if (taskItemModel.getLastName().toLowerCase().indexOf(searchKeyword) > -1) {
+                    return true;
+                } else if (taskItemModel.getFirstName().toLowerCase().indexOf(searchKeyword) > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+
         } ));
-        SortedList<TaskItemModelController> sortedData = new SortedList<>(filtredData);
+        SortedList<TaskItemModel> sortedData = new SortedList<>(filtredData);
+        SortedList<TaskItemModel> sortedData2 = new SortedList<>(filtredData2);
+        SortedList<TaskItemModel> sortedData3 = new SortedList<>(filtredData3);
+
+
         sortedData.comparatorProperty().bind(doneTable.comparatorProperty());
         doneTable.setItems(sortedData);
         sortedData.comparatorProperty().bind(inProgressTable.comparatorProperty());
-        inProgressTable.setItems(sortedData);
+        inProgressTable.setItems(sortedData2);
         sortedData.comparatorProperty().bind(todoTable.comparatorProperty());
-        todoTable.setItems(sortedData);
+        todoTable.setItems(sortedData3);
     }
 
     public void assignTaskClick() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/assignTask.fxml"));
-        Scene newScene = null;
+        AssignTaskController assignTaskController;
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/views/popups/assignTask.fxml"));
+        Pane overview = null;
         try {
-            newScene = new Scene(fxmlLoader.load());
-        } catch (IOException ex) {
-            System.out.println("ERROR WHATCH OUT !");
+            overview = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        Scene scene = new Scene(overview);
+        assignTaskController = fxmlLoader.getController();
+        assignTaskController.loadFXML(projectId, this);
         Stage inputStage = new Stage();
         inputStage.initOwner(filterBox.getScene().getWindow());
-        inputStage.setScene(newScene);
+        inputStage.setScene(scene);
         inputStage.showAndWait();
     }
 }

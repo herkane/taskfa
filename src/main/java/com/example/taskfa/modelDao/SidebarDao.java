@@ -1,4 +1,4 @@
-package com.example.taskfa.controllers.sideBar;
+package com.example.taskfa.modelDao;
 
 import com.example.taskfa.model.Project;
 import com.example.taskfa.model.User;
@@ -32,25 +32,6 @@ public class SidebarDao {
             throw e;
         }
     }
-    private static User getUserFromResultSet(ResultSet rs) throws SQLException
-    {
-        User user = null;
-        if (rs.next()) {
-            user = new User();
-            user.setIdUser(rs.getInt("iduser"));
-            user.setFirstName(rs.getString("firstName"));
-            user.setLastName(rs.getString("lastName"));
-            user.setStatus(rs.getString("status"));
-            Blob blob = rs.getBlob("image");
-            InputStream inputStream = blob.getBinaryStream();
-            Image image = new Image(inputStream);
-            user.setImage(image);
-        }
-        return user;
-    }
-
-
-
 
     public static ObservableList<User>getUserlist(ResultSet rs) throws SQLException , ClassNotFoundException {
         ObservableList<User> Userlist = FXCollections.observableArrayList(); {

@@ -2,7 +2,7 @@ package com.example.taskfa.controllers.tasks.admin;
 
 import com.example.taskfa.controllers.tasks.TaskStatus;
 
-public class TaskItemModelController {
+public class TaskItemModel {
     private int taskid;
     private int userid;
     private String firstName;
@@ -38,14 +38,16 @@ public class TaskItemModelController {
         this.lastName = lastName;
     }
 
-    public TaskItemModelController(String firstName, String lastName, String task, TaskStatus taskStatus) {
+    public TaskItemModel(String firstName, String lastName, String task, TaskStatus taskStatus) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.task = task;
         this.taskStatus = taskStatus;
     }
+    public TaskItemModel() {
 
-    public TaskItemModelController(int taskid, int userid, int projectid, String task, TaskStatus taskStatus) {
+    }
+    public TaskItemModel(int taskid, int userid, int projectid, String task, TaskStatus taskStatus) {
         this.taskid = taskid;
         this.userid = userid;
         this.projectid = projectid;

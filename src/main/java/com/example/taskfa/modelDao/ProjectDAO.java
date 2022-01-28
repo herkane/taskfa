@@ -1,10 +1,14 @@
 package com.example.taskfa.modelDao;
 
 import com.example.taskfa.model.Project;
+import com.example.taskfa.model.User;
 import com.example.taskfa.utils.DBConfig;
+import com.example.taskfa.utils.UserSession;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
 
+import java.io.InputStream;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -147,6 +151,7 @@ public class ProjectDAO {
             throw e;
         }
     }
+
 
 
 }
