@@ -44,6 +44,9 @@ public class VcsViewController {
     private User user = null;
     private int projectid;
 
+    public VcsViewController() {
+    }
+
     private List<File> getData() {
         List<File> files = new ArrayList<>();
         File file;
@@ -60,15 +63,12 @@ public class VcsViewController {
         try {
             newScene = new Scene(fxmlLoader.load());
         } catch (IOException ex) {
-            System.out.println("ERROOOOOOOR WHATCH OUT !");
+            System.out.println("ERROR WHATCH OUT !");
         }
         Stage inputStage = new Stage();
         inputStage.initOwner(uploadBtn.getScene().getWindow());
         inputStage.setScene(newScene);
         inputStage.showAndWait();
-
-       // String input = fxmlLoader.<UploadVcsController>getController().getValue();
-     //   outputField.setText(input);
     }
 
     public void toPopUp(ActionEvent event) throws IOException {

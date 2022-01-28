@@ -46,9 +46,9 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="88.0" stroke="BLACK" strokeType="INSIDE" width="537.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="88.0" stroke="WHITE" strokeType="INSIDE" width="537.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                   <Button fx:id="uploadFile" mnemonicParsing="false" onAction="#uploadFile" prefHeight="41.0" prefWidth="100.0" text="Upload" GridPane.columnIndex="1" />
-                  <Label fx:id="fileNameLabel" text="myFile.png" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Label fx:id="fileNameLabel" text="Upload file" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <font>
                         <Font size="27.0" />
                      </font>

@@ -3,6 +3,7 @@ package com.example.taskfa.controllers.vcs;
 
 import com.example.taskfa.model.Status;
 import com.example.taskfa.model.Task;
+import com.example.taskfa.modelDao.VersionDAO;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -33,19 +34,21 @@ public class UploadVcsController implements Initializable {
     @FXML
     private ChoiceBox<String> taskChoiceBtn;
 
-    String fileName, task;
+    File file;
+    String task;
+    FileChooser fc;
 
     private final ArrayList<Task> tasks = new ArrayList();
 
     public void uploadFile(ActionEvent event) {
-        FileChooser fc = new FileChooser();
+        fc = new FileChooser();
         fc.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("zip","*.zip")
         );
         File selectedFile = fc.showOpenDialog(submitBtn.getScene().getWindow());
         if (selectedFile!=null){
             fileNameLabel.setText(selectedFile.getName());
-            fileName = selectedFile.getName();
+            file = selectedFile;
         }else{
             System.out.println("not valid");
         }
@@ -55,6 +58,7 @@ public class UploadVcsController implements Initializable {
         System.out.println("File  : " + fileNameLabel.getText());
         System.out.println("Task " + task);
         System.out.println("Changes : "+ changesDescriptionLabel.getText());
+        //VersionDAO.addVersion(file,changesDescriptionLabel.getText(),);
         submitBtn.getScene().getWindow().hide();
     }
 

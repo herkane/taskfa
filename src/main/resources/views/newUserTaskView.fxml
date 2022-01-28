@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="804.0" prefWidth="1076.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.tasks.user.TaskViewController">
+<GridPane prefHeight="718.0" prefWidth="1113.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.tasks.user.TaskViewController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="1038.4000488281251" minWidth="10.0" prefWidth="1000.0000488281249" />
     </columnConstraints>

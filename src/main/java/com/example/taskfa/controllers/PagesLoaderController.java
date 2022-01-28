@@ -4,7 +4,6 @@ import com.example.taskfa.controllers.chat.ChatViewController;
 import com.example.taskfa.controllers.sideBar.SideBarController;
 import com.example.taskfa.controllers.tasks.admin.TaskViewController;
 import com.example.taskfa.controllers.vcs.VcsViewController;
-import com.example.taskfa.controllers.vcs.VcsViewControllerAdmin;
 import com.example.taskfa.model.ScreenLoader;
 import com.example.taskfa.model.User;
 import com.example.taskfa.modelDao.UserDAO;
@@ -14,9 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -40,18 +37,11 @@ public class PagesLoaderController implements Initializable {
 
     public void goToVcs() throws IOException {
         VcsViewController vcsViewController;
-        VcsViewControllerAdmin vcsViewControllerAdmin;
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource(user.getMenu().showVcsView()));
         Pane overview = fxmlLoader.load();
-        if (user.isAdmin()){
-            vcsViewControllerAdmin = fxmlLoader.getController();
-            vcsViewControllerAdmin.loadFXML(projectIdpassed);
-        } else {
-            vcsViewController = fxmlLoader.getController();
-            vcsViewController.loadFXML(projectIdpassed);
-        }
-
+        vcsViewController = fxmlLoader.getController();
+        vcsViewController.loadFXML(projectIdpassed);
         mainPane.setCenter(overview);
 
     }
