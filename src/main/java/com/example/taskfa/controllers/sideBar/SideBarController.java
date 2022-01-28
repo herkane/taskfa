@@ -69,10 +69,7 @@ public class SideBarController {
     public void getUserList() throws SQLException, ClassNotFoundException {
         try {
             // Get Projects List from database
-
             Users = SidebarDao.searchUser(projectIdpassed);
-
-
         } catch (SQLException e) {
             System.out.println("Error occurred while gettin guser information from DB.\n" + e);
             throw e;

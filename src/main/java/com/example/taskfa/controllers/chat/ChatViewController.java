@@ -1,9 +1,11 @@
 package com.example.taskfa.controllers.chat;
 
 import com.example.taskfa.model.Message;
+import com.example.taskfa.utils.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -12,6 +14,8 @@ import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ChatViewController{
@@ -82,18 +86,17 @@ public class ChatViewController{
         message.setMessage("Ahlan");
         message.setDate_sent(df.format(date));
         messages.add(message);
-
          */
     }
 
 
     public void onEnterMessage() throws IOException {
-        /*
+
         String msg = message.getText();
         Message messageToSend = new Message();
         Date date = Calendar.getInstance().getTime();
         DateFormat df = new SimpleDateFormat("hh:mm");
-        messageToSend.setSender(IDandUsers.getUserObject(IDandUsers.getCurrentUser()));
+        messageToSend.setSender(UserSession.getCurrentUser());
         messageToSend.setMessage(msg);
         messageToSend.setDate_sent(df.format(date));
         messages.add(messageToSend);
@@ -111,7 +114,7 @@ public class ChatViewController{
             scrollMessages.setVvalue(scrollMessages.getVmax());
         });
 
-         */
+
     }
 
     public void fillChat() throws IOException {
@@ -140,13 +143,13 @@ public class ChatViewController{
            /*
             Update Grid Message List With Messages
          */
-        /*
-        getMessages();
+
+       // getMessages();
         try {
             fillChat();
         } catch (IOException e) {
             e.printStackTrace();
         }
-         */
+
     }
 }
