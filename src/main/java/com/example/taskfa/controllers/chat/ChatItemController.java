@@ -7,12 +7,18 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 
 public class ChatItemController {
 
     @FXML
     private ImageView memberImage;
+
+    @FXML
+    private Circle circle;
 
     @FXML
     private Text memberName;
@@ -33,6 +39,8 @@ public class ChatItemController {
 
     public void setData(Message message){
         this.message = message;
+        circle.setStroke(Color.BLACK);
+        circle.setFill(new ImagePattern(message.getSender().getImage()));
         memberName.setText(message.getSender().getLastName());
         messageContent.setText(message.getMessage());
         timeSentMessage.setText(String.valueOf(message.getDate_sent()));

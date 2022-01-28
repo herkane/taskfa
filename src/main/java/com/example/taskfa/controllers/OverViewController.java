@@ -1,7 +1,11 @@
 package com.example.taskfa.controllers;
 
+import com.example.taskfa.controllers.tasks.TaskStatus;
+import com.example.taskfa.controllers.tasks.user.TasksModel;
 import com.example.taskfa.model.*;
+import com.example.taskfa.modelDao.TaskDAO;
 import com.example.taskfa.utils.UserSession;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.*;
 
 public class OverViewController {
@@ -74,22 +79,31 @@ public class OverViewController {
     }
 
     public void setTaks() {
-        int progressTerminated = 0;
-        tasks = getTasks();
-        Task task;
-        for (int i = 0; i < tasks.size() ; i++) {
-            task = tasks.get(i);
-            if (task.getSTATUS() == Status.IN_PROGRESS) {
-                inProgressListView.getItems().add("#"+task.getTaskId() + ": "+task.getDescription());
-            } else if (task.getSTATUS() == Status.NOT_STARTED) {
-                notStartedListView.getItems().add("#"+task.getTaskId() + ": "+task.getDescription());
-            } else {
-                progressTerminated++;
-            }
+        ObservableList<TasksModel> taskInProgress = null;
+        ObservableList<TasksModel> tasksNotStarted = null;
+        try {
+            taskInProgress = TaskDAO.getTaskDoneLimit(projectIdpassed, user.getIdUser(), TaskStatus.PENDING);
+            tasksNotStarted = TaskDAO.getTaskDoneLimit(projectIdpassed, user.getIdUser(), TaskStatus.NOTSTARTED);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
+
+
+        int progressTerminated = 0;
+        TasksModel tasksModel;
+        for (int i = 0; i < taskInProgress.size() ; i++) {
+                tasksModel = taskInProgress.get(i);
+                inProgressListView.getItems().add("#"+tasksModel.getTaskId()+" : " + tasksModel.getTitle());
+        }
+        for (int i = 0; i < tasksNotStarted.size() ; i++) {
+            tasksModel = tasksNotStarted.get(i);
+            notStartedListView.getItems().add("#"+tasksModel.getTaskId()+" : " + tasksModel.getTitle());
+        }
+        /*
         float progress = (float)progressTerminated / tasks.size();
         taskProgressBar.setProgress(progress);
         progressPourcentage.setText(Math.floor(taskProgressBar.getProgress() * 100) +"%");
+         */
     }
     public void setVcsFiles() {
         officialVcsFile.setText(String.valueOf(projectIdpassed));
@@ -169,25 +183,7 @@ public class OverViewController {
         return messages;
     }
      */
-    public ArrayList<Task> getTasks(){
-        ArrayList<Task> tasks = new ArrayList();
-        Task task;
-        task = new Task(1, "Create UI","You need to create this task", Status.IN_PROGRESS, 100300);
-        tasks.add(task);
-        task = new Task(2, "Create UI","You need to create this task", Status.DONE, 100);
-        tasks.add(task);
-        task = new Task(3, "Fix Bug","You need to create this task", Status.NOT_STARTED, 100300);
-        tasks.add(task);
-        task = new Task(4, "Create UI","You need to create this task", Status.DONE, 100);
-        tasks.add(task);
-        task = new Task(5, "Update That","You need to create this task", Status.IN_PROGRESS, 100300);
-        tasks.add(task);
-        task = new Task(6, "Create UI","You need to create this task", Status.IN_PROGRESS, 100);
-        tasks.add(task);
-        task = new Task(7, "Create UI","You need to create this task", Status.NOT_STARTED, 100300);
-        tasks.add(task);
-        return tasks;
-    }
+
 
 
 

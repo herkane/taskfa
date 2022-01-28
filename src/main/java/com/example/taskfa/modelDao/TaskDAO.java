@@ -83,6 +83,26 @@ public class TaskDAO {
         }
     }
 
+    public static ObservableList<TasksModel> getTaskDoneLimit(int projectId, int userId,TaskStatus taskStatus) throws SQLException, ClassNotFoundException {
+       String selectStm =  "SELECT taskid,task_description,completed,task.status " +
+               "FROM task JOIN user ON user_iduser = iduser " +
+               " WHERE user_iduser = "+userId+" AND project_projectid = "+projectId+" ";
+       if (taskStatus == TaskStatus.PENDING) {
+            selectStm += "AND task.status = 'PENDING' ";
+        } else if (taskStatus == TaskStatus.NOTSTARTED){
+            selectStm += "AND task.status = 'NOTSTARTED' ";
+        }
+        selectStm += "LIMIT 3;";
+        try {
+            ResultSet rsTasks = DBConfig.dbExecuteQuery(selectStm);
+            ObservableList<TasksModel> tasksList = getTaskUserList(rsTasks);
+            return tasksList;
+        } catch (SQLException | ClassNotFoundException e) {
+            System.out.println("SQL select operation has been failed: " + e);
+            throw e;
+        }
+    }
+
     private static ObservableList<TasksModel> getTaskUserList(ResultSet rs) throws SQLException {
         ObservableList<TasksModel> tasks = FXCollections.observableArrayList();
         while (rs.next()) {
@@ -91,6 +111,7 @@ public class TaskDAO {
             tasksModel.setTitle(rs.getString("task_description"));
             tasksModel.setCompleted(rs.getBoolean("completed"));
             tasksModel.setStatus(TaskStatus.valueOf(rs.getString("status")));
+            System.out.println(tasksModel);
             tasks.add(tasksModel);
         }
         return tasks;
