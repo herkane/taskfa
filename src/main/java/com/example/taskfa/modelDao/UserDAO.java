@@ -2,6 +2,7 @@ package com.example.taskfa.modelDao;
 
 import com.example.taskfa.controllers.project.InvitationModelTable;
 import com.example.taskfa.controllers.tasks.TaskStatus;
+import com.example.taskfa.controllers.tasks.admin.TaskItemModel;
 import com.example.taskfa.controllers.tasks.user.TasksModel;
 import com.example.taskfa.model.User;
 import com.example.taskfa.utils.DBConfig;
@@ -180,44 +181,6 @@ public class UserDAO {
             }
     }
 
-    public static ObservableList<TasksModel> getTasks(int projectId, int userId) throws SQLException, ClassNotFoundException {
-        String selectStm = "SELECT taskid,task_description,completed,task.status " +
-                "FROM task JOIN user ON user_iduser = iduser " +
-                " WHERE user_iduser = "+userId+" AND project_projectid = "+projectId+" ;";
-        try {
-            ResultSet rsTasks = DBConfig.dbExecuteQuery(selectStm);
-            ObservableList<TasksModel> tasksList = getTaskUserList(rsTasks);
-            return tasksList;
-        } catch (SQLException | ClassNotFoundException e) {
-            System.out.println("SQL select operation has been failed: " + e);
-            throw e;
-        }
-    }
-    private static ObservableList<TasksModel> getTaskUserList(ResultSet rs) throws SQLException {
-        ObservableList<TasksModel> tasks = FXCollections.observableArrayList();
-        while (rs.next()) {
-            TasksModel tasksModel = new TasksModel();
-            tasksModel.setTaskId(rs.getInt("taskid"));
-            tasksModel.setTitle(rs.getString("task_description"));
-            tasksModel.setCompleted(rs.getBoolean("completed"));
-            tasksModel.setStatus(TaskStatus.valueOf(rs.getString("status")));
-            tasks.add(tasksModel);
-        }
-        return tasks;
-    }
-
-    public static void updateTask(int taskId, TaskStatus taskStatus) throws SQLException, ClassNotFoundException {
-        String preparedStatement = "UPDATE task" +
-                " SET status = ? WHERE taskid = ?;";
-
-        DBConfig.dbConnect();
-        Connection conn = DBConfig.getConn();
-        PreparedStatement ps = conn.prepareStatement(preparedStatement);
-        ps.setString(1, String.valueOf(taskStatus));
-        ps.setInt(2, taskId);
-        ps.executeUpdate();
-        System.out.println("UPDATED : " + taskStatus);
-    }
 
     public static boolean isAdminInProject(int userId, int projectId) throws SQLException, ClassNotFoundException {
         String selectStm = "SELECT role FROM user_has_project " +
@@ -231,5 +194,7 @@ public class UserDAO {
             throw e;
         }
     }
+
+
 
 }

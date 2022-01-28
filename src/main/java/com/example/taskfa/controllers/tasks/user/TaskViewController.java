@@ -2,6 +2,7 @@ package com.example.taskfa.controllers.tasks.user;
 
 import com.example.taskfa.controllers.project.ProjectItemController;
 import com.example.taskfa.controllers.tasks.TaskStatus;
+import com.example.taskfa.modelDao.TaskDAO;
 import com.example.taskfa.modelDao.UserDAO;
 import com.example.taskfa.utils.UserSession;
 import javafx.collections.FXCollections;
@@ -71,7 +72,7 @@ public class TaskViewController {
 
     public void getData() {
         try {
-            model = UserDAO.getTasks(projectId, UserSession.getCurrentUser().getIdUser());
+            model = TaskDAO.getTasks(projectId, UserSession.getCurrentUser().getIdUser());
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -81,24 +82,6 @@ public class TaskViewController {
     public void loadFXML(int projectIdpassed){
         projectId = projectIdpassed;
         getData();
-        // TODO
-        /*
-        ArrayList<TasksModel> model = new ArrayList<>();
-
-        model.add(new TasksModel("Fix bug on issue #87", false, TaskStatus.NOTSTARTED));
-        model.add(new TasksModel("Fix bug on issue #84", false,TaskStatus.NOTSTARTED));
-        model.add(new TasksModel("Fix bug on issue #50", false,TaskStatus.PENDING));
-        model.add(new TasksModel("Fix bug on issue #51", false, TaskStatus.PENDING));
-        model.add(new TasksModel("Fix bug on issue #60", true,TaskStatus.DONE));
-        model.add(new TasksModel("Fix bug on issue #61", true, TaskStatus.DONE));
-
-        model.add(new TasksModel("Fix bug on issue #87", true, TaskStatus.NOTSTARTED));
-        model.add(new TasksModel("Fix bug on issue #84", false,TaskStatus.PENDING));
-        model.add(new TasksModel("Fix Label - Bug ", true,TaskStatus.NOTSTARTED));
-        model.add(new TasksModel("Fix bug 7", true, TaskStatus.NOTSTARTED));
-        model.add(new TasksModel("Fix bug on issue #87", true,TaskStatus.DONE));
-        model.add(new TasksModel("Remove Button on FXML Project 23", false, TaskStatus.DONE));
-         */
         ArrayList<TasksModel> modelList = new ArrayList<>(model);
        taskNotStarted = filterList(modelList, TaskStatus.NOTSTARTED);
        taskInProgress = filterList( modelList, TaskStatus.PENDING);
@@ -205,7 +188,7 @@ public class TaskViewController {
             taskItemController.setPosition(newPosition);
             showStatus();
             try {
-                UserDAO.updateTask(tasksModel.getTaskId(), tasksModel.getStatus());
+                TaskDAO.updateTask(tasksModel.getTaskId(), tasksModel.getStatus());
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
@@ -232,7 +215,7 @@ public class TaskViewController {
             taskItemController.setPosition(newPosition);
             showStatus();
             try {
-                UserDAO.updateTask(tasksModel.getTaskId(), tasksModel.getStatus());
+                TaskDAO.updateTask(tasksModel.getTaskId(), tasksModel.getStatus());
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
@@ -259,7 +242,7 @@ public class TaskViewController {
             taskItemController.setPosition(newPosition);
             showStatus();
             try {
-                UserDAO.updateTask(tasksModel.getTaskId(), tasksModel.getStatus());
+                TaskDAO.updateTask(tasksModel.getTaskId(), tasksModel.getStatus());
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }

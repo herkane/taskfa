@@ -75,24 +75,8 @@ public class VcsViewControllerAdmin {
 
     public void toPopUp(ActionEvent event) throws IOException {
 
-       /* FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/vcsPopupVersion.fxml") );
-        Parent parent = fxmlLoader.load();
-        Platform.runLater(()->{
-                    Stage stage1=(Stage)version.getScene().getWindow();
-                    stage1.setFullScreen(false);
-                    stage1.setFullScreen(true);
-                }
-        );
-        Scene scene = new Scene(parent);
         Stage stage = new Stage();
-        stage.setAlwaysOnTop(true);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(scene);
-        stage.show();*/
-
-
-        Stage stage = new Stage();
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/vcsPopupVersion.fxml") );
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/vcsPopupVersion.fxml") );
 
         Dialog<String> dialog = new Dialog<>();
           dialog.getDialogPane().setContent(fxmlLoader.load());
