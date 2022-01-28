@@ -66,7 +66,7 @@
                      <center>
                         <ScrollPane prefHeight="78.0" prefWidth="495.0" style="-fx-border-color: #FBFCFC;" BorderPane.alignment="CENTER">
                            <content>
-                              <VBox fx:id="vTaskItemsupcoming" alignment="TOP_CENTER" prefHeight="244.0" prefWidth="1058.0" style="-fx-background-color: #FBFCFC;" />
+                              <VBox fx:id="vTaskItemsdone" alignment="TOP_CENTER" prefHeight="244.0" prefWidth="1058.0" style="-fx-background-color: #FBFCFC;" />
                            </content>
                         </ScrollPane>
                      </center>
