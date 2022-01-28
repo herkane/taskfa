@@ -56,7 +56,7 @@ public class SignInController {
             User user = UserDAO.searchUser(email, password);
             if (user == null) {
                 Alert a = new Alert(Alert.AlertType.ERROR);
-               a.setTitle("Login Error");
+                a.setTitle("Login Error");
                 a.setContentText("Login Informations error");
                 a.showAndWait();
             } else {
@@ -88,7 +88,7 @@ public class SignInController {
             passwordInput.setText(passVisible.getText());
             tooltip.setText("Show password");
         }
-        }
+    }
 
     public void closeWindow() {
         // get a handle to the stage
