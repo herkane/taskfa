@@ -2,6 +2,7 @@ package com.example.taskfa.controllers.sideBar;
 
 import com.example.taskfa.utils.UserSession;
 import com.example.taskfa.model.User;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -59,42 +60,28 @@ public class SideBarController {
 
     private int projectIdpassed;
 
-    private final List<User> users = new ArrayList<>();
     private User user = null;
 
-    private void getUserList() {
-        User user;
-        Date date = Calendar.getInstance().getTime();
-        DateFormat df = new SimpleDateFormat("hh:mm");
+    ObservableList<User> Users = null;
 
-        user = new User();
-        user.setFirstName("Aissam");
-        user.setLastName("Boussoufiane");
-        user.setStatus("Active");
-       // user.setImgSrc("/media/profile_pic_1.jfif");
-        users.add(user);
 
-        user = new User();
-        user.setFirstName("Anas");
-        user.setLastName("Laouissi");
-        user.setStatus("Acive");
-     //   user.setImgSrc("/media/profile_pic_6.jpg");
-        users.add(user);
-        user = new User();
-        user.setFirstName("Achraf");
-        user.setLastName("Herkane");
-        user.setStatus("Last seen 8min ago");
-      //  user.setImgSrc("/media/profile_pic_2.jfif");
-        users.add(user);
-        user = new User();
-        user.setFirstName("Fatima");
-        user.setLastName("El hadeg");
-        user.setStatus("Last seen 1h ago");
-       // user.setImgSrc("/media/profile_pic_4.jfif");
-        users.add(user);
 
+    public void getUserList() throws SQLException, ClassNotFoundException {
+        try {
+            // Get Projects List from database
+
+            Users = SidebarDao.searchUser(projectIdpassed);
+
+
+
+        } catch (SQLException e) {
+            System.out.println("Error occurred while gettin guser information from DB.\n" + e);
+            throw e;
+        }
 
     }
+
+
 
     public void loadFXML(int projectId) {
         projectIdpassed = projectId;
@@ -102,15 +89,21 @@ public class SideBarController {
         userName.setText(user.getFirstName());
         userLastName.setText(user.getLastName());
         userId.setText(Integer.toString(user.getIdUser()));
-        getUserList();
+        try {
+            getUserList();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         userImage.setImage(user.getImage());
-        for (int i=0; i<users.size();i++){
+        for (int i=0; i<Users.size();i++){
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/views/user_list_item.fxml"));
                 GridPane gridPane = fxmlLoader.load();
                 UserItemController userItemController = fxmlLoader.getController();
-                userItemController.setData(users.get(i));
+                userItemController.setData(Users.get(i));
                 userList.add(gridPane, 0, i);
                 GridPane.setHalignment(gridPane, HPos.CENTER);
                 GridPane.setMargin(gridPane, new Insets(10));
