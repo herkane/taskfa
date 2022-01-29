@@ -1,5 +1,6 @@
 package com.example.taskfa.controllers;
 
+import com.example.taskfa.authController.VerficiationController;
 import com.example.taskfa.model.User;
 import com.example.taskfa.modelDao.UserDAO;
 import com.example.taskfa.utils.UserSession;
@@ -103,12 +104,12 @@ public class SignInController {
         Stage stage = (Stage) reduceWindow.getScene().getWindow();
         stage.setIconified(true);
     }
-    /*
-    @FXMl
-    void onRecoverPassword(ActionEvent event) {
-        SignInController signincontroller;
+
+    @FXML
+    void recoverPasswordClick(ActionEvent event) {
+        VerficiationController verficiationController;
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/views/popups/parametre_dialog.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/views/popups/verification.fxml"));
         Pane overview = null;
         try {
             overview = fxmlLoader.load();
@@ -116,15 +117,13 @@ public class SignInController {
             e.printStackTrace();
         }
         Scene scene = new Scene(overview);
-        signincontroller = fxmlLoader.getController();
-        signincontroller.loadFXML(projectIdpassed, this);
+        verficiationController = fxmlLoader.getController();
+        verficiationController.loadFXML();
         Stage inputStage = new Stage();
-        inputStage.initOwner(userName.getScene().getWindow());
+        inputStage.initOwner(signUpButton.getScene().getWindow());
         inputStage.setScene(scene);
         inputStage.showAndWait();
-
     }
-*/
 
 
 }
