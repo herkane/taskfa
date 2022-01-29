@@ -71,12 +71,17 @@ public class ChatViewController{
         String msg = message.getText();
         Message messageToSend = new Message();
         Date date = Calendar.getInstance().getTime();
-        DateFormat df = new SimpleDateFormat("hh:mm");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");
+        DateFormat dfDisplay = new SimpleDateFormat("hh-mm");
         messageToSend.setSender(UserSession.getCurrentUser());
         messageToSend.setMessage(msg);
-        messageToSend.setDate_sent(df.format(date));
+        messageToSend.setDate_sent(dfDisplay.format(date));
         messages.add(messageToSend);
-
+        try {
+            ChatDAO.InsertMessage(msg, df.format(date), UserSession.getCurrentUser().getIdUser(), projectId);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("/views/messageItem.fxml"));
         AnchorPane anchorPane = fxmlLoader.load();

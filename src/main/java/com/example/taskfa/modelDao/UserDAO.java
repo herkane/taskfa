@@ -171,6 +171,11 @@ public class UserDAO {
                 ps.setInt(3, 0);
                 ps.setInt(1, userId);
                 ps.executeUpdate();
+                preparedStatement = "UPDATE project " +
+                        "SET usersNumber = usersNumber+1 WHERE projectid = ?;";
+                ps = conn.prepareStatement(preparedStatement);
+                ps.setInt(1,projectId);
+                ps.executeUpdate();
             } else {
                 preparedStatement = "DELETE FROM user_has_invitation" +
                         " WHERE project_projectid = ? AND user_iduser = ?;";
