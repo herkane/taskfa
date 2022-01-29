@@ -181,45 +181,15 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </GridPane>
-            <GridPane prefHeight="609.0" prefWidth="205.0" GridPane.rowIndex="1">
+            <GridPane prefHeight="524.0" prefWidth="224.0" GridPane.rowIndex="1">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints vgrow="SOMETIMES" />
-                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="259.0" minHeight="47.44441223144531" prefHeight="47.44441223144531" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="561.888921101888" minHeight="350.33333333333326" prefHeight="561.888921101888" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="212.0" style="-fx-background-color: white;" styleClass="join_project_widget" GridPane.halignment="CENTER">
-                     <children>
-                        <StackPane prefHeight="50.0" prefWidth="355.0" styleClass="join-project">
-                           <children>
-                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="143.0" text="Join Project" textFill="WHITE">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </StackPane>
-                        <StackPane prefHeight="67.0" prefWidth="355.0">
-                           <children>
-                              <TextField fx:id="joinProjectCode" alignment="CENTER" prefHeight="57.0" prefWidth="355.0" promptText="Enter Code ..." styleClass="join_project_widget_textView">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </TextField>
-                              <ImageView fx:id="joinProectButton" fitHeight="39.0" fitWidth="57.0" onMouseClicked="#joinProject" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
-                                 <image>
-                                    <Image url="@../com/example/taskfa/media/cyan_add_icon.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                           </children>
-                        </StackPane>
-                     </children>
-                  </VBox>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="215.0" style="-fx-background-color: white;" styleClass="join_project_widget" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <children>
                         <StackPane prefHeight="48.0" prefWidth="392.0" styleClass="join_project_gray_color">
