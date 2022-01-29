@@ -143,4 +143,36 @@ public class TaskDAO {
         ps.setInt(3, projectId);
         ps.executeUpdate();
     }
+
+    public static float getProgress(int userId,int projectId) {
+        String selectStatment = "SELECT COUNT(*) FROM task " +
+                "WHERE user_iduser = "+userId+" AND project_projectid = "+projectId+"" +
+                " AND status = 'DONE';";
+        int result1 = 0;
+        try {
+            ResultSet rs = DBConfig.dbExecuteQuery(selectStatment);
+            while (rs.next())
+            {
+                result1 = rs.getInt(1);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        String selectStatment2 = "SELECT COUNT(*) FROM task " +
+                "WHERE user_iduser = "+userId+" AND project_projectid = "+projectId+";";
+        int result2 = 0;
+        try {
+            ResultSet rs = DBConfig.dbExecuteQuery(selectStatment2);
+            while (rs.next())
+            {
+                result2 = rs.getInt(1);
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return result1/result2;
+    }
+
+
 }

@@ -1,6 +1,8 @@
 package com.example.taskfa.controllers;
 
+
 import com.example.taskfa.authController.VerficiationController;
+import com.example.taskfa.controllers.sideBar.ParametreController;
 import com.example.taskfa.model.User;
 import com.example.taskfa.modelDao.UserDAO;
 import com.example.taskfa.utils.UserSession;
@@ -124,6 +126,5 @@ public class SignInController {
         inputStage.setScene(scene);
         inputStage.showAndWait();
     }
-
 
 }

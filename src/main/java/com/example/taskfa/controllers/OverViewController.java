@@ -92,9 +92,11 @@ public class OverViewController {
     public void setTaks() {
         ObservableList<TasksModel> taskInProgress = null;
         ObservableList<TasksModel> tasksNotStarted = null;
+        ObservableList<TasksModel> tasksDone = null;
         try {
             taskInProgress = TaskDAO.getTaskDoneLimit(projectIdpassed, user.getIdUser(), TaskStatus.PENDING);
             tasksNotStarted = TaskDAO.getTaskDoneLimit(projectIdpassed, user.getIdUser(), TaskStatus.NOTSTARTED);
+
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -105,16 +107,18 @@ public class OverViewController {
         for (int i = 0; i < taskInProgress.size() ; i++) {
                 tasksModel = taskInProgress.get(i);
                 inProgressListView.getItems().add("#"+tasksModel.getTaskId()+" : " + tasksModel.getTitle());
+                progressTerminated++;
         }
         for (int i = 0; i < tasksNotStarted.size() ; i++) {
             tasksModel = tasksNotStarted.get(i);
+            progressTerminated++;
             notStartedListView.getItems().add("#"+tasksModel.getTaskId()+" : " + tasksModel.getTitle());
         }
-        /*
-        float progress = (float)progressTerminated / tasks.size();
+
+        float progress = TaskDAO.getProgress(UserSession.getCurrentUser().getIdUser(), projectIdpassed);
         taskProgressBar.setProgress(progress);
         progressPourcentage.setText(Math.floor(taskProgressBar.getProgress() * 100) +"%");
-         */
+
     }
     public void setVcsFiles() {
         officialVcsFile.setText(String.valueOf(projectIdpassed));
