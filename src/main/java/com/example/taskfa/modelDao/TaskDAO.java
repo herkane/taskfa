@@ -171,7 +171,13 @@ public class TaskDAO {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return result1/result2;
+        float result;
+        try {
+            result = result1/result2;
+        } catch (Exception e) {
+            result = 0;
+        }
+        return result;
     }
 
 

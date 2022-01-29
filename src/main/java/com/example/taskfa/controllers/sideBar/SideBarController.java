@@ -56,6 +56,9 @@ public class SideBarController {
 
     private int projectIdpassed;
 
+    @FXML
+    private Button ParametreBtn;
+
     private User user = null;
 
     ObservableList<User> Users = null;
@@ -78,6 +81,13 @@ public class SideBarController {
     public void loadFXML(int projectId) {
         projectIdpassed = projectId;
         user = UserSession.getCurrentUser();
+        if (user.isAdmin() == false) {
+            ParametreBtn.setDisable(true);
+            ParametreBtn.setVisible(false);
+        } else {
+            ParametreBtn.setDisable(false);
+            ParametreBtn.setVisible(true);
+        }
         userName.setText(user.getFirstName());
         userLastName.setText(user.getLastName());
         userId.setText(Integer.toString(user.getIdUser()));

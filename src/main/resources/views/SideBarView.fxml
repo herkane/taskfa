@@ -171,7 +171,7 @@
             </VBox>
          </children>
       </GridPane>
-      <Button fx:id="signOutBtn1" alignment="CENTER" mnemonicParsing="false" onAction="#onParameterClick" prefHeight="60.0" prefWidth="252.0" styleClass="reglage" text="Parameters" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+      <Button fx:id="ParametreBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onParameterClick" prefHeight="60.0" prefWidth="252.0" styleClass="reglage" text="Parameters" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
