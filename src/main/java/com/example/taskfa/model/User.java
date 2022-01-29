@@ -13,6 +13,7 @@ public class User {
     private String lastName;
     private String status;
     private Image image;
+    private String question;
     private boolean admin;
     Menu menu = null;
 
@@ -24,11 +25,12 @@ public class User {
         this.image = image;
     }
 
-    public User(String firstName, String lastName, int idUser, boolean admin) {
+    public User(String firstName, String lastName, int idUser, boolean admin,String question) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.idUser = idUser;
         this.admin = admin;
+        this.question= question;
         menu = new UserMenu();
     }
     public User(String firstName, String lastName, int idUser) {
@@ -95,6 +97,12 @@ public class User {
     public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
+    public void setQuestion(String question) {
+        this. question =  question;
+    }
+    public String getQuestion() {
+        return question;
+    }
 
     @Override
     public String toString() {
@@ -105,6 +113,7 @@ public class User {
                 ", status='" + status + '\'' +
                 ", image=" + image +
                 ", admin=" + admin +
+                ", question=" + question +
                 ", menu=" + menu +
                 '}';
     }

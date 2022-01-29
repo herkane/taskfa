@@ -24,6 +24,8 @@ import java.sql.SQLException;
 
 public class SignUpController {
     @FXML
+    private TextField question;
+    @FXML
     private Button closeBtn;
 
     @FXML
@@ -90,8 +92,9 @@ public class SignUpController {
         String emailData = email.getText();
         String passwordData = password.getText();
         String confirmPasswordData = confirmPassword.getText();
+        String questionData = question.getText();
         if (checkData(firstNameData, lastNameData, emailData, passwordData, confirmPasswordData)){
-            UserDAO.createUser(firstNameData, lastNameData,"active",selectedFile,emailData, passwordData);
+            UserDAO.createUser(firstNameData, lastNameData,"active",selectedFile,emailData, passwordData,questionData);
             try {
                 User user = UserDAO.searchUser(emailData, passwordData);
                 UserSession.setCurrentUser(user);

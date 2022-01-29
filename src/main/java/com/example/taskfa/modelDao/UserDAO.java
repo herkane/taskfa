@@ -75,12 +75,12 @@ public class UserDAO {
     /*
     CREATE USER ROW IN DATABASE FOR SIGN UP
      */
-    public static void createUser(String firstName, String lastName, String status, File selectedFile, String email, String password) throws ClassNotFoundException {
+    public static void createUser(String firstName, String lastName, String status, File selectedFile, String email, String password,String question) throws ClassNotFoundException {
 
         String insertStmtprepared = "INSERT INTO user" +
-                "(firstName, lastName, status, image, email, password) " +
+                "(firstName, lastName, status, image, email, password,question) " +
                 "VALUES " +
-                "(?,?,?,?,?,?)";
+                "(?,?,?,?,?,?,?)";
 
         FileInputStream fileInputStream = null;
 
@@ -100,6 +100,7 @@ public class UserDAO {
             ps.setBinaryStream(4, fileInputStream, (int) selectedFile.length());
             ps.setString(5, email);
             ps.setString(6, MD5(password));
+            ps.setString(7,question);
             ps.executeUpdate();
             conn.commit();
         } catch (SQLException e) {

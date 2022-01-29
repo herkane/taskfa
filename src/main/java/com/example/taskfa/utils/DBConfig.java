@@ -7,7 +7,7 @@ import java.sql.*;
 public class DBConfig {
     private static final String URLDB = "jdbc:mysql://localhost:3306/taskfadb";
     private static final String USERDB = "root";
-    private static final String PASSDB = "aissam123";
+    private static final String PASSDB = "admin";
 
     public static Connection getConn() {
         return conn;
