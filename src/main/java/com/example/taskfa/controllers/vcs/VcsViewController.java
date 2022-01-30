@@ -2,102 +2,80 @@ package com.example.taskfa.controllers.vcs;
 
 import com.example.taskfa.model.*;
 
+import com.example.taskfa.modelDao.VersionDAO;
 import com.example.taskfa.utils.UserSession;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
-import javafx.stage.Modality;
 import javafx.scene.control.Label;
 
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
-public class VcsViewController {
+public class VcsViewController{
 
     @FXML
     private GridPane gridVersionControl;
 
-     @FXML
-     private  Button version;
 
-    @FXML
-    private Button uploadBtn;
 
-    @FXML
-    private Label outputField;
-
-    private final List<File> files = new ArrayList<>();
     private User user = null;
     private int projectid;
+    List<VersionFile> files = new ArrayList<>();
 
     public VcsViewController() {
     }
 
-    private List<File> getData() {
-        List<File> files = new ArrayList<>();
-        File file;
-        for (int i=0; i<5; i++) {
-            file = new File("JAVATP.zip", FileStatus.APPROVED);
-            files.add(file);
-        }
-        return files;
-    }
-
     public void uploadProject() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/upload_vcs_popUp.fxml"));
-        Scene newScene = null;
+        UploadVcsController uploadVcsController;
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/views/popups/upload_vcs_popUp.fxml"));
+        Pane overview = gridVersionControl;
         try {
-            newScene = new Scene(fxmlLoader.load());
-        } catch (IOException ex) {
-            System.out.println("ERROR WHATCH OUT !");
+            overview = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        Scene scene = new Scene(overview);
+        uploadVcsController = fxmlLoader.getController();
+        uploadVcsController.loadFXML(projectid);
         Stage inputStage = new Stage();
-        inputStage.initOwner(uploadBtn.getScene().getWindow());
-        inputStage.setScene(newScene);
+        inputStage.initOwner(gridVersionControl.getScene().getWindow());
+        inputStage.setScene(scene);
         inputStage.showAndWait();
-    }
-
-    public void toPopUp(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/popups/vcsPopupVersion.fxml") );
-        Parent parent = fxmlLoader.load();
-        Platform.runLater(()->{
-            Stage stage1=(Stage)version.getScene().getWindow();
-            stage1.setFullScreen(false);
-            stage1.setFullScreen(true);
-                }
-                );
-        Scene scene = new Scene(parent);
-        Stage stage = new Stage();
-        stage.setAlwaysOnTop(true);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(scene);
-        stage.show();
     }
 
     public void loadFXML(int projectIdpassed) {
         projectid = projectIdpassed;
         user = UserSession.getCurrentUser();
-        files.addAll(getData());
+        //List<VersionFile> files = null;
+        /*files.add(new VersionFile("file1.zip", "changes1"));
+        files.add(new VersionFile("file2.zip", "changes2"));
+        files.add(new VersionFile("file3.zip", "changes3"));
+        files.add(new VersionFile("file4.zip", "changes4"));
+        files.add(new VersionFile("file5.zip", "changes5"));*/
+        files.addAll(VersionDAO.getVersions(projectid));
+
+        //files.addAll(files);
         int column = 0;
         int row = 1;
         try {
             for (int i = 0; i < files.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/views/VersionControlItem.fxml"));
+
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 VcsItemController vcsItemController = fxmlLoader.getController();

@@ -38,6 +38,10 @@ public class Task {
         this.l_name = new SimpleStringProperty(l_name);
     }
 
+    public Task() {
+
+    }
+
     public int getTaskId() {
         return taskId;
     }
@@ -60,5 +64,41 @@ public class Task {
 
     public String getL_name() {
         return l_name.get();
+    }
+
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
+    }
+
+    public SimpleStringProperty titleProperty() {
+        return title;
+    }
+
+    public SimpleStringProperty descriptionProperty() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description.set(description);
+    }
+
+    public void setSTATUS(Status STATUS) {
+        this.STATUS = STATUS;
+    }
+
+    public void setUserId(int userId) {
+        UserId = userId;
+    }
+
+    public SimpleStringProperty l_nameProperty() {
+        return l_name;
+    }
+
+    public void setL_name(String l_name) {
+        this.l_name.set(l_name);
+    }
+
+    public void setTitle(String title) {
+        this.title.set(title);
     }
 }

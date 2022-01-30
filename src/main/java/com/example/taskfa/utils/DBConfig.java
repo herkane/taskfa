@@ -7,7 +7,7 @@ import java.sql.*;
 public class DBConfig {
     private static final String URLDB = "jdbc:mysql://localhost:3306/taskfadb";
     private static final String USERDB = "root";
-    private static final String PASSDB = "admin";
+    private static final String PASSDB = "";
 
     public static Connection getConn() {
         return conn;
@@ -16,7 +16,6 @@ public class DBConfig {
     private static Connection conn = null;
 
     public static void dbConnect() throws SQLException, ClassNotFoundException {
-
         try {
             conn =  DriverManager.getConnection(URLDB, USERDB, PASSDB);
         } catch (SQLException e) {

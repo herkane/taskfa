@@ -4,12 +4,13 @@ import com.example.taskfa.controllers.tasks.TaskStatus;
 import com.example.taskfa.controllers.tasks.user.TasksModel;
 import com.example.taskfa.model.*;
 import com.example.taskfa.modelDao.ChatDAO;
+import com.example.taskfa.modelDao.ResourcesDAO;
 import com.example.taskfa.modelDao.TaskDAO;
+import com.example.taskfa.modelDao.VersionDAO;
 import com.example.taskfa.utils.UserSession;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -29,7 +30,6 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.*;
 
@@ -52,6 +52,12 @@ public class OverViewController {
 
     @FXML
     private Label officialVcsFile;
+
+    @FXML
+    private Text latestName;
+
+    @FXML
+    private Text latestChanges;
 
     @FXML
     private Button quitProjectButton;
@@ -79,7 +85,7 @@ public class OverViewController {
         }
     }
      */
-    public void loadFXML(int projectId) {
+    public void loadFXML(int projectId) throws SQLException, ClassNotFoundException {
         // Use PROJECT ID WITH USER ID TO GET DATA
         projectIdpassed = projectId;
         user = UserSession.getCurrentUser();
@@ -120,15 +126,18 @@ public class OverViewController {
         progressPourcentage.setText(Math.floor(taskProgressBar.getProgress() * 100) +"%");
 
     }
-    public void setVcsFiles() {
-        officialVcsFile.setText(String.valueOf(projectIdpassed));
-        File file = new File("MyProjectJava.zip", FileStatus.APPROVED);
-        fileSubmitVcs.setText(file.getFileName());
-        fileStatusVcs.setText(file.getStatus().toString());
+    public void setVcsFiles() throws SQLException, ClassNotFoundException {
+        VersionFile file = VersionDAO.getLatestVersion(projectIdpassed);
+        latestName.setText(file.getName());
+        latestChanges.setText(file.getDescription());
     }
     public void setResourceFiles() {
-         resourceListView.getItems().add("PDF : JavaOriented.pdf");
-         resourceListView.getItems().add("MP4 : JavaCourse.pdf");
+        if (!ResourcesDAO.getLinks(projectIdpassed).isEmpty())
+         resourceListView.getItems().addAll(ResourcesDAO.getLinks(projectIdpassed));
+        if (!ResourcesDAO.getPdf(projectIdpassed).isEmpty())
+            resourceListView.getItems().addAll(ResourcesDAO.getPdf(projectIdpassed));
+        if (!ResourcesDAO.getOther(projectIdpassed).isEmpty())
+            resourceListView.getItems().addAll(ResourcesDAO.getOther(projectIdpassed));
     }
 
     public void quitProject() throws IOException {

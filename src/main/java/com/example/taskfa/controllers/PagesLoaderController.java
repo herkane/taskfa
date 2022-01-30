@@ -80,7 +80,7 @@ public class PagesLoaderController implements Initializable {
         mainPane.setCenter(view);
     }
 
-    public void gotoOverview() throws IOException {
+    public void gotoOverview() throws IOException, SQLException, ClassNotFoundException {
         OverViewController overviewController;
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource(user.getMenu().showOverView()));
@@ -121,7 +121,7 @@ public class PagesLoaderController implements Initializable {
     }
 
 
-    public void setProjectId(int projectId) {
+    public void setProjectId(int projectId) throws SQLException, ClassNotFoundException {
         projectIdpassed = projectId;
         try {
             user.setAdmin(UserDAO.isAdminInProject(user.getIdUser(), projectId));

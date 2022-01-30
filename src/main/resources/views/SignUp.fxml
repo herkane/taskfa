@@ -14,140 +14,157 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskfa.controllers.SignUpController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
+          prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.example.taskfa.controllers.SignUpController">
     <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="897.0" minWidth="10.0" prefWidth="822.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="671.0" minWidth="10.0" prefWidth="544.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="897.0" minWidth="10.0" prefWidth="822.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="671.0" minWidth="10.0" prefWidth="544.0"/>
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
     </rowConstraints>
-    <children>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #242424;">
-            <children>
-                <GridPane layoutX="349.0" layoutY="339.0" prefHeight="768.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints maxHeight="103.33333206176758" minHeight="10.0" prefHeight="84.66666793823242" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="153.33333206176758" minHeight="0.0" prefHeight="67.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="111.33334350585938" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="267.3333282470703" minHeight="10.0" prefHeight="89.66668701171875" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="276.66668701171875" minHeight="10.0" prefHeight="107.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="276.66668701171875" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="300.3333435058594" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="225.0" minHeight="10.0" prefHeight="134.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                    <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Changa Bold; -fx-font-weight: 800;" text="SIGN UP" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                            <font>
-                                <Font size="50.0" />
-                            </font>
-                        </Text>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Changa Bold;" text="CREATE YOUR FREE ACCOUNT NOW" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
-                            <font>
-                                <Font size="30.0" />
-                            </font>
-                        </Text>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
-                            <children>
-                                <PasswordField fx:id="confirmPassword" layoutX="324.0" layoutY="25.0" prefHeight="66.0" prefWidth="300.0" promptText="Confirm password" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 0 3 0; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;">
-                                    <font>
-                                        <Font size="20.0" />
-                                    </font>
-                                </PasswordField>
-                                <PasswordField fx:id="password" layoutX="14.0" layoutY="26.0" prefHeight="66.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 0 3 0; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;">
-                                    <font>
-                                        <Font size="20.0" />
-                                    </font>
-                                </PasswordField>
-                            </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
-                            <children>
-                                <TextField fx:id="email" layoutX="12.0" layoutY="21.0" prefHeight="67.0" prefWidth="300.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;" />
-                                <Button fx:id="uploadBtn" layoutX="324.0" layoutY="23.0" mnemonicParsing="false" onAction="#upload" prefHeight="67.0" prefWidth="300.0" style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-effect: null; -fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 3; -fx-border-radius: 3; -fx-text-fill: white;" text="Upload picture">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                                </Button>
-                            </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-                            <children>
-                                <TextField fx:id="firstName" layoutX="12.0" layoutY="25.0" prefHeight="67.0" prefWidth="300.0" promptText="First name" style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;" />
-                                <TextField fx:id="lastName" layoutX="325.0" layoutY="25.0" prefHeight="67.0" prefWidth="300.0" promptText="Last name" style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;" />
-                            </children>
-                        </AnchorPane>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-font-family: Changa Bold; -fx-font-size: 25; -fx-font-weight: 700;" text="Be ready to start a new managment experience" wrappingWidth="624.7135314941406" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-                          <Button fx:id="signUpBtn" mnemonicParsing="false" onAction="#SignUp" prefHeight="50.0" prefWidth="310.0" style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-effect: null; -fx-background-color: #41c1be; -fx-border-width: 2; -fx-border-color: white; -fx-font-weight: 800; -fx-text-fill: white; -fx-border-radius: 5;" text="Sign Up" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
-                     <GridPane.margin>
-                        <Insets bottom="60.0" />
-                     </GridPane.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                          <Button mnemonicParsing="false" onMouseClicked="#goToSignIn" prefHeight="50.0" prefWidth="310.0" style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-background-color: white; -fx-border-width: white; -fx-text-fill: black; -fx-font-weight: 800; -fx-border-radius: 5;" text="Sign In" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
-                     <GridPane.margin>
-                        <Insets top="60.0" />
-                     </GridPane.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <TextField fx:id="question" minWidth="500.0" prefHeight="47.0" prefWidth="554.0" promptText="what is the name of your first pet" style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;" GridPane.rowIndex="5">
-                     <GridPane.margin>
-                        <Insets left="50.0" right="200.0" />
-                     </GridPane.margin>
-                  </TextField>
-                    </children>
-                </GridPane>
-            </children>
-        </AnchorPane>
-      <GridPane style="-fx-background-color: #efefef;" GridPane.columnIndex="1">
+    <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #242424;">
+        <GridPane layoutX="349.0" layoutY="339.0" prefHeight="768.0" prefWidth="897.0" AnchorPane.bottomAnchor="0.0"
+                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="103.33333206176758" minHeight="10.0" prefHeight="84.66666793823242"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="153.33333206176758" minHeight="0.0" prefHeight="67.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="111.33334350585938"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="267.3333282470703" minHeight="10.0" prefHeight="89.66668701171875"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="276.66668701171875" minHeight="10.0" prefHeight="110.33331298828125"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="300.3333435058594" minHeight="10.0" prefHeight="80.33331298828125"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="225.0" minHeight="10.0" prefHeight="158.66668701171875"
+                                vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                  style="-fx-font-family: Changa Bold; -fx-font-weight: 800;" text="SIGN UP"
+                  GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <font>
+                    <Font size="50.0"/>
+                </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Changa Bold;"
+                  text="CREATE YOUR FREE ACCOUNT NOW" GridPane.halignment="CENTER" GridPane.rowIndex="1"
+                  GridPane.valignment="TOP">
+                <font>
+                    <Font size="30.0"/>
+                </font>
+            </Text>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
+                <PasswordField fx:id="confirmPassword" layoutX="324.0" layoutY="25.0" prefHeight="66.0"
+                               prefWidth="300.0" promptText="Confirm password"
+                               style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 0 3 0; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </PasswordField>
+                <PasswordField fx:id="password" layoutX="14.0" layoutY="26.0" prefHeight="66.0"
+                               prefWidth="300.0" promptText="Password"
+                               style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 0 3 0; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </PasswordField>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+                <TextField fx:id="email" layoutX="12.0" layoutY="21.0" prefHeight="67.0" prefWidth="300.0"
+                           promptText="Email"
+                           style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;"/>
+                <Button fx:id="uploadBtn" layoutX="324.0" layoutY="23.0" mnemonicParsing="false"
+                        onAction="#upload" prefHeight="67.0" prefWidth="300.0"
+                        style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-effect: null; -fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 3; -fx-border-radius: 3; -fx-text-fill: white;"
+                        text="Upload picture">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                <TextField fx:id="firstName" layoutX="12.0" layoutY="25.0" prefHeight="67.0"
+                           prefWidth="300.0" promptText="First name"
+                           style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;"/>
+                <TextField fx:id="lastName" layoutX="325.0" layoutY="25.0" prefHeight="67.0"
+                           prefWidth="300.0" promptText="Last name"
+                           style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;"/>
+            </AnchorPane>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                  style="-fx-text-alignment: center; -fx-font-family: Changa Bold; -fx-font-size: 25; -fx-font-weight: 700;"
+                  text="Be ready to start a new managment experience" wrappingWidth="624.7135314941406"
+                  GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER"/>
+            <Button fx:id="signUpBtn" mnemonicParsing="false" onAction="#SignUp" prefHeight="50.0"
+                    prefWidth="310.0"
+                    style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-effect: null; -fx-background-color: #41c1be; -fx-border-width: 2; -fx-border-color: white; -fx-font-weight: 800; -fx-text-fill: white; -fx-border-radius: 5;"
+                    text="Sign Up" GridPane.halignment="CENTER" GridPane.rowIndex="6"
+                    GridPane.valignment="CENTER">
+                <GridPane.margin>
+                    <Insets bottom="60.0"/>
+                </GridPane.margin>
+                <cursor>
+                    <Cursor fx:constant="HAND"/>
+                </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#goToSignIn" prefHeight="50.0" prefWidth="310.0"
+                    style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-background-color: white; -fx-border-width: white; -fx-text-fill: black; -fx-font-weight: 800; -fx-border-radius: 5;"
+                    text="Sign In" GridPane.halignment="CENTER" GridPane.rowIndex="6"
+                    GridPane.valignment="CENTER">
+                <GridPane.margin>
+                    <Insets top="60.0"/>
+                </GridPane.margin>
+                <cursor>
+                    <Cursor fx:constant="HAND"/>
+                </cursor>
+            </Button>
+        </GridPane>
+    </AnchorPane>
+    <GridPane style="-fx-background-color: #efefef;" GridPane.columnIndex="1">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="340.66668701171875" minHeight="10.0" prefHeight="44.66667556762695" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="655.333324432373" minHeight="10.0" prefHeight="655.333324432373" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="340.66668701171875" minHeight="10.0" prefHeight="44.66667556762695"
+                            vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="655.333324432373" minHeight="10.0" prefHeight="655.333324432373"
+                            vgrow="SOMETIMES"/>
         </rowConstraints>
-         <children>
-            <Button fx:id="reduceBtn" mnemonicParsing="false" onAction="#reduceWin" style="-fx-background-color: transparent; -fx-effect: null;" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../com/example/taskfa/media/reduce.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <GridPane.margin>
-                  <Insets right="30.0" />
-               </GridPane.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="closeBtn" mnemonicParsing="false" onAction="#closeWin" style="-fx-effect: null; -fx-background-color: transparent;" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../com/example/taskfa/media/exit.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-              <ImageView fitHeight="334.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                  <image>
-                      <Image url="@../com/example/taskfa/media/image.png" />
-                  </image>
-              </ImageView>
-         </children>
-      </GridPane>
-    </children>
+        <Button fx:id="reduceBtn" mnemonicParsing="false" onAction="#reduceWin"
+                style="-fx-background-color: transparent; -fx-effect: null;" GridPane.halignment="RIGHT"
+                GridPane.valignment="TOP">
+            <graphic>
+                <ImageView fitHeight="150.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../com/example/taskfa/media/reduce.png"/>
+                </ImageView>
+            </graphic>
+            <GridPane.margin>
+                <Insets right="30.0"/>
+            </GridPane.margin>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+        <Button fx:id="closeBtn" mnemonicParsing="false" onAction="#closeWin"
+                style="-fx-effect: null; -fx-background-color: transparent;" GridPane.halignment="RIGHT"
+                GridPane.valignment="TOP">
+            <graphic>
+                <ImageView fitHeight="150.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../com/example/taskfa/media/exit.png"/>
+                </ImageView>
+            </graphic>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+        <ImageView fitHeight="334.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true"
+                   GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Image url="@../com/example/taskfa/media/image.png"/>
+        </ImageView>
+    </GridPane>
 </GridPane>

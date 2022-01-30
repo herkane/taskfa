@@ -110,7 +110,6 @@ public class RessourceController  implements Initializable{
         listLinks = ResourcesDAO.getLinks(projectId);
         listOtherFiles = ResourcesDAO.getOther(projectId);
 
-
         ListView<String> lvPdf = new ListView<>(listPdfFiles);
         ListView<String> lvOthers = new ListView<>(listOtherFiles);
         ListView<String> lvLinks = new ListView<>(listLinks);

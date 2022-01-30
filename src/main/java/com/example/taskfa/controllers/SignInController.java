@@ -46,13 +46,14 @@ public class SignInController {
 
     public void goToSignUp() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/views/SignUp.fxml"));
+        Parent root1 = FXMLLoader.load(getClass().getResource("/views/SignUp.fxml"));
         Stage window = (Stage) signUpButton.getScene().getWindow();
-        window.setScene(new Scene(root));
+        window.setScene(new Scene(root1));
     }
 
     /*
     REDIRECT TO PROJECT VIEW WHEN LOGIN
- */
+    */
 
     public void goToProjectView() throws IOException, NoSuchAlgorithmException {
         String email = emailinput.getText();

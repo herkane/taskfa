@@ -28,7 +28,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="taskfa" options="" />
+      <module name="taskfa" options="--add-exports javafx.graphics/com.sun.glass.ui=com.example.taskfa" />
     </option>
   </component>
 </project>
