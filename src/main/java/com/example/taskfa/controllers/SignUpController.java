@@ -32,6 +32,9 @@ public class SignUpController {
     private PasswordField confirmPassword;
 
     @FXML
+    private TextField petName;
+
+    @FXML
     private TextField email;
 
     @FXML
@@ -92,9 +95,9 @@ public class SignUpController {
         String emailData = email.getText();
         String passwordData = password.getText();
         String confirmPasswordData = confirmPassword.getText();
-        String questionData = question.getText();
-        if (checkData(firstNameData, lastNameData, emailData, passwordData, confirmPasswordData)){
-            UserDAO.createUser(firstNameData, lastNameData,"active",selectedFile,emailData, passwordData,questionData);
+        String petData = petName.getText();
+        if (checkData(firstNameData, lastNameData, emailData, passwordData, confirmPasswordData,petData)){
+            UserDAO.createUser(firstNameData, lastNameData,"active",selectedFile,emailData, passwordData,petData);
             try {
                 User user = UserDAO.searchUser(emailData, passwordData);
                 UserSession.setCurrentUser(user);
@@ -114,8 +117,8 @@ public class SignUpController {
 
     }
 
-    private boolean checkData(String firstNameData,String lastNameData, String emailData, String passwordData, String confirmPassword) {
+    private boolean checkData(String firstNameData, String lastNameData, String emailData, String passwordData, String confirmPassword, String petData) {
         return !firstNameData.equals("") && !lastNameData.equals("") && !emailData.equals("") && !passwordData.equals("")
-                && !confirmPassword.equals("");
+                && !confirmPassword.equals("") && !petData.equals("");
     }
 }

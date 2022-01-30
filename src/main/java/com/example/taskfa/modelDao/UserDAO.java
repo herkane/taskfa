@@ -1,9 +1,6 @@
 package com.example.taskfa.modelDao;
 
 import com.example.taskfa.controllers.project.InvitationModelTable;
-import com.example.taskfa.controllers.tasks.TaskStatus;
-import com.example.taskfa.controllers.tasks.admin.TaskItemModel;
-import com.example.taskfa.controllers.tasks.user.TasksModel;
 import com.example.taskfa.model.User;
 import com.example.taskfa.utils.DBConfig;
 import com.example.taskfa.utils.UserSession;
@@ -19,6 +16,28 @@ import java.security.*;
 import java.sql.*;
 
 public class UserDAO {
+
+    public static boolean verifyQuestion(String email, String answer) {
+        String selectStatement = "SELECT answer FROM user where email = '"+email+"';";
+        String result = null;
+        try {
+            ResultSet rsUser = DBConfig.dbExecuteQuery(selectStatement);
+            while (rsUser.next()){
+                result = rsUser.getString("answer");
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return answer.equals(result);
+    }
+    public static void resetPassword(String email,String password) {
+        String updateStatement = "UPDATE user SET password = '"+MD5(password)+"' WHERE email = '"+email+"';";
+        try {
+            DBConfig.dbExecuteUpdate(updateStatement);
+         } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
     /*
     MD5 method to Encrypt User password For signUp
      */
@@ -78,7 +97,7 @@ public class UserDAO {
     public static void createUser(String firstName, String lastName, String status, File selectedFile, String email, String password,String question) throws ClassNotFoundException {
 
         String insertStmtprepared = "INSERT INTO user" +
-                "(firstName, lastName, status, image, email, password,question) " +
+                "(firstName, lastName, status, image, email, password,answer) " +
                 "VALUES " +
                 "(?,?,?,?,?,?,?)";
 
