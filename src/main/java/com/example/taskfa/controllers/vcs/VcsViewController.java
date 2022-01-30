@@ -50,7 +50,7 @@ public class VcsViewController{
         }
         Scene scene = new Scene(overview);
         uploadVcsController = fxmlLoader.getController();
-        uploadVcsController.loadFXML(projectid);
+        uploadVcsController.loadFXML(projectid, this);
         Stage inputStage = new Stage();
         inputStage.initOwner(gridVersionControl.getScene().getWindow());
         inputStage.setScene(scene);

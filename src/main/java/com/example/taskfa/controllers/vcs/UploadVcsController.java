@@ -13,13 +13,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class UploadVcsController implements Initializable{
+public class UploadVcsController{
 
     @FXML
     private TextArea changesDescriptionLabel;
@@ -30,12 +31,12 @@ public class UploadVcsController implements Initializable{
     @FXML
     private Button submitBtn;
 
+    private VcsViewController vcsViewController;
+
     File file;
     FileChooser fc;
     private User user;
     private int projectId;
-
-
 
     public void uploadFile(ActionEvent event) {
         fc = new FileChooser();
@@ -56,18 +57,12 @@ public class UploadVcsController implements Initializable{
         System.out.println("Changes : "+ changesDescriptionLabel.getText());
         System.out.println("Controller : " + projectId + " " + user.getIdUser());
         VersionDAO.addVersion(file,changesDescriptionLabel.getText(),user.getIdUser(),projectId);
-        submitBtn.getScene().getWindow().hide();
-
+        ((Stage)submitBtn.getScene().getWindow()).close();
+        vcsViewController.loadFXML(projectId);
     }
 
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
-
-    public void loadFXML(int projectIdPassed) {
+    public void loadFXML(int projectIdPassed, VcsViewController vcsViewController) {
+        this.vcsViewController = vcsViewController;
         projectId = projectIdPassed;
         user = UserSession.getCurrentUser();
         System.out.println(user.getIdUser());

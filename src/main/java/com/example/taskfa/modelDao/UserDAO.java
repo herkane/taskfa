@@ -30,6 +30,7 @@ public class UserDAO {
         }
         return answer.equals(result);
     }
+
     public static void resetPassword(String email,String password) {
         String updateStatement = "UPDATE user SET password = '"+MD5(password)+"' WHERE email = '"+email+"';";
         try {
@@ -38,6 +39,7 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
     /*
     MD5 method to Encrypt User password For signUp
      */
