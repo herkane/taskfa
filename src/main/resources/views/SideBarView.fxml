@@ -21,9 +21,9 @@
    </columnConstraints>
    <rowConstraints>
       <RowConstraints vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="358.0" minHeight="319.0" prefHeight="319.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="67.0" minHeight="28.0" prefHeight="67.0" vgrow="SOMETIMES" />
-      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="358.0" minHeight="254.00002034505206" prefHeight="254.00002034505206" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="148.66664632161456" minHeight="28.0" prefHeight="65.333262125651" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="173.33340454101562" minHeight="94.66668701171875" prefHeight="173.33340454101562" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
       <GridPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="138.0" prefWidth="297.0" GridPane.valignment="TOP">
@@ -97,7 +97,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <GridPane prefHeight="340.0" prefWidth="322.0" style="-fx-background-color: black;" GridPane.rowIndex="1">
+      <GridPane prefHeight="281.0" prefWidth="292.0" style="-fx-background-color: black;" GridPane.rowIndex="1">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" />
         </columnConstraints>
@@ -133,7 +133,7 @@
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <VBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="222.0" style="-fx-background-color: white;" styleClass="join_project_widget" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -171,5 +171,13 @@
             </VBox>
          </children>
       </GridPane>
+      <Button fx:id="ParametreBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onParameterClick" prefHeight="60.0" prefWidth="252.0" styleClass="reglage" text="Parameters" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <GridPane.margin>
+            <Insets top="20.0" />
+         </GridPane.margin>
+      </Button>
    </children>
 </GridPane>

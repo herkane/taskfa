@@ -70,7 +70,15 @@
     -fx-border-color: white;
     -fx-text-fill: white;
 }
-
+.reglage {
+    -fx-background-color: #41c1be;
+    -fx-text-fill: white;
+    -fx-border-radius: 5 5 5 5;
+    -fx-background-radius: 5 5 5 5;
+    -fx-border-color: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
 .sign-out {
     -fx-background-color: red;
     -fx-text-fill: white;

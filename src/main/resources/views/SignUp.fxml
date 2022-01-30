@@ -34,9 +34,10 @@
                         <RowConstraints maxHeight="153.33333206176758" minHeight="0.0" prefHeight="67.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="111.33334350585938" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="267.3333282470703" minHeight="10.0" prefHeight="89.66668701171875" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="276.66668701171875" minHeight="10.0" prefHeight="110.33331298828125" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="300.3333435058594" minHeight="10.0" prefHeight="80.33331298828125" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="225.0" minHeight="10.0" prefHeight="158.66668701171875" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="276.66668701171875" minHeight="10.0" prefHeight="107.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="276.66668701171875" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="300.3333435058594" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="225.0" minHeight="10.0" prefHeight="134.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Changa Bold; -fx-font-weight: 800;" text="SIGN UP" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -79,8 +80,8 @@
                                 <TextField fx:id="lastName" layoutX="325.0" layoutY="25.0" prefHeight="67.0" prefWidth="300.0" promptText="Last name" style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;" />
                             </children>
                         </AnchorPane>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-font-family: Changa Bold; -fx-font-size: 25; -fx-font-weight: 700;" text="Be ready to start a new managment experience" wrappingWidth="624.7135314941406" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-                          <Button fx:id="signUpBtn" mnemonicParsing="false" onAction="#SignUp" prefHeight="50.0" prefWidth="310.0" style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-effect: null; -fx-background-color: #41c1be; -fx-border-width: 2; -fx-border-color: white; -fx-font-weight: 800; -fx-text-fill: white; -fx-border-radius: 5;" text="Sign Up" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center; -fx-font-family: Changa Bold; -fx-font-size: 25; -fx-font-weight: 700;" text="Be ready to start a new managment experience" wrappingWidth="624.7135314941406" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                          <Button fx:id="signUpBtn" mnemonicParsing="false" onAction="#SignUp" prefHeight="50.0" prefWidth="310.0" style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-effect: null; -fx-background-color: #41c1be; -fx-border-width: 2; -fx-border-color: white; -fx-font-weight: 800; -fx-text-fill: white; -fx-border-radius: 5;" text="Sign Up" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="60.0" />
                      </GridPane.margin>
@@ -88,7 +89,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                          <Button mnemonicParsing="false" onMouseClicked="#goToSignIn" prefHeight="50.0" prefWidth="310.0" style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-background-color: white; -fx-border-width: white; -fx-text-fill: black; -fx-font-weight: 800; -fx-border-radius: 5;" text="Sign In" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                          <Button mnemonicParsing="false" onMouseClicked="#goToSignIn" prefHeight="50.0" prefWidth="310.0" style="-fx-font-size: 20; -fx-font-family: Changa Bold; -fx-background-color: white; -fx-border-width: white; -fx-text-fill: black; -fx-font-weight: 800; -fx-border-radius: 5;" text="Sign In" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets top="60.0" />
                      </GridPane.margin>
@@ -96,6 +97,11 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
+                  <TextField fx:id="question" minWidth="500.0" prefHeight="47.0" prefWidth="554.0" promptText="what is the name of your first pet" style="-fx-background-color: transparent; -fx-border-width: 0 0 3 0; -fx-border-color: white; -fx-text-fill: white; -fx-font-family: Changa Regular; -fx-font-size: 20;" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets left="50.0" right="200.0" />
+                     </GridPane.margin>
+                  </TextField>
                     </children>
                 </GridPane>
             </children>

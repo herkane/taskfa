@@ -75,12 +75,12 @@ public class UserDAO {
     /*
     CREATE USER ROW IN DATABASE FOR SIGN UP
      */
-    public static void createUser(String firstName, String lastName, String status, File selectedFile, String email, String password) throws ClassNotFoundException {
+    public static void createUser(String firstName, String lastName, String status, File selectedFile, String email, String password,String question) throws ClassNotFoundException {
 
         String insertStmtprepared = "INSERT INTO user" +
-                "(firstName, lastName, status, image, email, password) " +
+                "(firstName, lastName, status, image, email, password,question) " +
                 "VALUES " +
-                "(?,?,?,?,?,?)";
+                "(?,?,?,?,?,?,?)";
 
         FileInputStream fileInputStream = null;
 
@@ -100,6 +100,7 @@ public class UserDAO {
             ps.setBinaryStream(4, fileInputStream, (int) selectedFile.length());
             ps.setString(5, email);
             ps.setString(6, MD5(password));
+            ps.setString(7,question);
             ps.executeUpdate();
             conn.commit();
         } catch (SQLException e) {
@@ -170,6 +171,11 @@ public class UserDAO {
                 ps.setInt(2, projectId);
                 ps.setInt(3, 0);
                 ps.setInt(1, userId);
+                ps.executeUpdate();
+                preparedStatement = "UPDATE project " +
+                        "SET usersNumber = usersNumber+1 WHERE projectid = ?;";
+                ps = conn.prepareStatement(preparedStatement);
+                ps.setInt(1,projectId);
                 ps.executeUpdate();
             } else {
                 preparedStatement = "DELETE FROM user_has_invitation" +

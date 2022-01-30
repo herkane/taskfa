@@ -1,5 +1,6 @@
 package com.example.taskfa.controllers.sideBar;
 
+import com.example.taskfa.controllers.tasks.admin.AssignTaskController;
 import com.example.taskfa.modelDao.SidebarDao;
 import com.example.taskfa.utils.UserSession;
 import com.example.taskfa.model.User;
@@ -20,6 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
@@ -54,6 +56,9 @@ public class SideBarController {
 
     private int projectIdpassed;
 
+    @FXML
+    private Button ParametreBtn;
+
     private User user = null;
 
     ObservableList<User> Users = null;
@@ -76,6 +81,13 @@ public class SideBarController {
     public void loadFXML(int projectId) {
         projectIdpassed = projectId;
         user = UserSession.getCurrentUser();
+        if (user.isAdmin() == false) {
+            ParametreBtn.setDisable(true);
+            ParametreBtn.setVisible(false);
+        } else {
+            ParametreBtn.setDisable(false);
+            ParametreBtn.setVisible(true);
+        }
         userName.setText(user.getFirstName());
         userLastName.setText(user.getLastName());
         userId.setText(Integer.toString(user.getIdUser()));
@@ -113,6 +125,7 @@ public class SideBarController {
             try {
                 System.out.println(email + " " +projectIdpassed);
                 addMember(email, projectIdpassed);
+                addMemberEmail.setText("");
                 Image img = new Image(getClass().getResourceAsStream("/media/blue_notification_success.png"));
                 Notifications notificationBuilder = Notifications.create()
                         .title("Invitation")
@@ -146,13 +159,44 @@ public class SideBarController {
             }
         }
     }
+    public void goProjectView() {
+        Parent root  = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource(user.getMenu().showProjects()));
+            Stage window = (Stage) userName.getScene().getWindow();
+            window.setScene(new Scene(root));
+            window.setFullScreen(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+    }
     public void onSignOut() throws IOException {
         UserSession.setCurrentUser(null);
         Parent root  = FXMLLoader.load(getClass().getResource("/views/SignIn.fxml"));
         Stage window = (Stage) signOutBtn.getScene().getWindow();
         window.setScene(new Scene(root));
         window.centerOnScreen();
+    }
+
+    @FXML
+    void onParameterClick(ActionEvent event) {
+        ParametreController parametreController;
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/views/popups/parametre_dialog.fxml"));
+        Pane overview = null;
+        try {
+            overview = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(overview);
+        parametreController = fxmlLoader.getController();
+        parametreController.loadFXML(projectIdpassed, this);
+        Stage inputStage = new Stage();
+        inputStage.initOwner(userName.getScene().getWindow());
+        inputStage.setScene(scene);
+        inputStage.showAndWait();
     }
 
 }

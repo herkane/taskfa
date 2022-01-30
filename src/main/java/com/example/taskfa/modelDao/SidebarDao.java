@@ -10,9 +10,10 @@ import javafx.scene.image.Image;
 
 import java.io.InputStream;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Blob;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 
 public class SidebarDao {
@@ -53,6 +54,44 @@ public class SidebarDao {
             }
 
             return Userlist;
+        }
+    }
+
+    public static void kickUser(int projectId,int userId) throws SQLException, ClassNotFoundException {
+        String deleteStmt = "DELETE FROM user_has_project WHERE user_iduser = ? AND project_projectid = ?;";
+         String deletestmt = "DELETE FROM user_has_invitation WHERE user_iduser = ? AND project_projectid = ?;";
+
+        try {
+            DBConfig.dbConnect();
+            Connection conn = DBConfig.getConn();
+            PreparedStatement ps = conn.prepareStatement(deleteStmt);
+           ps.setInt(1,userId);
+           ps.setInt(2,projectId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            DBConfig.dbConnect();
+            Connection conn = DBConfig.getConn();
+            PreparedStatement ps = conn.prepareStatement(deletestmt);
+            ps.setInt(1,userId);
+            ps.setInt(2,projectId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void deleteProject(int projectId) throws SQLException, ClassNotFoundException {
+        String deleteStmt = "DELETE FROM project WHERE projectid = ?;";
+        try {
+            DBConfig.dbConnect();
+            Connection conn = DBConfig.getConn();
+            PreparedStatement ps = conn.prepareStatement(deleteStmt);
+            ps.setInt(1,projectId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 

@@ -34,39 +34,6 @@
          <children>
             <VBox prefHeight="768.6666666666666" prefWidth="451.3333333333333" style="-fx-background-color: black;" styleClass="side_bar" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <children>
-                  <VBox prefHeight="80.0" prefWidth="355.0" style="-fx-background-color: white;" styleClass="join_project_widget" translateY="100.0">
-                     <VBox.margin>
-                        <Insets left="20.0" right="20.0" />
-                     </VBox.margin>
-                     <children>
-                        <StackPane prefHeight="50.0" prefWidth="355.0" styleClass="join-project">
-                           <children>
-                              <Label alignment="CENTER" prefHeight="26.0" prefWidth="95.0" text="Join Project" textFill="WHITE">
-                                 <font>
-                                    <Font size="17.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </StackPane>
-                        <StackPane prefHeight="67.0" prefWidth="355.0">
-                           <children>
-                              <TextField fx:id="joinProjectCode" alignment="CENTER" prefHeight="57.0" prefWidth="355.0" promptText="Enter Code ..." styleClass="join_project_widget_textView">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </TextField>
-                              <ImageView fitHeight="39.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
-                                 <image>
-                                    <Image url="@../../../../../taskfa/src/main/resources/com/example/taskfa/media/cyan_add_icon.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                           </children>
-                        </StackPane>
-                     </children>
-                  </VBox>
                   <VBox prefHeight="77.0" prefWidth="355.0" style="-fx-background-color: white;" styleClass="join_project_widget" translateY="200.0">
                      <VBox.margin>
                         <Insets left="20.0" right="20.0" />

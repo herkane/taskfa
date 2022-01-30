@@ -1,8 +1,12 @@
 package com.example.taskfa.controllers;
 
+
+import com.example.taskfa.authController.VerficiationController;
+import com.example.taskfa.controllers.sideBar.ParametreController;
 import com.example.taskfa.model.User;
 import com.example.taskfa.modelDao.UserDAO;
 import com.example.taskfa.utils.UserSession;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -102,7 +107,24 @@ public class SignInController {
         stage.setIconified(true);
     }
 
-
-
+    @FXML
+    void recoverPasswordClick(ActionEvent event) {
+        VerficiationController verficiationController;
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/views/popups/verification.fxml"));
+        Pane overview = null;
+        try {
+            overview = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(overview);
+        verficiationController = fxmlLoader.getController();
+        verficiationController.loadFXML();
+        Stage inputStage = new Stage();
+        inputStage.initOwner(signUpButton.getScene().getWindow());
+        inputStage.setScene(scene);
+        inputStage.showAndWait();
+    }
 
 }
